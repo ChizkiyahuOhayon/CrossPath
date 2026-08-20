@@ -1,0 +1,107 @@
+{
+  "bootstrap_seed": 20260820,
+  "cache_dir": "/root/autodl-tmp/weave/runs/CrossPath_FashionIQ_DQU_20260820_k10k50_v1/shirt/official/cache",
+  "cache_manifest_sha256": "44d1c8ce38d0eb0f07d2411e9fa3d7ec4aea1135cb9970cf7bf749fff3ccc1f5",
+  "embedding_dir": "/root/autodl-tmp/weave/runs/CrossPath_FashionIQ_DQU_20260820_v1/shirt/official/embeddings",
+  "gate_checkpoint_sha256": "6498f3226b14968880656608906dad8da29797e34fe20c582ca4ba510be27ed1",
+  "gate_dir": "/root/autodl-tmp/weave/runs/CrossPath_FashionIQ_DQU_20260820_k10k50_v1/shirt/internal/gate",
+  "gate_manifest_sha256": "6a79db5c4acfb65e595fff6b9d5570076ad390ded0f4b80dfda95756aeac67de",
+  "report": {
+    "base_metrics": {
+      "R@10": 62.904809,
+      "R@50": 80.372915
+    },
+    "fixed_action_metrics": {
+      "0": {
+        "R@10": 62.904809,
+        "R@50": 80.372915
+      },
+      "1": {
+        "R@10": 62.757605,
+        "R@50": 80.520118
+      },
+      "2": {
+        "R@10": 62.953876,
+        "R@50": 80.716389
+      },
+      "3": {
+        "R@10": 63.346418,
+        "R@50": 80.716389
+      },
+      "4": {
+        "R@10": 63.199215,
+        "R@50": 80.765456
+      },
+      "5": {
+        "R@10": 63.444553,
+        "R@50": 80.765456
+      },
+      "6": {
+        "R@10": 63.101079,
+        "R@50": 80.814524
+      },
+      "7": {
+        "R@10": 63.002944,
+        "R@50": 80.814524
+      },
+      "8": {
+        "R@10": 62.953876,
+        "R@50": 80.618253
+      }
+    },
+    "full_correction_metrics": {
+      "R@10": 62.953876,
+      "R@50": 80.618253
+    },
+    "intervention_rate": 0.0004906771344455348,
+    "mean_realized_utility": 0.0,
+    "metrics": {
+      "R@10": 62.904809,
+      "R@50": 80.372915
+    },
+    "objective_oracle_mean_realized_utility": 0.020363101079489694,
+    "objective_oracle_metrics": {
+      "R@10": 65.358194,
+      "R@50": 81.992149
+    },
+    "paired_bootstrap": {
+      "R@10": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "delta": 0.0
+      },
+      "R@50": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "delta": 0.0
+      }
+    },
+    "paired_bootstrap_samples": 2000,
+    "per_cutoff_path_ceiling": {
+      "R@10": 65.358194,
+      "R@50": 81.992149
+    },
+    "queries": 2038,
+    "regression_cost": 2.0,
+    "selected_width": 128,
+    "single_ranking_protocol": true,
+    "threshold": 0.0011364203528501093,
+    "training_seed": 20260820,
+    "transitions": {
+      "R@10": {
+        "recoveries": 0,
+        "regressions": 0
+      },
+      "R@50": {
+        "recoveries": 0,
+        "regressions": 0
+      }
+    },
+    "zero_trace": false
+  },
+  "script_sha256": "2fcd597181458caea75deb2d8a4032eaebea8b0abe972bb6055e25458a74a335"
+}

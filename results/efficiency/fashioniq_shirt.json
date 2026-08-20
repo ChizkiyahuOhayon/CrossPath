@@ -1,0 +1,39 @@
+{
+  "average_boundary_candidates": {
+    "R@1": 0.5014720314033366,
+    "R@10": 4.186947988223749,
+    "R@50": 15.322374877330716
+  },
+  "cutoffs": [
+    1,
+    10,
+    50
+  ],
+  "dataset": "fashioniq_val_shirt",
+  "embedding_dim": 1024,
+  "encoder_breakdown": {
+    "base": {
+      "gallery_items": 3089,
+      "gallery_seconds": 85.25178231298923,
+      "query_items": 2038,
+      "query_ms_per_item": 12.43849520930715,
+      "query_seconds": 25.349653236567974
+    },
+    "correction": {
+      "gallery_items": 3089,
+      "gallery_seconds": 104.20161394029856,
+      "query_items": 2038,
+      "query_ms_per_item": 12.04305871867806,
+      "query_seconds": 24.543753668665886
+    }
+  },
+  "gallery": 3089,
+  "gate_checkpoint_bytes": 2107227,
+  "gate_parameters": 526082,
+  "gate_width": 128,
+  "hardware": "NVIDIA GeForce RTX 4090",
+  "path_actions": 9,
+  "post_embedding_gate_ms_per_query": 4.596276432275772,
+  "queries": 2038,
+  "two_gallery_embedding_bytes": 25305344
+}

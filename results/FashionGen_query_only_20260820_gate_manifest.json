@@ -1,0 +1,159 @@
+{
+  "cache_dir": "/root/autodl-tmp/weave/runs/CrossPath_A1seedpair_20260816_internal_v1/cache",
+  "cache_manifest_sha256": "ddb7269479982348541977746fe32468dba6e463e44e7840ad6792c0aca7b79a",
+  "candidates": [
+    {
+      "calibration_nll": 0.3616661758749553,
+      "checkpoint": "gate_width128.pt",
+      "history": [
+        {
+          "calibration_nll": 0.36517538331764493,
+          "epoch": 1,
+          "train_batch_loss": 0.3908270150764109
+        },
+        {
+          "calibration_nll": 0.3608509372958227,
+          "epoch": 2,
+          "train_batch_loss": 0.3655725978578422
+        },
+        {
+          "calibration_nll": 0.3616661758749553,
+          "epoch": 3,
+          "train_batch_loss": 0.3630900647331539
+        }
+      ],
+      "width": 128
+    }
+  ],
+  "embedding_dir": "/root/autodl-tmp/weave/runs/CrossPath_A1seedpair_20260816_internal_v1/embeddings",
+  "report": {
+    "base_metrics": {
+      "R@1": 31.366893,
+      "R@10": 73.853168,
+      "R@5": 62.89197
+    },
+    "calibration_mean_utility": 0.0,
+    "cutoff_aggregation": "equal_mean_R1_R5_R10_utility",
+    "fixed_action_metrics": {
+      "0": {
+        "R@1": 31.366893,
+        "R@10": 73.853168,
+        "R@5": 62.89197
+      },
+      "1": {
+        "R@1": 31.394808,
+        "R@10": 74.085791,
+        "R@5": 63.078068
+      },
+      "2": {
+        "R@1": 31.525077,
+        "R@10": 74.318414,
+        "R@5": 63.245557
+      },
+      "3": {
+        "R@1": 31.73909,
+        "R@10": 74.355634,
+        "R@5": 63.236252
+      },
+      "4": {
+        "R@1": 31.301759,
+        "R@10": 74.467293,
+        "R@5": 63.487485
+      },
+      "5": {
+        "R@1": 31.338978,
+        "R@10": 74.634782,
+        "R@5": 63.236252
+      },
+      "6": {
+        "R@1": 31.515772,
+        "R@10": 74.523123,
+        "R@5": 63.087373
+      },
+      "7": {
+        "R@1": 31.571601,
+        "R@10": 74.355634,
+        "R@5": 63.031544
+      },
+      "8": {
+        "R@1": 31.571601,
+        "R@10": 74.27189,
+        "R@5": 62.752396
+      }
+    },
+    "full_correction_metrics": {
+      "R@1": 31.571601,
+      "R@10": 74.27189,
+      "R@5": 62.752396
+    },
+    "internal_go": false,
+    "intervention_rate": 0.0,
+    "mean_realized_utility": 0.0,
+    "metrics": {
+      "R@1": 31.366893,
+      "R@10": 73.853168,
+      "R@5": 62.89197
+    },
+    "objective_oracle_mean_realized_utility": 0.05105300704072453,
+    "objective_oracle_metrics": {
+      "R@1": 36.940542,
+      "R@10": 78.375361,
+      "R@5": 68.112031
+    },
+    "per_cutoff_path_ceiling": {
+      "R@1": 36.940542,
+      "R@10": 78.375361,
+      "R@5": 68.112031
+    },
+    "queries": 10747,
+    "regression_cost": 2.0,
+    "seed": 20260802,
+    "selected_calibration_nll": 0.3616661758749553,
+    "selected_width": 128,
+    "single_ranking_protocol": true,
+    "split_counts": {
+      "calibration": 10825,
+      "test": 10747,
+      "train": 51244
+    },
+    "split_fractions": [
+      0.7,
+      0.15,
+      0.15
+    ],
+    "threshold": 0.0,
+    "transitions": {
+      "R@1": {
+        "recoveries": 0,
+        "regressions": 0
+      },
+      "R@10": {
+        "recoveries": 0,
+        "regressions": 0
+      },
+      "R@5": {
+        "recoveries": 0,
+        "regressions": 0
+      }
+    }
+  },
+  "script_sha256": "0e544f2c8059d65b9e6dfc6ce70efb4beea312a21ad2c9ee9ed704fb8f152a2b",
+  "training": {
+    "batch_records": 64,
+    "cache_dir": "/root/autodl-tmp/weave/runs/CrossPath_A1seedpair_20260816_internal_v1/cache",
+    "device": "cuda",
+    "embedding_dir": "/root/autodl-tmp/weave/runs/CrossPath_A1seedpair_20260816_internal_v1/embeddings",
+    "epochs": 3,
+    "feature_mode": "query_only",
+    "grad_clip": 1.0,
+    "learning_rate": 0.001,
+    "output_dir": "/root/autodl-tmp/weave/runs/CrossPath_A1seedpair_20260816_internal_v1/gate_query_only",
+    "regression_cost": 2.0,
+    "seed": 20260802,
+    "weight_decay": 0.0001,
+    "widths": [
+      128
+    ],
+    "zero_trace": false
+  }
+}

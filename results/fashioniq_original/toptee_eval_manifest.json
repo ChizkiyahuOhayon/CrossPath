@@ -1,0 +1,132 @@
+{
+  "bootstrap_seed": 20260820,
+  "cache_dir": "/root/autodl-tmp/weave/runs/CrossPath_FashionIQ_DQU_original_20260820_v1/toptee/official/cache",
+  "cache_manifest_sha256": "1251051678335fdd36e4cc7ffd470296d8fd287c3c086a01f689bb58d14c0574",
+  "embedding_dir": "/root/autodl-tmp/weave/runs/CrossPath_FashionIQ_DQU_original_20260820_v1/toptee/official/embeddings",
+  "gate_checkpoint_sha256": "21312a6a97d26f64bf1bb8f4c8ea10ae6e2c2831f1e68f00d67676c69c84dbce",
+  "gate_dir": "/root/autodl-tmp/weave/runs/CrossPath_FashionIQ_DQU_20260820_v1/toptee/internal/gate",
+  "gate_manifest_sha256": "afc37448827b2c2ee5c011defb44dfb62d508fad87844b91f734625956b61c4a",
+  "report": {
+    "base_metrics": {
+      "R@1": 26.721061,
+      "R@10": 56.858746,
+      "R@50": 78.888322
+    },
+    "fixed_action_metrics": {
+      "0": {
+        "R@1": 26.721061,
+        "R@10": 56.858746,
+        "R@50": 78.888322
+      },
+      "1": {
+        "R@1": 26.670066,
+        "R@10": 57.470678,
+        "R@50": 79.041305
+      },
+      "2": {
+        "R@1": 26.670066,
+        "R@10": 57.776645,
+        "R@50": 79.296277
+      },
+      "3": {
+        "R@1": 26.721061,
+        "R@10": 57.72565,
+        "R@50": 79.398266
+      },
+      "4": {
+        "R@1": 26.925038,
+        "R@10": 58.388577,
+        "R@50": 79.449261
+      },
+      "5": {
+        "R@1": 27.129016,
+        "R@10": 58.490566,
+        "R@50": 79.857216
+      },
+      "6": {
+        "R@1": 27.281999,
+        "R@10": 57.929628,
+        "R@50": 79.602244
+      },
+      "7": {
+        "R@1": 27.383988,
+        "R@10": 58.1846,
+        "R@50": 79.704233
+      },
+      "8": {
+        "R@1": 27.536971,
+        "R@10": 58.1846,
+        "R@50": 79.704233
+      }
+    },
+    "full_correction_metrics": {
+      "R@1": 27.536971,
+      "R@10": 58.1846,
+      "R@50": 79.704233
+    },
+    "intervention_rate": 0.6338602753697093,
+    "mean_realized_utility": -0.0010198878123406424,
+    "metrics": {
+      "R@1": 27.18001,
+      "R@10": 58.592555,
+      "R@50": 79.296277
+    },
+    "objective_oracle_mean_realized_utility": 0.03246642869284378,
+    "objective_oracle_metrics": {
+      "R@1": 30.443651,
+      "R@10": 60.734319,
+      "R@50": 81.030087
+    },
+    "paired_bootstrap": {
+      "R@1": {
+        "ci95": [
+          -0.3059663437021928,
+          1.277409484956654
+        ],
+        "delta": 0.4589495155532891
+      },
+      "R@10": {
+        "ci95": [
+          0.9931157572667006,
+          2.6542580316165214
+        ],
+        "delta": 1.7338092809790924
+      },
+      "R@50": {
+        "ci95": [
+          -0.10453850076491586,
+          0.8669046404895462
+        ],
+        "delta": 0.407955124936257
+      }
+    },
+    "paired_bootstrap_samples": 100,
+    "per_cutoff_path_ceiling": {
+      "R@1": 30.443651,
+      "R@10": 60.734319,
+      "R@50": 81.030087
+    },
+    "queries": 1961,
+    "regression_cost": 2.0,
+    "selected_width": 128,
+    "single_ranking_protocol": true,
+    "threshold": 0.0004934022532931218,
+    "training_seed": 20260820,
+    "transitions": {
+      "R@1": {
+        "recoveries": 42,
+        "regressions": 33
+      },
+      "R@10": {
+        "recoveries": 49,
+        "regressions": 15
+      },
+      "R@50": {
+        "recoveries": 17,
+        "regressions": 9
+      }
+    },
+    "zero_trace": false
+  },
+  "script_sha256": "2fcd597181458caea75deb2d8a4032eaebea8b0abe972bb6055e25458a74a335"
+}

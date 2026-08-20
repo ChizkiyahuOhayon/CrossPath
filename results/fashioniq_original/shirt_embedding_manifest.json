@@ -1,0 +1,39 @@
+{
+  "base_checkpoint": "/root/autodl-tmp/dqucir_2026-08-05/repo/src/checkpoints/shirt_s42_best_state.pt",
+  "batch_size": 16,
+  "category": "shirt",
+  "checkpoint_sha256": {
+    "base": "7256945a76eda1789083e4499580e0860742e80897add3d8d086bd79c1f5a874",
+    "correction": "ca939be2d2ed0321713142744de444b86f5f282bef336c3a049d45dc86ab2b6d"
+  },
+  "correction_checkpoint": "/root/autodl-tmp/dqucir_2026-08-05/gc128/shirt_gc128_best_state.pt",
+  "dataset": "fashioniq_val_shirt",
+  "deterministic_eval_transform": true,
+  "embedding_dim": 1024,
+  "encoder_breakdown": {
+    "base": {
+      "gallery_items": 6346,
+      "gallery_seconds": 103.54052430391312,
+      "query_items": 2038,
+      "query_ms_per_item": 12.073045587340795,
+      "query_seconds": 24.60486690700054
+    },
+    "correction": {
+      "gallery_items": 6346,
+      "gallery_seconds": 109.58974128961563,
+      "query_items": 2038,
+      "query_ms_per_item": 11.984925070033574,
+      "query_seconds": 24.425277292728424
+    }
+  },
+  "endpoint_encoding_seconds": {
+    "base": 284.1772621124983,
+    "correction": 154.1686274111271
+  },
+  "gallery": 6346,
+  "gallery_protocol": "original-split",
+  "max_queries": null,
+  "queries": 2038,
+  "script_sha256": "289f4689ef8bb4621c09269dc0ce9022f9dd379689e2e077b33bf593e05b8904",
+  "split": "val"
+}
