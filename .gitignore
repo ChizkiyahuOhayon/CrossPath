@@ -1,0 +1,14 @@
+.DS_Store
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.venv/
+
+# Local presentation build and internal pre-submission material.
+.pptx_build_20260816/
+CrossPath_项目进展汇报_2026-08-16.pptx
+CrossPath_项目进展汇报_2026-08-16.pptx.inspect.ndjson
+CrossPath_项目进展汇报_2026-08-16/
+00_STRATEGY_AND_CLAIMS.md
+01_PAPER_DRAFT_EN.md
+02_EXPERIMENT_COMPLETION_PLAN.md

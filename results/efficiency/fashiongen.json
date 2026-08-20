@@ -1,0 +1,24 @@
+{
+  "average_boundary_candidates": {
+    "R@1": 0.36651533606466613,
+    "R@10": 3.846307164212158,
+    "R@5": 2.0188240504927473
+  },
+  "cutoffs": [
+    1,
+    5,
+    10
+  ],
+  "dataset": "fashiongen_val",
+  "embedding_dim": 1024,
+  "encoder_breakdown": null,
+  "gallery": 5292,
+  "gate_checkpoint_bytes": 2107227,
+  "gate_parameters": 526082,
+  "gate_width": 128,
+  "hardware": "NVIDIA GeForce RTX 4090",
+  "path_actions": 9,
+  "post_embedding_gate_ms_per_query": 4.475507825613022,
+  "queries": 9031,
+  "two_gallery_embedding_bytes": 43352320
+}

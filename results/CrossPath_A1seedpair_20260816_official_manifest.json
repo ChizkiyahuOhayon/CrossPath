@@ -1,0 +1,85 @@
+{
+  "bootstrap_seed": 20260802,
+  "cache_dir": "/root/autodl-tmp/weave/runs/CrossPath_A1seedpair_20260816_official_v1/cache",
+  "cache_manifest_sha256": "31b881a40dd14eed24b9b1a3bb1dc4f733820c1f8309a8bba9ceff78c4b653ef",
+  "embedding_dir": "/root/autodl-tmp/weave/runs/CrossPath_A1seedpair_20260816_official_v1/embeddings",
+  "gate_checkpoint_sha256": "af32a8dffc05fc6c7c7d8e80d52140803e58ee355f59f72f483d6ac289e8d4f3",
+  "gate_dir": "/root/autodl-tmp/weave/runs/CrossPath_A1seedpair_20260816_internal_v1/gate",
+  "gate_manifest_sha256": "7b3d26add6ed6bf009da2eea26bb1fa2871e7ca0f1c6b02d8c18922a91d84802",
+  "report": {
+    "base_metrics": {
+      "R@1": 42.730595,
+      "R@10": 87.753294,
+      "R@5": 79.260326
+    },
+    "full_correction_metrics": {
+      "R@1": 42.398405,
+      "R@10": 88.140848,
+      "R@5": 79.348909
+    },
+    "intervention_rate": 0.45676004872107184,
+    "mean_realized_utility": 0.00243605359317905,
+    "metrics": {
+      "R@1": 43.649651,
+      "R@10": 88.329089,
+      "R@5": 80.267966
+    },
+    "objective_oracle_mean_realized_utility": 0.03572878603329273,
+    "objective_oracle_metrics": {
+      "R@1": 47.436607,
+      "R@10": 90.333296,
+      "R@5": 82.692947
+    },
+    "paired_bootstrap": {
+      "R@1": {
+        "ci95": [
+          0.5536485439043295,
+          1.2733916509799579
+        ],
+        "delta": 0.9190565828811871
+      },
+      "R@10": {
+        "ci95": [
+          0.3432620972206843,
+          0.8083268741003211
+        ],
+        "delta": 0.5757944856605027
+      },
+      "R@5": {
+        "ci95": [
+          0.7418890488318015,
+          1.2844646218580444
+        ],
+        "delta": 1.0076403499058797
+      }
+    },
+    "paired_bootstrap_samples": 10000,
+    "per_cutoff_path_ceiling": {
+      "R@1": 47.436607,
+      "R@10": 90.333296,
+      "R@5": 82.692947
+    },
+    "queries": 9031,
+    "regression_cost": 2.0,
+    "selected_width": 128,
+    "single_ranking_protocol": true,
+    "threshold": 0.0004174920419851939,
+    "training_seed": 20260802,
+    "transitions": {
+      "R@1": {
+        "recoveries": 180,
+        "regressions": 97
+      },
+      "R@10": {
+        "recoveries": 83,
+        "regressions": 31
+      },
+      "R@5": {
+        "recoveries": 123,
+        "regressions": 32
+      }
+    },
+    "zero_trace": false
+  },
+  "script_sha256": "9f14988c1cac6b0b2667fedb19d07d2e4cd9e4cdd47cd6bd55c44e82c0d29250"
+}

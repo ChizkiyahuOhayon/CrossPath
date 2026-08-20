@@ -1,0 +1,132 @@
+{
+  "bootstrap_seed": 20260820,
+  "cache_dir": "/root/autodl-tmp/weave/runs/CrossPath_A1seedpair_20260816_official_v1/cache",
+  "cache_manifest_sha256": "31b881a40dd14eed24b9b1a3bb1dc4f733820c1f8309a8bba9ceff78c4b653ef",
+  "embedding_dir": "/root/autodl-tmp/weave/runs/CrossPath_A1seedpair_20260816_official_v1/embeddings",
+  "gate_checkpoint_sha256": "4a4f1daea700b9a932ae13a3ea6b9e5ed0faad8a284e8055a4174ec20656924a",
+  "gate_dir": "/root/autodl-tmp/weave/runs/CrossPath_A1seedpair_20260816_internal_v1/gate_margin_only",
+  "gate_manifest_sha256": "a946a453da9e16a46b34e28b8e2bd98c90a8ae46a20663a64f76242c77182e77",
+  "report": {
+    "base_metrics": {
+      "R@1": 42.730595,
+      "R@10": 87.753294,
+      "R@5": 79.260326
+    },
+    "fixed_action_metrics": {
+      "0": {
+        "R@1": 42.730595,
+        "R@10": 87.753294,
+        "R@5": 79.260326
+      },
+      "1": {
+        "R@1": 42.730595,
+        "R@10": 87.941535,
+        "R@5": 79.31569
+      },
+      "2": {
+        "R@1": 42.752741,
+        "R@10": 88.052264,
+        "R@5": 79.348909
+      },
+      "3": {
+        "R@1": 42.852397,
+        "R@10": 88.151921,
+        "R@5": 79.548223
+      },
+      "4": {
+        "R@1": 42.531281,
+        "R@10": 88.229432,
+        "R@5": 79.736463
+      },
+      "5": {
+        "R@1": 42.520208,
+        "R@10": 88.218359,
+        "R@5": 79.758609
+      },
+      "6": {
+        "R@1": 42.387333,
+        "R@10": 88.18514,
+        "R@5": 79.592515
+      },
+      "7": {
+        "R@1": 42.431624,
+        "R@10": 88.151921,
+        "R@5": 79.393201
+      },
+      "8": {
+        "R@1": 42.398405,
+        "R@10": 88.140848,
+        "R@5": 79.348909
+      }
+    },
+    "full_correction_metrics": {
+      "R@1": 42.398405,
+      "R@10": 88.140848,
+      "R@5": 79.348909
+    },
+    "intervention_rate": 0.0,
+    "mean_realized_utility": 0.0,
+    "metrics": {
+      "R@1": 42.730595,
+      "R@10": 87.753294,
+      "R@5": 79.260326
+    },
+    "objective_oracle_mean_realized_utility": 0.03572878603329273,
+    "objective_oracle_metrics": {
+      "R@1": 47.436607,
+      "R@10": 90.333296,
+      "R@5": 82.692947
+    },
+    "paired_bootstrap": {
+      "R@1": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "delta": 0.0
+      },
+      "R@10": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "delta": 0.0
+      },
+      "R@5": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "delta": 0.0
+      }
+    },
+    "paired_bootstrap_samples": 2000,
+    "per_cutoff_path_ceiling": {
+      "R@1": 47.436607,
+      "R@10": 90.333296,
+      "R@5": 82.692947
+    },
+    "queries": 9031,
+    "regression_cost": 2.0,
+    "selected_width": 128,
+    "single_ranking_protocol": true,
+    "threshold": 0.0,
+    "training_seed": 20260802,
+    "transitions": {
+      "R@1": {
+        "recoveries": 0,
+        "regressions": 0
+      },
+      "R@10": {
+        "recoveries": 0,
+        "regressions": 0
+      },
+      "R@5": {
+        "recoveries": 0,
+        "regressions": 0
+      }
+    },
+    "zero_trace": false
+  },
+  "script_sha256": "2fcd597181458caea75deb2d8a4032eaebea8b0abe972bb6055e25458a74a335"
+}

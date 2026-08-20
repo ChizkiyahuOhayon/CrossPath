@@ -1,0 +1,222 @@
+{
+  "cache_dir": "/root/autodl-tmp/weave/runs/CrossPath_FashionGen_JointMatrix_20260820_v1/internal/cache",
+  "cache_manifest_sha256": "26ab825c486ce50a1d9fb13d498ba13d7cdfc76a343df93ef09cb9cfdb64a1db",
+  "candidates": [
+    {
+      "calibration_nll": 0.36165913266196187,
+      "checkpoint": "gate_width128.pt",
+      "history": [
+        {
+          "calibration_nll": 0.36896478763722274,
+          "epoch": 1,
+          "train_batch_loss": 0.37784454483281144
+        },
+        {
+          "calibration_nll": 0.3624639972498881,
+          "epoch": 2,
+          "train_batch_loss": 0.35832942056330996
+        },
+        {
+          "calibration_nll": 0.36165913266196187,
+          "epoch": 3,
+          "train_batch_loss": 0.35227654704695227
+        }
+      ],
+      "width": 128
+    },
+    {
+      "calibration_nll": 0.36201473915508026,
+      "checkpoint": "gate_width256.pt",
+      "history": [
+        {
+          "calibration_nll": 0.3679313958408975,
+          "epoch": 1,
+          "train_batch_loss": 0.3762518420909186
+        },
+        {
+          "calibration_nll": 0.36348903127488374,
+          "epoch": 2,
+          "train_batch_loss": 0.35781017357885714
+        },
+        {
+          "calibration_nll": 0.36201473915508026,
+          "epoch": 3,
+          "train_batch_loss": 0.35224617442245004
+        }
+      ],
+      "width": 256
+    }
+  ],
+  "embedding_dir": "/root/autodl-tmp/weave/runs/CrossPath_A1seedpair_20260816_internal_v1/embeddings",
+  "report": {
+    "base_metrics": {
+      "R@1": 30.886006,
+      "R@10": 74.349066,
+      "R@5": 62.995676
+    },
+    "calibration_mean_utility": 0.0052384393063583815,
+    "cutoff_aggregation": "equal_mean_R1_R5_R10_utility",
+    "fixed_action_metrics": {
+      "0": {
+        "R@1": 30.886006,
+        "R@10": 74.349066,
+        "R@5": 62.995676
+      },
+      "1": {
+        "R@1": 30.849204,
+        "R@10": 74.680283,
+        "R@5": 63.234888
+      },
+      "10": {
+        "R@1": 30.932008,
+        "R@10": 74.652682,
+        "R@5": 63.198086
+      },
+      "11": {
+        "R@1": 31.033214,
+        "R@10": 74.772288,
+        "R@5": 63.685712
+      },
+      "12": {
+        "R@1": 31.474837,
+        "R@10": 74.974699,
+        "R@5": 63.897323
+      },
+      "13": {
+        "R@1": 32.017665,
+        "R@10": 75.020701,
+        "R@5": 63.915724
+      },
+      "14": {
+        "R@1": 32.10967,
+        "R@10": 75.112706,
+        "R@5": 63.980127
+      },
+      "15": {
+        "R@1": 32.146472,
+        "R@10": 75.121906,
+        "R@5": 64.03533
+      },
+      "16": {
+        "R@1": 32.146472,
+        "R@10": 75.167909,
+        "R@5": 64.145736
+      },
+      "2": {
+        "R@1": 30.950409,
+        "R@10": 74.827491,
+        "R@5": 63.602907
+      },
+      "3": {
+        "R@1": 30.840004,
+        "R@10": 75.011501,
+        "R@5": 63.750115
+      },
+      "4": {
+        "R@1": 30.665195,
+        "R@10": 75.149508,
+        "R@5": 63.84212
+      },
+      "5": {
+        "R@1": 31.060815,
+        "R@10": 75.112706,
+        "R@5": 63.952526
+      },
+      "6": {
+        "R@1": 31.079216,
+        "R@10": 74.864293,
+        "R@5": 63.85132
+      },
+      "7": {
+        "R@1": 31.014813,
+        "R@10": 74.61588,
+        "R@5": 63.65811
+      },
+      "8": {
+        "R@1": 31.024013,
+        "R@10": 74.376668,
+        "R@5": 63.474101
+      },
+      "9": {
+        "R@1": 30.876806,
+        "R@10": 74.395069,
+        "R@5": 63.023277
+      }
+    },
+    "full_correction_metrics": {
+      "R@1": 32.146472,
+      "R@10": 75.167909,
+      "R@5": 64.145736
+    },
+    "internal_go": true,
+    "intervention_rate": 0.41963382095868984,
+    "mean_realized_utility": 0.005366945747845554,
+    "metrics": {
+      "R@1": 32.339682,
+      "R@10": 75.057503,
+      "R@5": 64.42175
+    },
+    "objective_oracle_mean_realized_utility": 0.05366945747845554,
+    "objective_oracle_metrics": {
+      "R@1": 36.5351,
+      "R@10": 78.691692,
+      "R@5": 69.104793
+    },
+    "per_cutoff_path_ceiling": {
+      "R@1": 36.5351,
+      "R@10": 78.691692,
+      "R@5": 69.104793
+    },
+    "queries": 10869,
+    "regression_cost": 2.0,
+    "seed": 20260820,
+    "selected_calibration_nll": 0.36165913266196187,
+    "selected_width": 128,
+    "single_ranking_protocol": true,
+    "split_counts": {
+      "calibration": 11072,
+      "test": 10869,
+      "train": 50875
+    },
+    "split_fractions": [
+      0.7,
+      0.15,
+      0.15
+    ],
+    "threshold": 0.0013584949386616547,
+    "transitions": {
+      "R@1": {
+        "recoveries": 249,
+        "regressions": 91
+      },
+      "R@10": {
+        "recoveries": 133,
+        "regressions": 56
+      },
+      "R@5": {
+        "recoveries": 223,
+        "regressions": 68
+      }
+    }
+  },
+  "script_sha256": "51994d9a2879b149c0dc3ff115b823d0440dc274fbff0ed5933735e38fc657f7",
+  "training": {
+    "batch_records": 64,
+    "cache_dir": "/root/autodl-tmp/weave/runs/CrossPath_FashionGen_JointMatrix_20260820_v1/internal/cache",
+    "device": "cuda",
+    "embedding_dir": "/root/autodl-tmp/weave/runs/CrossPath_A1seedpair_20260816_internal_v1/embeddings",
+    "epochs": 3,
+    "feature_mode": "full",
+    "grad_clip": 1.0,
+    "learning_rate": 0.001,
+    "output_dir": "/root/autodl-tmp/weave/runs/CrossPath_FashionGen_JointMatrix_20260820_v1/internal/gate",
+    "regression_cost": 2.0,
+    "seed": 20260820,
+    "weight_decay": 0.0001,
+    "widths": [
+      128,
+      256
+    ],
+    "zero_trace": false
+  }
+}

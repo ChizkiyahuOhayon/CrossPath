@@ -1,0 +1,39 @@
+{
+  "base_checkpoint": "/root/autodl-tmp/dqucir_2026-08-05/repo/src/checkpoints/toptee_s42_best_state.pt",
+  "batch_size": 16,
+  "category": "toptee",
+  "checkpoint_sha256": {
+    "base": "07da764e4b28c6822dc97e3ed0a5808684370d804bbdfd5d207dddf36e51722f",
+    "correction": "d31888a90cfde0a7fe29764a01e3c23656e372cd0a4a0384ac0842bc55fa52d5"
+  },
+  "correction_checkpoint": "/root/autodl-tmp/dqucir_2026-08-05/gc128/toptee_gc128_best_state.pt",
+  "dataset": "fashioniq_val_toptee",
+  "deterministic_eval_transform": true,
+  "embedding_dim": 1024,
+  "encoder_breakdown": {
+    "base": {
+      "gallery_items": 5373,
+      "gallery_seconds": 82.23202914744616,
+      "query_items": 1961,
+      "query_ms_per_item": 12.312807746835658,
+      "query_seconds": 24.145415991544724
+    },
+    "correction": {
+      "gallery_items": 5373,
+      "gallery_seconds": 94.12926927953959,
+      "query_items": 1961,
+      "query_ms_per_item": 11.9601847268622,
+      "query_seconds": 23.453922249376774
+    }
+  },
+  "endpoint_encoding_seconds": {
+    "base": 285.9595129042864,
+    "correction": 137.01994581520557
+  },
+  "gallery": 5373,
+  "gallery_protocol": "original-split",
+  "max_queries": null,
+  "queries": 1961,
+  "script_sha256": "289f4689ef8bb4621c09269dc0ce9022f9dd379689e2e077b33bf593e05b8904",
+  "split": "val"
+}
