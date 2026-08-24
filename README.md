@@ -2,7 +2,7 @@
 
 CrossPath is research code for combining two frozen composed-image-retrieval (CIR) endpoints through cross-compatible query/gallery paths and conservative, cutoff-aware routing.
 
-This repository is a public research snapshot. It contains the method implementation, tests, experiment commands, machine-readable result artifacts, and the append-only E0–E17 experiment log. Model checkpoints and third-party datasets are not redistributed because of size and licensing constraints.
+This repository is a public research snapshot. It contains the method implementation, tests, experiment commands, machine-readable result artifacts, and the append-only E0–E21 experiment log. Large endpoint checkpoints and third-party datasets are not redistributed because of size and licensing constraints.
 
 ## Current results
 
@@ -21,10 +21,13 @@ The FashionIQ result is near the MCoT-MVS result of 63.24/82.01 under the same v
 - `weave_crosspath_gate.py`: candidate responsibility gate and listwise loss.
 - `weave_build_crosspath_cache.py`: cache construction for matched, cross, and joint paths.
 - `weave_train_crosspath_gate.py` / `weave_eval_crosspath_gate.py`: training, calibration, and frozen evaluation.
+- `weave_train_crosspath_adapter.py`: the E18 frozen-embedding residual-adapter pilot.
+- `weave_train_relational_crosspath.py`: the E19 single-endpoint relational-composer pilot.
+- `weave_extract_dqu_branches.py` / `weave_train_composition_crosspath.py`: the E20–E21 full-gallery composition experiments.
 - `weave_extract_crosspath_*.py`: endpoint embedding export for FashionMV/ProCIR and FashionIQ/DQU-CIR.
 - `scripts/`: exact experiment orchestration and zero-parameter compatibility evaluators.
 - `results/`: table-level JSON manifests and NPZ evaluation artifacts.
-- `experiment.md`: append-only E0–E17 experiment record, including rejected variants.
+- `experiment.md`: append-only E0–E21 experiment record, including rejected variants.
 - `test_weave_*.py`: method and protocol regression tests.
 
 ## Quick verification

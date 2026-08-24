@@ -1,0 +1,11 @@
+{
+  "dataset": "fashioniq_train_shirt",
+  "category": "shirt",
+  "split": "train",
+  "queries": 5988,
+  "gallery": 8988,
+  "embedding_dim": 1024,
+  "checkpoint": "/root/autodl-tmp/dqucir_2026-08-05/repo/src/checkpoints/shirt_s42_best_state.pt",
+  "batch_size": 16,
+  "deterministic_eval_transform": true
+}

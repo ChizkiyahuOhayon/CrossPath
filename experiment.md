@@ -236,3 +236,90 @@ official `diagonal_max` 为 29.53/62.42/81.75，低于 E12 cross mean 的 29.95/
 internal gate 通过 go/no-go：Base 30.89/63.00/74.35，joint 32.34/64.42/75.06 R@1/R@5/R@10；selected width=128，intervention rate=41.96%。official selected width=128，intervention rate=38.53%，objective oracle=47.71/82.75/90.36。
 
 裁决：E17 是 SumR/总体表现最强主候选，相对 E1 matched-only 为 +0.44 R@1/+0.09 R@5/−0.04 R@10，SumR +0.49；它不逐项支配 E1，因此主表同时保留 matched-only（R@10 最优）与 joint（R@1/R@5/总体最优），不声称 joint 在每个 cutoff 都更强。原始产物：`results/fashiongen_joint_matrix_official_manifest.json`、`results/fashiongen_joint_matrix_gate_manifest.json`、`results/fashiongen_joint_matrix_evaluation.npz`；远端 run：`runs/CrossPath_FashionGen_JointMatrix_20260820_v1`。
+
+## E18 — Frozen-embedding CrossPath residual adapter pilot（2026-08-24，完成；不晋级）
+
+动机：将四条 compatibility paths 从测试时固定均值推进为可训练模块，同时避免同时加载两个 4GB DQU-CIR endpoint。两个 endpoint 完全冻结；每个 endpoint 共享一个用于 query/gallery 的 rank-64 residual adapter，共 0.262M 参数。训练目标为四路径联合对比损失
+
+\[
+\mathcal L_{\mathrm{CP}}=\frac{1}{4}\sum_{a,b\in\{0,1\}}
+\operatorname{CE}\!\left(q'_a g_b'^{\top}/\tau\right),
+\]
+
+其中 \(q'_a=\operatorname{norm}(q_a+0.1A_a(q_a))\)，gallery 同理；\(A_a\) 是共享的低秩 residual adapter。只在 FashionIQ toptee 上进行预设 pilot：10 epochs、temperature 0.07、AdamW、lr 0.001、weight decay 0.0001、batch 128、每 batch 2048 个 gallery negatives。train queries 以 SHA-256 固定划分 85/15，checkpoint 仅按内部验证集 all-mean 的 R@10+R@50 选择；official val 训练结束后评测一次。
+
+预设晋级线：official toptee 超过已有固定 all-mean 67.06/85.57（R@10/R@50，Sum=152.63）。
+
+| Variant | R@1 | R@10 | R@50 | Sum R@10+R@50 |
+|---|---:|---:|---:|---:|
+| 固定 all-mean（E12） | **33.45** | 67.06 | **85.57** | **152.63** |
+| adapted all-mean | 33.35 | 67.06 | 85.36 | 152.42 |
+| 固定 cross-mean（E12） | 33.25 | 67.01 | **85.57** | 152.58 |
+| adapted cross-mean | **33.50** | **67.11** | 85.47 | 152.58 |
+
+裁决：不晋级，不扩展到 dress/shirt，也不搜索 rank、scale 或 learning rate。最佳内部 checkpoint 出现在 epoch 1；其 official adapted all-mean 相对固定 all-mean 为 −0.00/−0.20 R@10/R@50。adapted cross-mean 只是将约 0.10 从 R@50 转移到 R@10，Sum 与固定 cross-mean 基本相同。冻结 embedding 后的低秩适配没有产生净增益，下一步应在单模型 encoder/composer 内部定义 CrossPath，而不是继续后处理 adapter/gate 搜索。
+
+完整本地产物：`results/e18_crosspath_adapter_toptee/{manifest.json,history.json,result.json,train.log,best_adapter.pt}`；训练与评测代码：`weave_train_crosspath_adapter.py`；远端 run：`runs/CrossPathAdapter_FashionIQ_toptee_E18_20260824_v1`。
+
+## E19 — Single-endpoint relational CrossPath pilot（2026-08-24，完成；不晋级）
+
+动机：移除双 endpoint 依赖，在单个 DQU-CIR endpoint 内显式构造保真路径与关系路径。给定 composed query \(q\) 和 source image embedding \(s\)，模型计算
+
+\[
+d=\operatorname{norm}(q-s),\qquad
+q_{\mathrm{rel}}=\operatorname{norm}(q+\alpha(q,s)d),\qquad
+q_{\mathrm{out}}=\operatorname{norm}(q+q_{\mathrm{rel}}).
+\]
+
+其中 \(\alpha(q,s)\in[-1,1]\) 由两层 scalar head 预测，输入为 \([q,s,q-s,q\odot s]\)。base endpoint 与 gallery 完全冻结，新增 0.525M 参数。toptee pilot 使用 10 epochs、temperature 0.07、relation loss weight 0.5、AdamW、lr 0.001、weight decay 0.0001、batch 128、2048 gallery negatives；沿用 E18 的固定 85/15 train/validation split，checkpoint 只按内部 fused R@10+R@50 选择，official val 只评测一次。
+
+| Variant | R@1 | R@10 | R@50 | Sum R@10+R@50 |
+|---|---:|---:|---:|---:|
+| 单模型 Base | 32.64 | 65.83 | 85.62 | 151.45 |
+| relation path | 32.53 | 65.73 | **85.93** | 151.66 |
+| **fused relational CrossPath** | **32.94** | **65.94** | 85.67 | **151.61** |
+| 固定双模型 all-mean（E12） | 33.45 | 67.06 | 85.57 | 152.63 |
+
+最佳 checkpoint 为 epoch 9，official step 为 mean 0.057、std 0.183、范围 [−0.499, 0.719]。fused 相对单模型 Base 为 +0.31/+0.10/+0.05 R@1/R@10/R@50，证明 source→query 关系方向含有小幅正信号；但没有超过 E12 固定双模型融合的主指标，故不扩展到 dress/shirt，也不搜索 hidden size、step bound 或 loss weight。
+
+裁决：不作为当前主方法。单 endpoint 关系路径满足简洁性与效率，但增益不足以支撑 CVPR 主表。完整本地产物：`results/e19_relational_crosspath_toptee/{manifest.json,history.json,result.json,train.log,best_composer.pt}`；代码：`weave_train_relational_crosspath.py`；远端 run：`runs/RelationalCrossPath_FashionIQ_toptee_E19_20260824_v1`。
+
+## E20 — Full-gallery composition CrossPath toptee pilot（2026-08-24，完成；通过单类晋级线）
+
+动机：DQU-CIR 的 composed query 为 \(q=\operatorname{norm}(\lambda t+(1-\lambda)v)\)。既有 official-val 诊断显示，固定 encoder 下的 per-query oracle \(\lambda\) 在 toptee 可达到 74.30/89.75 R@10/R@50，而原 head 只有约 65.83/85.62，说明 composition path 选择是明确瓶颈。本实验冻结单个 DQU-CIR endpoint，导出 text path \(t\)、visual path \(v\)、原预测 \(\lambda_0\) 与完整 gallery，新增一个 0.525M-parameter correction head：
+
+\[
+\lambda=\operatorname{clip}\!\left(\lambda_0+0.5\tanh h(t,v,t-v,t\odot v,\lambda_0),0,1\right).
+\]
+
+head 使用完整训练 gallery 中每 batch 2048 个 negatives 训练；10 epochs、hidden 128、temperature 0.07、AdamW、lr 0.001、weight decay 0.0001、batch 128。checkpoint 只按固定 85/15 internal split 的 R@10+R@50 选择；official-val 训练结束后评一次。随后将改进后的 \(q_0\) 无调参代入已有 2×2 compatibility matrix。
+
+| toptee variant | R@1 | R@10 | R@50 |
+|---|---:|---:|---:|
+| 单模型 Base | 32.64 | 65.83 | 85.62 |
+| Composition head only | 32.99 | 66.04 | 85.77 |
+| E12 固定 cross-mean | 33.25 | 67.01 | 85.57 |
+| **Composition + cross-mean** | **33.61** | **67.21** | **85.82** |
+
+结果：composition head only 相对单模型 Base 为 +0.36/+0.20/+0.15；与 compatibility matrix 组合后，相对 E12 toptee fixed cross-mean 为 +0.36/+0.20/+0.25，三项同时提升并通过单类晋级线。最佳内部 checkpoint 为 epoch 5，official composition \(\lambda\) mean/std = 0.590/0.102。裁决：固定全部设置，扩展 dress/shirt（E21）。
+
+完整本地产物：`results/e20_composition_toptee/`；代码：`weave_extract_dqu_branches.py`、`weave_train_composition_crosspath.py`、`weave_eval_composition_cross_matrix.py`；远端 run：`runs/CompositionCrossPath_FashionIQ_toptee_E20_20260824_v1`。大于 15MB 的 branch/gallery `.npy` 缓存未复制到公开仓库，可由记录的 endpoint checkpoint 与 extractor 重建。
+
+## E21 — Full-gallery composition CrossPath 三类扩展（2026-08-24，完成；总体不晋级）
+
+设置：E20 的 hidden size、训练目标、negative gallery size、optimizer、epoch、split、seed、checkpoint selection 与 reducer 全部冻结；只将类别扩展到 dress/shirt。每类独立使用对应 DQU-CIR seed42 endpoint 与既有 GradCache endpoint，符合 FashionIQ 类别训练协议。
+
+统一使用 cross-mean 的 official-val 结果：
+
+| 类目 | E12 fixed cross-mean R@10/R@50 | E21 composition + cross-mean | 差值 |
+|---|---:|---:|---:|
+| dress | 58.11 / 79.47 | **58.50** / 78.98 | +0.40 / −0.50 |
+| shirt | **63.44 / 81.06** | 63.00 / 80.91 | −0.44 / −0.15 |
+| toptee | 67.01 / 85.57 | **67.21 / 85.82** | +0.20 / +0.25 |
+| **三类平均** | 62.85 / **82.03** | **62.91** / 81.90 | +0.05 / −0.13 |
+
+补充统一 reducer 平均：diagonal mean 29.77/62.80/81.86，cross mean 29.87/62.91/81.90，all mean 29.83/62.85/81.91（R@1/R@10/R@50）。MCoT-MVS 公开主表为 63.24/82.01；E21 未超过其 R@10，也未保持 E12 的 R@50。
+
+裁决：总体不晋级，不按 official 为每类选择不同 reducer，也不搜索 head 超参数。E20 证明 full-gallery composition calibration 可与 compatibility paths 叠加，但 shirt 的 internal selection 未迁移，导致三类平均只交换 cutoff 指标。当前 FashionIQ 主结果继续使用 E12 fixed cross-mean 29.95/62.85/82.03。
+
+完整汇总：`results/e21_composition_summary.json`；逐类曲线、manifest、结果与 checkpoint：`results/e21_composition_{dress,shirt}/` 与 `results/e20_composition_toptee/`；远端 run：`runs/CompositionCrossPath_FashionIQ_{dress,shirt}_E21_20260824_v1`。

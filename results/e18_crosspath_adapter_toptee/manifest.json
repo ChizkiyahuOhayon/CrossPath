@@ -1,0 +1,21 @@
+{
+  "method": "crosspath_residual_adapter",
+  "train_embeddings": "/root/autodl-tmp/weave/runs/CrossPath_FashionIQ_DQU_20260820_v1/toptee/internal/embeddings",
+  "official_embeddings": "/root/autodl-tmp/weave/runs/CrossPath_FashionIQ_DQU_20260820_v1/toptee/official/embeddings",
+  "objective": "full",
+  "rank": 64,
+  "residual_scale": 0.1,
+  "temperature": 0.07,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "epochs": 10,
+  "batch_size": 128,
+  "negative_gallery_size": 2048,
+  "val_percent": 15,
+  "selection_reducer": "all_mean",
+  "selection_metric": "R@10+R@50",
+  "seed": 20260824,
+  "train_queries": 5117,
+  "validation_queries": 910,
+  "parameters": 262144
+}

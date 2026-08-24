@@ -1,0 +1,11 @@
+{
+  "dataset": "fashioniq_val_toptee",
+  "category": "toptee",
+  "split": "val",
+  "queries": 1961,
+  "gallery": 2902,
+  "embedding_dim": 1024,
+  "checkpoint": "/root/autodl-tmp/dqucir_2026-08-05/repo/src/checkpoints/toptee_s42_best_state.pt",
+  "batch_size": 16,
+  "deterministic_eval_transform": true
+}
