@@ -1,0 +1,37 @@
+{
+  "protocol": "FashionIQ DQU-CIR val-split; source excluded",
+  "categories": {
+    "dress": "results/e21_composition_dress/joint_matrix_result.json",
+    "shirt": "results/e21_composition_shirt/joint_matrix_result.json",
+    "toptee": "results/e20_composition_toptee/joint_matrix_result.json"
+  },
+  "average": {
+    "diagonal_mean": {
+      "R@1": 29.766858,
+      "R@10": 62.803402,
+      "R@50": 81.855599
+    },
+    "cross_mean": {
+      "R@1": 29.867051,
+      "R@10": 62.905427,
+      "R@50": 81.904972
+    },
+    "all_mean": {
+      "R@1": 29.834037,
+      "R@10": 62.854093,
+      "R@50": 81.905782
+    }
+  },
+  "comparison": {
+    "E12_fixed_cross_mean": {
+      "R@1": 29.945867,
+      "R@10": 62.852427,
+      "R@50": 82.034306
+    },
+    "MCoT_MVS_public_table": {
+      "R@10": 63.24,
+      "R@50": 82.01
+    }
+  },
+  "decision": "Do not promote: cross-mean changes +0.053 R@10 and -0.129 R@50 versus E12 and does not exceed MCoT-MVS overall."
+}
