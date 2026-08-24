@@ -103,7 +103,11 @@ def train(args: argparse.Namespace) -> None:
     arrays = load_arrays(args.train_features)
     gallery_ids, queries = load_metadata(args.train_features)
     targets, sources = target_and_source_indices(gallery_ids, queries)
-    train_indices, val_indices = query_indices(queries, args.val_percent)
+    if args.val_percent == 0:
+        train_indices = np.arange(len(queries))
+        val_indices = np.asarray([], dtype=np.int64)
+    else:
+        train_indices, val_indices = query_indices(queries, args.val_percent)
     model = CompositionCrossPath(arrays["text"].shape[1], args.hidden_dim).to(device)
     optimizer = torch.optim.AdamW(
         model.parameters(), lr=args.learning_rate, weight_decay=args.weight_decay
@@ -121,7 +125,9 @@ def train(args: argparse.Namespace) -> None:
         "batch_size": args.batch_size,
         "negative_gallery_size": args.negative_gallery_size,
         "val_percent": args.val_percent,
-        "selection_metric": "CrossPath R@10+R@50",
+        "selection_metric": (
+            "fixed epoch on 100% train" if args.val_percent == 0 else "CrossPath R@10+R@50"
+        ),
         "seed": args.seed,
         "train_queries": int(len(train_indices)),
         "validation_queries": int(len(val_indices)),
@@ -160,8 +166,12 @@ def train(args: argparse.Namespace) -> None:
             losses.append(float(loss.detach()))
 
         model.eval()
-        validation = evaluate(model, arrays, queries, gallery_ids, val_indices, device)
-        score = validation["crosspath"]["R@10"] + validation["crosspath"]["R@50"]
+        if len(val_indices):
+            validation = evaluate(model, arrays, queries, gallery_ids, val_indices, device)
+            score = validation["crosspath"]["R@10"] + validation["crosspath"]["R@50"]
+        else:
+            validation = None
+            score = float(epoch)
         row = {"epoch": epoch, "loss": float(np.mean(losses)), "selection_score": score, "validation": validation}
         history.append(row)
         print(json.dumps(row), flush=True)
@@ -204,6 +214,8 @@ def parse_args() -> argparse.Namespace:
     args = parser.parse_args()
     if args.hidden_dim <= 0 or args.batch_size <= 0 or args.negative_gallery_size <= 0:
         parser.error("hidden dimension and batch sizes must be positive")
+    if not 0 <= args.val_percent < 100:
+        parser.error("val-percent must be between 0 and 99")
     return args
 
 

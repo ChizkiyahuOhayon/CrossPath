@@ -1,0 +1,26 @@
+{
+  "protocol": "FashionIQ DQU-CIR val-split; source excluded; composition heads refit on 100% train",
+  "fixed_epochs": {
+    "dress": 10,
+    "shirt": 1,
+    "toptee": 5
+  },
+  "average": {
+    "diagonal_mean": {
+      "R@1": 29.719468,
+      "R@10": 62.554866,
+      "R@50": 81.773442
+    },
+    "cross_mean": {
+      "R@1": 29.768064,
+      "R@10": 62.589200,
+      "R@50": 81.857147
+    },
+    "all_mean": {
+      "R@1": 29.701827,
+      "R@10": 62.455881,
+      "R@50": 81.790910
+    }
+  },
+  "decision": "Do not promote: fixed-epoch refitting on 100% train is below E21 and E12."
+}
