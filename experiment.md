@@ -363,3 +363,20 @@ head 使用完整训练 gallery 中每 batch 2048 个 negatives 训练；10 epoc
 作者发布的 dress checkpoint 大小为 4,947,539,267 bytes，SHA-256 为 `f222cbcd17f1fcc83ac27df4c96b0510c96a0e0032b8b1af051165233100cae8`；shirt checkpoint 大小同为 4,947,539,267 bytes，SHA-256 为 `ed2a5fb7a4d8c98f7e789cd9e6a630fe92a3810299f9a9da842eb67270a61424`。两者均完成本地与服务器端 SHA-256 对照及 PyTorch ZIP 全量 CRC 校验。无卡容器的 cgroup 配额为 0.5 CPU、2 GiB RAM，无法对约 4.95 GB checkpoint 执行 `torch.load`；严格 `load_state_dict` 与指标计算延后至 GPU 模式。
 
 toptee checkpoint 的官方 OneDrive 链接在本地第二跳返回 HTTP 403，在服务器第二跳连接重置；`aria2c` 复核停留于 0 B。用户随后从官方 README 的第四项 checkpoint 下载该文件，并提供 Google Drive mirror（file id `1btYT1q-WMB8nzGMYnO-uUuxIsuXXVB6Y`）。toptee checkpoint 大小为 4,947,539,267 bytes，SHA-256 为 `b23a68d1b660354de834d78e958b40d2101ee1b9779f4d54e656ea62fdc7f84c`；本地与服务器端 SHA-256、PyTorch ZIP 全量 CRC 均通过。未使用 DQU checkpoint 或自行训练权重替代作者权重。至此 E23 三类官方 checkpoint 与 segmentation features 已全部就绪；严格 `load_state_dict` 和指标计算等待 GPU 模式执行。
+
+GPU 首轮复现（2026-08-24）：三类 checkpoint 均通过严格 `load_state_dict`，并在服务器已有环境（Python 3.12.3、PyTorch 2.8.0+cu128、open-clip-torch 2.32.0）完成官方 `fiq_validate.py`。官方仓库 commit `cb57a336843f94827a319a0b94b071ca29f9c187` 与服务器镜像的 37 个代码/元数据文件逐文件哈希一致。val-split 结果如下；差值均相对论文 Table 2：
+
+| 类目 | 复现 R@10 / R@50 | 与公开值差值 | 单类门槛 |
+|---|---:|---:|---|
+| dress | 57.61 / 79.33 | −0.84 / +0.41 | 未通过 |
+| shirt | 63.15 / 81.06 | −0.09 / −0.09 | 通过 |
+| toptee | 68.13 / 85.87 | +0.11 / −0.10 | 通过 |
+| **三类平均** | **62.96 / 82.09** | **−0.28 / +0.08** | 均值 R@10 未通过 |
+
+首轮结果说明 checkpoint、数据和总体执行链路有效，偏差集中在 dress，而不是三类普遍失效。该复现均值相对 E12 CrossPath 62.85/82.03 为 +0.11/+0.06；相对论文公开 MCoT-MVS 63.24/82.01 为 −0.28/+0.08。首轮原始日志保存于远端 `runs/E23_MCoT_MVS_FashionIQ_20260824_v1`。曾为隔离环境差异创建 Python 3.10 + PyTorch 2.3.1 环境及可断点续跑脚本；2026-08-24 根据项目决策停止第二次复现，不再消耗 GPU，未将中止输出计为正式结果。后续论文将透明报告首轮复现环境与数值，并以异构 CrossPath 的指标改进为优先事项。
+
+## E24 — DQU × MCoT-MVS 异构 CrossPath（2026-08-24，协议锁定；待执行）
+
+目的：用结构更强且不同于既有 GradCache endpoint 的 MCoT-MVS 组成异构 compatibility matrix，在不重训 endpoint 的条件下测试 off-diagonal query-gallery paths 是否能同时超过 DQU 与 MCoT。第一阶段固定评估 DQU-base × MCoT 和 DQU-GradCache × MCoT 的 diagonal/cross/all reducers；若三类平均未超过 MCoT-MVS 复现值 62.96/82.09，则不进入模块消融，继续改进主模型。
+
+执行前对齐检查：MCoT 官方 val annotations 与现有 DQU official embeddings 的 source/target 顺序逐项一致，dress 2017/2017、shirt 2038/2038、toptee 1961/1961 均无错位。新增导出器 `weave_extract_crosspath_mcot.py` 在保存表征前再次执行 batch-level 对齐断言，并通过 2 项新增单元测试及既有 DQU/compatibility tests。toptee 冒烟在运行约 42 秒后因用户计划关机而主动停止，未生成指标；半成品已移至远端 `runs/E24_Heterogeneous_CrossPath_FashionIQ_20260824_v1/aborted_toptee_mcot_smoke_20260824`，正式输出目录保持空闲，开机后从头执行。
