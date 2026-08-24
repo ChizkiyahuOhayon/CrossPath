@@ -357,3 +357,9 @@ head 使用完整训练 gallery 中每 batch 2048 个 negatives 训练；10 epoc
 固定协议：FashionIQ val-split；每类使用作者对应 checkpoint、LLM annotations 与 segmentation features；gallery、query caption 合并、图像预处理和指标计算均沿用作者代码。运行硬件为单张 RTX 4090；checkpoint、分割特征、元数据及代码均记录 SHA-256。正式结果只在资产完整性检查、checkpoint 严格加载和数据样本计数检查通过后生成。
 
 成功标准：三类平均 R@10/R@50 与 63.24/82.01 的绝对差均不超过 0.15，且每类两个指标的绝对差均不超过 0.25。若不满足，先定位协议或环境差异；在复现闭环前不进入异构 CrossPath，也不修改 baseline 以追分。
+
+资产准备状态（2026-08-24）：作者发布的 FashionIQ segmentation features 已下载并通过 ZIP CRC 校验；原始压缩包大小为 675,930,204 bytes，SHA-256 为 `49935ee900783f792abd5e910d596777c8e7352aa74ea1eadce957ce28b46fda`。按官方代码路径解压至 `data/fiq/segment/seg_features_vit-h_patch/`，共 60,033 个 `seg_feature.pt`。val query 的 reference-feature 覆盖为 dress 2017/2017、shirt 2038/2038、toptee 1961/1961，缺失均为 0。
+
+作者发布的 dress checkpoint 大小为 4,947,539,267 bytes，SHA-256 为 `f222cbcd17f1fcc83ac27df4c96b0510c96a0e0032b8b1af051165233100cae8`；shirt checkpoint 大小同为 4,947,539,267 bytes，SHA-256 为 `ed2a5fb7a4d8c98f7e789cd9e6a630fe92a3810299f9a9da842eb67270a61424`。两者均完成本地与服务器端 SHA-256 对照及 PyTorch ZIP 全量 CRC 校验。无卡容器的 cgroup 配额为 0.5 CPU、2 GiB RAM，无法对约 4.95 GB checkpoint 执行 `torch.load`；严格 `load_state_dict` 与指标计算延后至 GPU 模式。
+
+toptee checkpoint 的官方 OneDrive 链接在本地第二跳返回 HTTP 403，在服务器第二跳连接重置；`aria2c` 复核停留于 0 B。官方仓库截至 commit `cb57a336843f94827a319a0b94b071ca29f9c187` 没有备用链接或 issue，服务器旧资产中也不存在 MCoT-MVS toptee checkpoint。为避免混淆基线，未用 DQU checkpoint 或自行训练权重冒充作者 checkpoint。E23 当前可立即执行 dress/shirt 官方复现；三类闭环仍等待官方 toptee 资产恢复，或在明确标注后按官方配置重新训练 toptee。
