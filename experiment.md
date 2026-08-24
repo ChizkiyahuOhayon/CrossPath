@@ -340,3 +340,20 @@ head 使用完整训练 gallery 中每 batch 2048 个 negatives 训练；10 epoc
 裁决：不采用。100% train refit 没有解决类别迁移，反而进一步降低三类平均；因此 E20–E22 composition calibration 路线正式止损，不再重训、调 epoch 或修改 loss。FashionIQ 主结果保持 E12 fixed cross-mean 29.95/62.85/82.03。
 
 完整汇总：`results/e22_composition_refit_summary.json`；逐类 manifest/history/result/checkpoint/joint matrix：`results/e22_composition_refit_{dress,shirt,toptee}/`；远端 run：`runs/CompositionCrossPath_FashionIQ_{dress,shirt,toptee}_E22_refit_20260824_v1`。
+
+## E23 — MCoT-MVS FashionIQ 官方基线复现（2026-08-24，协议已锁定；进行中）
+
+目的：在构造 DQU × MCoT-MVS 异构 CrossPath 前，先原样复现公开强基线，排除 checkpoint、数据协议或实现差异造成的虚假增益。本实验只运行 MCoT-MVS 作者发布的 FashionIQ checkpoint 与官方 `fiq_validate.py`；不修改模型结构、不重训、不调参，也不使用 CrossPath reducer。
+
+公开复现目标来自 MCoT-MVS 论文 Table 2：
+
+| 类目 | R@10 | R@50 |
+|---|---:|---:|
+| dress | 58.45 | 78.92 |
+| shirt | 63.24 | 81.15 |
+| toptee | 68.02 | 85.97 |
+| **三类平均** | **63.24** | **82.01** |
+
+固定协议：FashionIQ val-split；每类使用作者对应 checkpoint、LLM annotations 与 segmentation features；gallery、query caption 合并、图像预处理和指标计算均沿用作者代码。运行硬件为单张 RTX 4090；checkpoint、分割特征、元数据及代码均记录 SHA-256。正式结果只在资产完整性检查、checkpoint 严格加载和数据样本计数检查通过后生成。
+
+成功标准：三类平均 R@10/R@50 与 63.24/82.01 的绝对差均不超过 0.15，且每类两个指标的绝对差均不超过 0.25。若不满足，先定位协议或环境差异；在复现闭环前不进入异构 CrossPath，也不修改 baseline 以追分。
