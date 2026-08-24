@@ -323,3 +323,20 @@ head 使用完整训练 gallery 中每 batch 2048 个 negatives 训练；10 epoc
 裁决：总体不晋级，不按 official 为每类选择不同 reducer，也不搜索 head 超参数。E20 证明 full-gallery composition calibration 可与 compatibility paths 叠加，但 shirt 的 internal selection 未迁移，导致三类平均只交换 cutoff 指标。当前 FashionIQ 主结果继续使用 E12 fixed cross-mean 29.95/62.85/82.03。
 
 完整汇总：`results/e21_composition_summary.json`；逐类曲线、manifest、结果与 checkpoint：`results/e21_composition_{dress,shirt}/` 与 `results/e20_composition_toptee/`；远端 run：`runs/CompositionCrossPath_FashionIQ_{dress,shirt}_E21_20260824_v1`。
+
+## E22 — Composition head 100% train fixed-epoch refit（2026-08-24，完成；不采用）
+
+动机：E20/E21 为选择 checkpoint 固定保留 15% train queries；常规最终训练应在 epoch 冻结后使用 100% train data 重新拟合。各类 epoch 直接取 E20/E21 internal 最优：dress=10、shirt=1、toptee=5；其余 hidden size、optimizer、learning rate、negative gallery size、seed 与 reducer 全部不变。refit 期间不再查看 internal 或 official 选择 checkpoint，训练到固定 epoch 后 official 评测一次。
+
+统一 cross-mean 结果：
+
+| 类目 | E21 R@10/R@50 | 100% train refit | 差值 |
+|---|---:|---:|---:|
+| dress | **58.50 / 78.98** | 57.66 / 78.78 | −0.84 / −0.20 |
+| shirt | 63.00 / **80.91** | **63.10** / 80.81 | +0.10 / −0.10 |
+| toptee | **67.21** / 85.82 | 67.01 / **85.98** | −0.20 / +0.15 |
+| **三类平均** | **62.91 / 81.90** | 62.59 / 81.86 | −0.32 / −0.05 |
+
+裁决：不采用。100% train refit 没有解决类别迁移，反而进一步降低三类平均；因此 E20–E22 composition calibration 路线正式止损，不再重训、调 epoch 或修改 loss。FashionIQ 主结果保持 E12 fixed cross-mean 29.95/62.85/82.03。
+
+完整汇总：`results/e22_composition_refit_summary.json`；逐类 manifest/history/result/checkpoint/joint matrix：`results/e22_composition_refit_{dress,shirt,toptee}/`；远端 run：`runs/CompositionCrossPath_FashionIQ_{dress,shirt,toptee}_E22_refit_20260824_v1`。

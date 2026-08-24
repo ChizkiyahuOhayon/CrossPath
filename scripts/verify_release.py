@@ -22,7 +22,7 @@ REQUIRED = (
 def main():
     log = (ROOT / "experiment.md").read_text(encoding="utf-8")
     observed = {int(value) for value in re.findall(r"^## E(\d+)\b", log, re.M)}
-    expected = set(range(22))
+    expected = set(range(23))
     if observed != expected:
         raise RuntimeError(
             f"experiment log mismatch: missing={sorted(expected - observed)}, "
@@ -50,7 +50,7 @@ def main():
                 raise RuntimeError(f"empty NPZ artifact: {path.relative_to(ROOT)}")
 
     print(
-        f"OK: E0-E21 present; {len(json_files)} JSON and "
+        f"OK: E0-E22 present; {len(json_files)} JSON and "
         f"{len(npz_files)} NPZ artifacts readable."
     )
 

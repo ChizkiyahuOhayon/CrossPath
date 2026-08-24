@@ -84,6 +84,6 @@ Run:
 python scripts/verify_release.py
 ```
 
-It checks that E0–E21 are all present, all JSON artifacts parse, all NPZ archives are readable, required headline artifacts exist, and no result file is silently empty.
+It checks that E0–E22 are all present, all JSON artifacts parse, all NPZ archives are readable, required headline artifacts exist, and no result file is silently empty.
 
 Absolute `/root/...` paths in saved manifests are provenance from the original experiment machine, not required installation paths. Configure local paths in the orchestration scripts when reproducing.

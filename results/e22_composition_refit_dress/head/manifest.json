@@ -1,0 +1,18 @@
+{
+  "method": "full_gallery_composition_crosspath",
+  "train_features": "/root/autodl-tmp/weave/runs/CompositionCrossPath_FashionIQ_dress_E21_20260824_v1/train_features",
+  "official_features": "/root/autodl-tmp/weave/runs/CompositionCrossPath_FashionIQ_dress_E21_20260824_v1/official_features",
+  "hidden_dim": 128,
+  "temperature": 0.07,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "epochs": 10,
+  "batch_size": 128,
+  "negative_gallery_size": 2048,
+  "val_percent": 0,
+  "selection_metric": "fixed epoch on 100% train",
+  "seed": 20260824,
+  "train_queries": 5985,
+  "validation_queries": 0,
+  "parameters": 524673
+}

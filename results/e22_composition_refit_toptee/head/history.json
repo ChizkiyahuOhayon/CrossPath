@@ -1,0 +1,32 @@
+[
+  {
+    "epoch": 1,
+    "loss": 2.3947816491127014,
+    "selection_score": 1.0,
+    "validation": null
+  },
+  {
+    "epoch": 2,
+    "loss": 2.3883682638406754,
+    "selection_score": 2.0,
+    "validation": null
+  },
+  {
+    "epoch": 3,
+    "loss": 2.3801892598470054,
+    "selection_score": 3.0,
+    "validation": null
+  },
+  {
+    "epoch": 4,
+    "loss": 2.3686963816483817,
+    "selection_score": 4.0,
+    "validation": null
+  },
+  {
+    "epoch": 5,
+    "loss": 2.3696696013212204,
+    "selection_score": 5.0,
+    "validation": null
+  }
+]

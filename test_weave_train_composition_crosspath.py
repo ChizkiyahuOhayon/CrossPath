@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 
-from weave_train_composition_crosspath import CompositionCrossPath, original_query
+from weave_train_composition_crosspath import CompositionCrossPath, original_query, parse_args
 
 
 def test_composition_head_starts_at_original_lambda():
@@ -23,3 +23,21 @@ def test_original_query_uses_saved_scalar():
     }
     expected = torch.nn.functional.normalize(torch.tensor([[0.25, 0.75]]), dim=-1)
     assert torch.allclose(original_query(arrays), expected)
+
+
+def test_parser_allows_full_train_refit(monkeypatch, tmp_path):
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "train",
+            "--train-features",
+            str(tmp_path),
+            "--official-features",
+            str(tmp_path),
+            "--output-dir",
+            str(tmp_path / "out"),
+            "--val-percent",
+            "0",
+        ],
+    )
+    assert parse_args().val_percent == 0

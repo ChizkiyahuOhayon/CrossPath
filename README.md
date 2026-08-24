@@ -2,7 +2,7 @@
 
 CrossPath is research code for combining two frozen composed-image-retrieval (CIR) endpoints through cross-compatible query/gallery paths and conservative, cutoff-aware routing.
 
-This repository is a public research snapshot. It contains the method implementation, tests, experiment commands, machine-readable result artifacts, and the append-only E0–E21 experiment log. Large endpoint checkpoints and third-party datasets are not redistributed because of size and licensing constraints.
+This repository is a public research snapshot. It contains the method implementation, tests, experiment commands, machine-readable result artifacts, and the append-only E0–E22 experiment log. Large endpoint checkpoints and third-party datasets are not redistributed because of size and licensing constraints.
 
 ## Current results
 
@@ -27,7 +27,7 @@ The FashionIQ result is near the MCoT-MVS result of 63.24/82.01 under the same v
 - `weave_extract_crosspath_*.py`: endpoint embedding export for FashionMV/ProCIR and FashionIQ/DQU-CIR.
 - `scripts/`: exact experiment orchestration and zero-parameter compatibility evaluators.
 - `results/`: table-level JSON manifests and NPZ evaluation artifacts.
-- `experiment.md`: append-only E0–E21 experiment record, including rejected variants.
+- `experiment.md`: append-only E0–E22 experiment record, including rejected variants.
 - `test_weave_*.py`: method and protocol regression tests.
 
 ## Quick verification
