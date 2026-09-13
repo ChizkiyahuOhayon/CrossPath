@@ -1,0 +1,8 @@
+dataset,configuration,sum_recall,step_delta
+FashionGen,Single A1,209.744215,
+FashionGen,Diagonal ensemble,210.829365,1.085150
+FashionGen,Off-diagonal CrossPath,212.003100,1.173735
+FashionGen,CrossPath + routing,212.733917,0.730817
+FashionIQ,Single MCoT,145.894798,
+FashionIQ,Diagonal ensemble,147.273371,1.378573
+FashionIQ,Off-diagonal CrossPath,147.392358,0.118987

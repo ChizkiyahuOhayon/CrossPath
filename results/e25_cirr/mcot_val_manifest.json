@@ -1,0 +1,16 @@
+{
+  "alignment_dir": "/root/autodl-tmp/weave/runs/E25_CIRR_CrossPath_20260901_v1/dqu/val",
+  "batch_size": 16,
+  "checkpoint": "/root/autodl-tmp/mcot_mvs/checkpoints/mcot_mvs_cirr.pt",
+  "checkpoint_sha256": "2bca1bd000cec9fa33abf343a3c6d11c3312e9fceab46d169c361442dd623f60",
+  "dataset": "cirr_val",
+  "embedding_dim": 1024,
+  "endpoint": "MCoT-MVS",
+  "gallery": 2297,
+  "gallery_seconds": 190.53967759013176,
+  "queries": 4181,
+  "query_seconds": 424.0308515429497,
+  "script_sha256": "75fd91a0e0189179fd246186019e283d12be82fc106dc3f43f144fef10f3e0fe",
+  "strict_state_dict": true,
+  "workers": 8
+}

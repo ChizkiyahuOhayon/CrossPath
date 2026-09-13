@@ -1,0 +1,16 @@
+{
+  "alignment_dir": "/root/autodl-tmp/weave/runs/CrossPath_FashionIQ_DQU_20260820_v1/shirt/official/embeddings",
+  "batch_size": 32,
+  "checkpoint": "/root/autodl-tmp/mcot_mvs/checkpoints/mcot_mvs_shirt.pt",
+  "checkpoint_sha256": "ed2a5fb7a4d8c98f7e789cd9e6a630fe92a3810299f9a9da842eb67270a61424",
+  "dataset": "fashioniq_val_shirt",
+  "embedding_dim": 1024,
+  "endpoint": "MCoT-MVS",
+  "gallery": 3089,
+  "gallery_seconds": 50.68550480157137,
+  "queries": 2038,
+  "query_seconds": 88.2151787057519,
+  "script_sha256": "c5edd4ed28350c1eac7203a96ec02e03190a0a5563297a82abe15e43d3e62a94",
+  "strict_state_dict": true,
+  "workers": 8
+}

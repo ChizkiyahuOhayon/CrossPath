@@ -1,0 +1,6 @@
+method,R@1,R@5,R@10,source
+ProCIR (paper),,75.000000,85.300000,FashionMV Table 2
+A1 reproduced base,42.730595,79.260326,87.753294,local artifact
+Cost-matched diagonal ensemble,42.852397,79.736463,88.240505,local artifact
+CrossPath cross mean,44.103643,79.736463,88.162994,local artifact
+CrossPath joint routing,44.09257,80.35655,88.284797,local artifact

@@ -1,0 +1,1174 @@
+{
+  "generated_at": "2026-09-13T17:40:10.276698Z",
+  "summary": {
+    "total_papers_processed": 1,
+    "total_references_processed": 40,
+    "total_errors_found": 0,
+    "total_warnings_found": 7,
+    "total_info_found": 22,
+    "total_unverified_refs": 0,
+    "records_written": 22,
+    "papers_with_records": 1,
+    "flagged_records": 0,
+    "flagged_papers": 0
+  },
+  "papers": [
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "total_records": 22,
+      "flagged_records": 0,
+      "max_flag_level": "none",
+      "error_type_counts": {
+        "url": 15,
+        "multiple": 7
+      },
+      "reason_counts": {},
+      "has_flagged_records": false
+    }
+  ],
+  "records": [
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "Composing Text and Image for Image Retrieval: An Empirical Odyssey",
+      "ref_authors_cited": "Vo, Nam, Jiang, Lu, Sun, Chen, Murphy, Kevin, Li, Li-Jia, Fei-Fei, Li, Hays, James",
+      "ref_year_cited": 2019,
+      "ref_url_cited": "https://doi.org/10.1109/cvpr.2019.00660",
+      "ref_raw_text": "@inproceedings{vo2019tirg, ...}",
+      "original_reference": {
+        "title": "Composing Text and Image for Image Retrieval: An Empirical Odyssey",
+        "authors": [
+          "Vo, Nam",
+          "Jiang, Lu",
+          "Sun, Chen",
+          "Murphy, Kevin",
+          "Li, Li-Jia",
+          "Fei-Fei, Li",
+          "Hays, James"
+        ],
+        "year": 2019,
+        "journal": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+        "doi": "10.1109/CVPR.2019.00660",
+        "url": "https://doi.org/10.1109/cvpr.2019.00660",
+        "type": "non-arxiv",
+        "bibtex_key": "vo2019tirg",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{vo2019tirg, ...}",
+        "pages": "6439--6448",
+        "organization": ""
+      },
+      "ref_year_correct": 2018,
+      "ref_url_correct": "https://arxiv.org/abs/1812.07119",
+      "error_type": "multiple",
+      "error_details": "- Year mismatch:\n       cited:  2019\n       actual: 2018\n- ",
+      "_original_errors": [
+        {
+          "warning_type": "year",
+          "warning_details": "Year mismatch:\n       cited:  2019\n       actual: 2018",
+          "ref_year_correct": 2018
+        },
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/1812.07119",
+          "ref_url_correct": "https://arxiv.org/abs/1812.07119"
+        }
+      ],
+      "ref_verified_url": "https://www.semanticscholar.org/paper/fd5129e8ebfaa5dcce3d4ce2839b90c6cd3ca39d",
+      "matched_database": "Semantic Scholar",
+      "ref_corrected_plaintext": "Nam S. Vo, Lu Jiang, Chen Sun, K. Murphy, Li-Jia Li, Li Fei-Fei, James Hays. (2018). \"Composing Text and Image for Image Retrieval - an Empirical Odyssey\". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/1812.07119.\n\n% Citation key for BibTeX: @inproceedings{vo2019tirg, ...}",
+      "ref_corrected_bibtex": "@inproceedings{vo2019tirg,\n  author = {Nam S. Vo and Lu Jiang and Chen Sun and K. Murphy and Li-Jia Li and Li Fei-Fei and James Hays},\n  title = {Composing Text and Image for Image Retrieval - an Empirical Odyssey},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},\n  pages = {6439--6448},\n  year = {2018},\n  url = {https://arxiv.org/abs/1812.07119}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nNam S. Vo, Lu Jiang, Chen Sun, K. Murphy, Li-Jia Li, Li Fei-Fei, James Hays. (2018). \\textit{Composing Text and Image for Image Retrieval - an Empirical Odyssey}. In \\textit{Computer Vision and Pattern Recognition}. \\url{https://arxiv.org/abs/1812.07119}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "Image Retrieval on Real-Life Images With Pre-Trained Vision-and-Language Models",
+      "ref_authors_cited": "Liu, Zheyuan, Rodriguez-Opazo, Cristian, Teney, Damien, Gould, Stephen",
+      "ref_year_cited": 2021,
+      "ref_url_cited": "https://doi.org/10.1109/iccv48922.2021.00213",
+      "ref_raw_text": "@inproceedings{liucirr, ...}",
+      "error_type": "url",
+      "error_details": "Reference could include arXiv URL: https://arxiv.org/abs/2108.04024",
+      "_original_errors": [
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2108.04024",
+          "ref_url_correct": "https://arxiv.org/abs/2108.04024"
+        }
+      ],
+      "original_reference": {
+        "title": "Image Retrieval on Real-Life Images With Pre-Trained Vision-and-Language Models",
+        "authors": [
+          "Liu, Zheyuan",
+          "Rodriguez-Opazo, Cristian",
+          "Teney, Damien",
+          "Gould, Stephen"
+        ],
+        "year": 2021,
+        "journal": "Proceedings of the IEEE/CVF International Conference on Computer Vision",
+        "doi": "10.1109/ICCV48922.2021.00213",
+        "url": "https://doi.org/10.1109/iccv48922.2021.00213",
+        "type": "non-arxiv",
+        "bibtex_key": "liucirr",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{liucirr, ...}",
+        "pages": "2125--2134",
+        "organization": ""
+      },
+      "ref_url_correct": "https://arxiv.org/abs/2108.04024",
+      "ref_verified_url": "https://www.semanticscholar.org/paper/c2d5426ee019d3d894b9d4416dc866b65fe64312",
+      "matched_database": "Semantic Scholar",
+      "ref_standard_format": "arXiv preprint arXiv:2108.04024.",
+      "ref_corrected_plaintext": "Zheyuan Liu, Cristian Rodriguez-Opazo, Damien Teney, Stephen Gould. (2021). \"Image Retrieval on Real-life Images with Pre-trained Vision-and-Language Models\". In IEEE International Conference on Computer Vision. https://arxiv.org/abs/2108.04024.\n\n% Citation key for BibTeX: @inproceedings{liucirr, ...}",
+      "ref_corrected_bibtex": "@inproceedings{liucirr,\n  author = {Zheyuan Liu and Cristian Rodriguez-Opazo and Damien Teney and Stephen Gould},\n  title = {Image Retrieval on Real-life Images with Pre-trained Vision-and-Language Models},\n  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision},\n  pages = {2125--2134},\n  year = {2021},\n  url = {https://arxiv.org/abs/2108.04024}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nZheyuan Liu, Cristian Rodriguez-Opazo, Damien Teney, Stephen Gould. (2021). \\textit{Image Retrieval on Real-life Images with Pre-trained Vision-and-Language Models}. In \\textit{IEEE International Conference on Computer Vision}. \\url{https://arxiv.org/abs/2108.04024}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "Learning Transferable Visual Models From Natural Language Supervision",
+      "ref_authors_cited": "Radford, Alec, Kim, Jong Wook, Hallacy, Chris, Ramesh, Aditya, Goh, Gabriel, Agarwal, Sandhini, Sastry, Girish, Askell, Amanda, Mishkin, Pamela, Clark, Jack, Krueger, Gretchen, Sutskever, Ilya",
+      "ref_year_cited": 2021,
+      "ref_url_cited": "",
+      "ref_raw_text": "@inproceedings{radford2021clip, ...}",
+      "error_type": "url",
+      "error_details": "Reference could include arXiv URL: https://arxiv.org/abs/2103.00020",
+      "_original_errors": [
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2103.00020",
+          "ref_url_correct": "https://arxiv.org/abs/2103.00020"
+        }
+      ],
+      "original_reference": {
+        "title": "Learning Transferable Visual Models From Natural Language Supervision",
+        "authors": [
+          "Radford, Alec",
+          "Kim, Jong Wook",
+          "Hallacy, Chris",
+          "Ramesh, Aditya",
+          "Goh, Gabriel",
+          "Agarwal, Sandhini",
+          "Sastry, Girish",
+          "Askell, Amanda",
+          "Mishkin, Pamela",
+          "Clark, Jack",
+          "Krueger, Gretchen",
+          "Sutskever, Ilya"
+        ],
+        "year": 2021,
+        "journal": "Proceedings of the International Conference on Machine Learning",
+        "doi": "",
+        "url": "",
+        "type": "other",
+        "bibtex_key": "radford2021clip",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{radford2021clip, ...}",
+        "pages": "8748--8763",
+        "organization": ""
+      },
+      "ref_url_correct": "https://arxiv.org/abs/2103.00020",
+      "ref_verified_url": "https://www.semanticscholar.org/paper/6f870f7f02a8c59c3e23f407f3ef00dd1dcf8fc4",
+      "matched_database": "Semantic Scholar",
+      "ref_standard_format": "arXiv preprint arXiv:2103.00020.",
+      "ref_corrected_plaintext": "Alec Radford, Jong Wook Kim, Chris Hallacy, A. Ramesh, Gabriel Goh, S. Agarwal, G. Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen Krueger, I. Sutskever. (2021). \"Learning Transferable Visual Models From Natural Language Supervision\". In International Conference on Machine Learning. https://arxiv.org/abs/2103.00020.\n\n% Citation key for BibTeX: @inproceedings{radford2021clip, ...}",
+      "ref_corrected_bibtex": "@inproceedings{radford2021clip,\n  author = {Alec Radford and Jong Wook Kim and Chris Hallacy and A. Ramesh and Gabriel Goh and S. Agarwal and G. Sastry and Amanda Askell and Pamela Mishkin and Jack Clark and Gretchen Krueger and I. Sutskever},\n  title = {Learning Transferable Visual Models From Natural Language Supervision},\n  booktitle = {Proceedings of the International Conference on Machine Learning},\n  pages = {8748--8763},\n  year = {2021},\n  url = {https://arxiv.org/abs/2103.00020}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nAlec Radford, Jong Wook Kim, Chris Hallacy, A. Ramesh, Gabriel Goh, S. Agarwal, G. Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen Krueger, I. Sutskever. (2021). \\textit{Learning Transferable Visual Models From Natural Language Supervision}. In \\textit{International Conference on Machine Learning}. \\url{https://arxiv.org/abs/2103.00020}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "Simple but Effective Raw-Data Level Multimodal Fusion for Composed Image Retrieval",
+      "ref_authors_cited": "Wen, Haokun, Song, Xuemeng, Chen, Xiaolin, Wei, Yinwei, Nie, Liqiang, Chua, Tat-Seng",
+      "ref_year_cited": 2024,
+      "ref_url_cited": "https://doi.org/10.1145/3626772.3657727",
+      "ref_raw_text": "@inproceedings{wen2024dqu, ...}",
+      "error_type": "url",
+      "error_details": "Reference could include arXiv URL: https://arxiv.org/abs/2404.15875",
+      "_original_errors": [
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2404.15875",
+          "ref_url_correct": "https://arxiv.org/abs/2404.15875"
+        }
+      ],
+      "original_reference": {
+        "title": "Simple but Effective Raw-Data Level Multimodal Fusion for Composed Image Retrieval",
+        "authors": [
+          "Wen, Haokun",
+          "Song, Xuemeng",
+          "Chen, Xiaolin",
+          "Wei, Yinwei",
+          "Nie, Liqiang",
+          "Chua, Tat-Seng"
+        ],
+        "year": 2024,
+        "journal": "Proceedings of the 47th International ACM SIGIR Conference on Research and Development in Information Retrieval",
+        "doi": "10.1145/3626772.3657727",
+        "url": "https://doi.org/10.1145/3626772.3657727",
+        "type": "non-arxiv",
+        "bibtex_key": "wen2024dqu",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{wen2024dqu, ...}",
+        "pages": "229--239",
+        "organization": ""
+      },
+      "ref_url_correct": "https://arxiv.org/abs/2404.15875",
+      "ref_verified_url": "https://www.semanticscholar.org/paper/ab9c850b716d72646340d4f8bc9436e83d2ff55e",
+      "matched_database": "Semantic Scholar",
+      "ref_standard_format": "arXiv preprint arXiv:2404.15875.",
+      "ref_corrected_plaintext": "Haokun Wen, Xuemeng Song, Xiaolin Chen, Yin-wei Wei, Liqiang Nie, Tat-Seng Chua. (2024). \"Simple but Effective Raw-Data Level Multimodal Fusion for Composed Image Retrieval\". In Annual International ACM SIGIR Conference on Research and Development in Information Retrieval. https://arxiv.org/abs/2404.15875.\n\n% Citation key for BibTeX: @inproceedings{wen2024dqu, ...}",
+      "ref_corrected_bibtex": "@inproceedings{wen2024dqu,\n  author = {Haokun Wen and Xuemeng Song and Xiaolin Chen and Yin-wei Wei and Liqiang Nie and Tat-Seng Chua},\n  title = {Simple but Effective Raw-Data Level Multimodal Fusion for Composed Image Retrieval},\n  booktitle = {Proceedings of the 47th International ACM SIGIR Conference on Research and Development in Information Retrieval},\n  pages = {229--239},\n  year = {2024},\n  url = {https://arxiv.org/abs/2404.15875}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nHaokun Wen, Xuemeng Song, Xiaolin Chen, Yin-wei Wei, Liqiang Nie, Tat-Seng Chua. (2024). \\textit{Simple but Effective Raw-Data Level Multimodal Fusion for Composed Image Retrieval}. In \\textit{Annual International ACM SIGIR Conference on Research and Development in Information Retrieval}. \\url{https://arxiv.org/abs/2404.15875}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "Language-Only Training of Zero-Shot Composed Image Retrieval",
+      "ref_authors_cited": "Gu, Geonmo, Chun, Sanghyuk, Kim, Wonjae, Kang, Yoohoon, Yun, Sangdoo",
+      "ref_year_cited": 2024,
+      "ref_url_cited": "https://doi.org/10.1109/cvpr52733.2024.01256",
+      "ref_raw_text": "@inproceedings{gu2024lincir, ...}",
+      "original_reference": {
+        "title": "Language-Only Training of Zero-Shot Composed Image Retrieval",
+        "authors": [
+          "Gu, Geonmo",
+          "Chun, Sanghyuk",
+          "Kim, Wonjae",
+          "Kang, Yoohoon",
+          "Yun, Sangdoo"
+        ],
+        "year": 2024,
+        "journal": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+        "doi": "10.1109/CVPR52733.2024.01256",
+        "url": "https://doi.org/10.1109/cvpr52733.2024.01256",
+        "type": "non-arxiv",
+        "bibtex_key": "gu2024lincir",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{gu2024lincir, ...}",
+        "pages": "13225--13236",
+        "organization": ""
+      },
+      "ref_year_correct": 2023,
+      "ref_url_correct": "https://arxiv.org/abs/2312.01998",
+      "error_type": "multiple",
+      "error_details": "- Year mismatch:\n       cited:  2024\n       actual: 2023\n- ",
+      "_original_errors": [
+        {
+          "warning_type": "year",
+          "warning_details": "Year mismatch:\n       cited:  2024\n       actual: 2023",
+          "ref_year_correct": 2023
+        },
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2312.01998",
+          "ref_url_correct": "https://arxiv.org/abs/2312.01998"
+        }
+      ],
+      "ref_verified_url": "https://www.semanticscholar.org/paper/15d6053cc60880524c6b01c5364e6e3f4217a522",
+      "matched_database": "Semantic Scholar",
+      "ref_corrected_plaintext": "Geonmo Gu, Sanghyuk Chun, Wonjae Kim, Yoohoon Kang, Sangdoo Yun. (2023). \"Language-only Efficient Training of Zero-shot Composed Image Retrieval\". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/2312.01998.\n\n% Citation key for BibTeX: @inproceedings{gu2024lincir, ...}",
+      "ref_corrected_bibtex": "@inproceedings{gu2024lincir,\n  author = {Geonmo Gu and Sanghyuk Chun and Wonjae Kim and Yoohoon Kang and Sangdoo Yun},\n  title = {Language-only Efficient Training of Zero-shot Composed Image Retrieval},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},\n  pages = {13225--13236},\n  year = {2023},\n  url = {https://arxiv.org/abs/2312.01998}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nGeonmo Gu, Sanghyuk Chun, Wonjae Kim, Yoohoon Kang, Sangdoo Yun. (2023). \\textit{Language-only Efficient Training of Zero-shot Composed Image Retrieval}. In \\textit{Computer Vision and Pattern Recognition}. \\url{https://arxiv.org/abs/2312.01998}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "Knowledge-Enhanced Dual-Stream Zero-Shot Composed Image Retrieval",
+      "ref_authors_cited": "Suo, Yucheng, Ma, Fan, Zhu, Linchao, Yang, Yi",
+      "ref_year_cited": 2024,
+      "ref_url_cited": "https://doi.org/10.1109/cvpr52733.2024.02545",
+      "ref_raw_text": "@inproceedings{suo2024keds, ...}",
+      "error_type": "url",
+      "error_details": "Reference could include arXiv URL: https://arxiv.org/abs/2403.16005",
+      "_original_errors": [
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2403.16005",
+          "ref_url_correct": "https://arxiv.org/abs/2403.16005"
+        }
+      ],
+      "original_reference": {
+        "title": "Knowledge-Enhanced Dual-Stream Zero-Shot Composed Image Retrieval",
+        "authors": [
+          "Suo, Yucheng",
+          "Ma, Fan",
+          "Zhu, Linchao",
+          "Yang, Yi"
+        ],
+        "year": 2024,
+        "journal": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+        "doi": "10.1109/CVPR52733.2024.02545",
+        "url": "https://doi.org/10.1109/cvpr52733.2024.02545",
+        "type": "non-arxiv",
+        "bibtex_key": "suo2024keds",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{suo2024keds, ...}",
+        "pages": "26951--26962",
+        "organization": ""
+      },
+      "ref_url_correct": "https://arxiv.org/abs/2403.16005",
+      "ref_verified_url": "https://www.semanticscholar.org/paper/6e34a65ab45ccbf245f10a65e91215b2278042ed",
+      "matched_database": "Semantic Scholar",
+      "ref_standard_format": "arXiv preprint arXiv:2403.16005.",
+      "ref_corrected_plaintext": "Yuchen Suo, Fan Ma, Linchao Zhu, Yi Yang. (2024). \"Knowledge-Enhanced Dual-Stream Zero-Shot Composed Image Retrieval\". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/2403.16005.\n\n% Citation key for BibTeX: @inproceedings{suo2024keds, ...}",
+      "ref_corrected_bibtex": "@inproceedings{suo2024keds,\n  author = {Yuchen Suo and Fan Ma and Linchao Zhu and Yi Yang},\n  title = {Knowledge-Enhanced Dual-Stream Zero-Shot Composed Image Retrieval},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},\n  pages = {26951--26962},\n  year = {2024},\n  url = {https://arxiv.org/abs/2403.16005}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nYuchen Suo, Fan Ma, Linchao Zhu, Yi Yang. (2024). \\textit{Knowledge-Enhanced Dual-Stream Zero-Shot Composed Image Retrieval}. In \\textit{Computer Vision and Pattern Recognition}. \\url{https://arxiv.org/abs/2403.16005}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "Visual Delta Generator with Large Multi-Modal Models for Semi-Supervised Composed Image Retrieval",
+      "ref_authors_cited": "Jang, Young Kyun, Kim, Donghyun, Meng, Zihang, Huynh, Dat, Lim, Ser-Nam",
+      "ref_year_cited": 2024,
+      "ref_url_cited": "https://doi.org/10.1109/cvpr52733.2024.01590",
+      "ref_raw_text": "@inproceedings{jang2024vdg, ...}",
+      "error_type": "url",
+      "error_details": "Reference could include arXiv URL: https://arxiv.org/abs/2404.15516",
+      "_original_errors": [
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2404.15516",
+          "ref_url_correct": "https://arxiv.org/abs/2404.15516"
+        }
+      ],
+      "original_reference": {
+        "title": "Visual Delta Generator with Large Multi-Modal Models for Semi-Supervised Composed Image Retrieval",
+        "authors": [
+          "Jang, Young Kyun",
+          "Kim, Donghyun",
+          "Meng, Zihang",
+          "Huynh, Dat",
+          "Lim, Ser-Nam"
+        ],
+        "year": 2024,
+        "journal": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+        "doi": "10.1109/CVPR52733.2024.01590",
+        "url": "https://doi.org/10.1109/cvpr52733.2024.01590",
+        "type": "non-arxiv",
+        "bibtex_key": "jang2024vdg",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{jang2024vdg, ...}",
+        "pages": "16805--16814",
+        "organization": ""
+      },
+      "ref_url_correct": "https://arxiv.org/abs/2404.15516",
+      "ref_verified_url": "https://www.semanticscholar.org/paper/d3c2ae1c9bc18b023b58ed5cde0d8b1f7402aae2",
+      "matched_database": "Semantic Scholar",
+      "ref_standard_format": "arXiv preprint arXiv:2404.15516.",
+      "ref_corrected_plaintext": "Young Kyun Jang, Donghyun Kim, Zihang Meng, Dat Huynh, Ser-Nam Lim. (2024). \"Visual Delta Generator with Large Multi-Modal Models for Semi-Supervised Composed Image Retrieval\". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/2404.15516.\n\n% Citation key for BibTeX: @inproceedings{jang2024vdg, ...}",
+      "ref_corrected_bibtex": "@inproceedings{jang2024vdg,\n  author = {Young Kyun Jang and Donghyun Kim and Zihang Meng and Dat Huynh and Ser-Nam Lim},\n  title = {Visual Delta Generator with Large Multi-Modal Models for Semi-Supervised Composed Image Retrieval},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},\n  pages = {16805--16814},\n  year = {2024},\n  url = {https://arxiv.org/abs/2404.15516}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nYoung Kyun Jang, Donghyun Kim, Zihang Meng, Dat Huynh, Ser-Nam Lim. (2024). \\textit{Visual Delta Generator with Large Multi-Modal Models for Semi-Supervised Composed Image Retrieval}. In \\textit{Computer Vision and Pattern Recognition}. \\url{https://arxiv.org/abs/2404.15516}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "{CoLLM}: A Large Language Model for Composed Image Retrieval",
+      "ref_authors_cited": "Huynh, Chuong, Yang, Jinyu, Tawari, Ashish, Shah, Mubarak, Tran, Son, Hamid, Raffay, Chilimbi, Trishul, Shrivastava, Abhinav",
+      "ref_year_cited": 2025,
+      "ref_url_cited": "https://doi.org/10.1109/cvpr52734.2025.00378",
+      "ref_raw_text": "@inproceedings{huynh2025collm, ...}",
+      "error_type": "url",
+      "error_details": "Reference could include arXiv URL: https://arxiv.org/abs/2503.19910",
+      "_original_errors": [
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2503.19910",
+          "ref_url_correct": "https://arxiv.org/abs/2503.19910"
+        }
+      ],
+      "original_reference": {
+        "title": "{CoLLM}: A Large Language Model for Composed Image Retrieval",
+        "authors": [
+          "Huynh, Chuong",
+          "Yang, Jinyu",
+          "Tawari, Ashish",
+          "Shah, Mubarak",
+          "Tran, Son",
+          "Hamid, Raffay",
+          "Chilimbi, Trishul",
+          "Shrivastava, Abhinav"
+        ],
+        "year": 2025,
+        "journal": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+        "doi": "10.1109/CVPR52734.2025.00378",
+        "url": "https://doi.org/10.1109/cvpr52734.2025.00378",
+        "type": "non-arxiv",
+        "bibtex_key": "huynh2025collm",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{huynh2025collm, ...}",
+        "pages": "3994--4004",
+        "organization": ""
+      },
+      "ref_url_correct": "https://arxiv.org/abs/2503.19910",
+      "ref_verified_url": "https://www.semanticscholar.org/paper/ecdbed008d38328141d3eb73d806857ac665c57d",
+      "matched_database": "Semantic Scholar",
+      "ref_standard_format": "arXiv preprint arXiv:2503.19910.",
+      "ref_corrected_plaintext": "Chuong Huynh, Jinyu Yang, Ashish Tawari, Mubarak Shah, Son Tran, Raffay Hamid, Trishul M. Chilimbi, Abhinav Shrivastava. (2025). \"CoLLM: A Large Language Model for Composed Image Retrieval\". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/2503.19910.\n\n% Citation key for BibTeX: @inproceedings{huynh2025collm, ...}",
+      "ref_corrected_bibtex": "@inproceedings{huynh2025collm,\n  author = {Chuong Huynh and Jinyu Yang and Ashish Tawari and Mubarak Shah and Son Tran and Raffay Hamid and Trishul M. Chilimbi and Abhinav Shrivastava},\n  title = {CoLLM: A Large Language Model for Composed Image Retrieval},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},\n  pages = {3994--4004},\n  year = {2025},\n  url = {https://arxiv.org/abs/2503.19910}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nChuong Huynh, Jinyu Yang, Ashish Tawari, Mubarak Shah, Son Tran, Raffay Hamid, Trishul M. Chilimbi, Abhinav Shrivastava. (2025). \\textit{CoLLM: A Large Language Model for Composed Image Retrieval}. In \\textit{Computer Vision and Pattern Recognition}. \\url{https://arxiv.org/abs/2503.19910}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "{ConText-CIR}: Learning from Concepts in Text for Composed Image Retrieval",
+      "ref_authors_cited": "Xing, Eric, Kolouju, Pranavi, Pless, Robert, Stylianou, Abby, Jacobs, Nathan",
+      "ref_year_cited": 2025,
+      "ref_url_cited": "https://openaccess.thecvf.com/content/CVPR2025/html/Xing_ConText-CIR_Learning_from_Concepts_in_Text_for_Composed_Image_Retrieval_CVPR_2025_paper.html",
+      "ref_raw_text": "@inproceedings{xing2025context, ...}",
+      "error_type": "url",
+      "error_details": "Reference could include arXiv URL: https://arxiv.org/abs/2505.20764",
+      "_original_errors": [
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2505.20764",
+          "ref_url_correct": "https://arxiv.org/abs/2505.20764"
+        }
+      ],
+      "original_reference": {
+        "title": "{ConText-CIR}: Learning from Concepts in Text for Composed Image Retrieval",
+        "authors": [
+          "Xing, Eric",
+          "Kolouju, Pranavi",
+          "Pless, Robert",
+          "Stylianou, Abby",
+          "Jacobs, Nathan"
+        ],
+        "year": 2025,
+        "journal": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+        "doi": "",
+        "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Xing_ConText-CIR_Learning_from_Concepts_in_Text_for_Composed_Image_Retrieval_CVPR_2025_paper.html",
+        "type": "non-arxiv",
+        "bibtex_key": "xing2025context",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{xing2025context, ...}",
+        "pages": "19638--19648",
+        "organization": ""
+      },
+      "ref_url_correct": "https://arxiv.org/abs/2505.20764",
+      "ref_verified_url": "https://www.semanticscholar.org/paper/d0c7eb456c6b3c2a39dcedf3f6660a735ad89ba8",
+      "matched_database": "Semantic Scholar",
+      "ref_standard_format": "arXiv preprint arXiv:2505.20764.",
+      "ref_corrected_plaintext": "Eric Xing, Pranavi Kolouju, Robert Pless, Abby Stylianou, Nathan Jacobs. (2025). \"ConText-CIR: Learning from Concepts in Text for Composed Image Retrieval\". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/2505.20764.\n\n% Citation key for BibTeX: @inproceedings{xing2025context, ...}",
+      "ref_corrected_bibtex": "@inproceedings{xing2025context,\n  author = {Eric Xing and Pranavi Kolouju and Robert Pless and Abby Stylianou and Nathan Jacobs},\n  title = {ConText-CIR: Learning from Concepts in Text for Composed Image Retrieval},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},\n  pages = {19638--19648},\n  year = {2025},\n  url = {https://arxiv.org/abs/2505.20764}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nEric Xing, Pranavi Kolouju, Robert Pless, Abby Stylianou, Nathan Jacobs. (2025). \\textit{ConText-CIR: Learning from Concepts in Text for Composed Image Retrieval}. In \\textit{Computer Vision and Pattern Recognition}. \\url{https://arxiv.org/abs/2505.20764}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "Imagine and Seek: Improving Composed Image Retrieval with an Imagined Proxy",
+      "ref_authors_cited": "Li, You, Ma, Fan, Yang, Yi",
+      "ref_year_cited": 2025,
+      "ref_url_cited": "https://doi.org/10.1109/cvpr52734.2025.00377",
+      "ref_raw_text": "@inproceedings{li2025imagine, ...}",
+      "original_reference": {
+        "title": "Imagine and Seek: Improving Composed Image Retrieval with an Imagined Proxy",
+        "authors": [
+          "Li, You",
+          "Ma, Fan",
+          "Yang, Yi"
+        ],
+        "year": 2025,
+        "journal": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+        "doi": "10.1109/CVPR52734.2025.00377",
+        "url": "https://doi.org/10.1109/cvpr52734.2025.00377",
+        "type": "non-arxiv",
+        "bibtex_key": "li2025imagine",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{li2025imagine, ...}",
+        "pages": "3984--3993",
+        "organization": ""
+      },
+      "ref_year_correct": 2024,
+      "ref_url_correct": "https://arxiv.org/abs/2411.16752",
+      "error_type": "multiple",
+      "error_details": "- Year mismatch:\n       cited:  2025\n       actual: 2024\n- ",
+      "_original_errors": [
+        {
+          "warning_type": "year",
+          "warning_details": "Year mismatch:\n       cited:  2025\n       actual: 2024",
+          "ref_year_correct": 2024
+        },
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2411.16752",
+          "ref_url_correct": "https://arxiv.org/abs/2411.16752"
+        }
+      ],
+      "ref_verified_url": "https://www.semanticscholar.org/paper/ed122df553206f27034f159d7e51bd258e80f613",
+      "matched_database": "Semantic Scholar",
+      "ref_corrected_plaintext": "You Li, Fan Ma, Yi Yang. (2024). \"Imagine and Seek: Improving Composed Image Retrieval with an Imagined Proxy\". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/2411.16752.\n\n% Citation key for BibTeX: @inproceedings{li2025imagine, ...}",
+      "ref_corrected_bibtex": "@inproceedings{li2025imagine,\n  author = {You Li and Fan Ma and Yi Yang},\n  title = {Imagine and Seek: Improving Composed Image Retrieval with an Imagined Proxy},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},\n  pages = {3984--3993},\n  year = {2024},\n  url = {https://arxiv.org/abs/2411.16752}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nYou Li, Fan Ma, Yi Yang. (2024). \\textit{Imagine and Seek: Improving Composed Image Retrieval with an Imagined Proxy}. In \\textit{Computer Vision and Pattern Recognition}. \\url{https://arxiv.org/abs/2411.16752}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "Missing Target-Relevant Information Prediction with World Model for Accurate Zero-Shot Composed Image Retrieval",
+      "ref_authors_cited": "Tang, Yuanmin, Yu, Jing, Gai, Keke, Zhuang, Jiamin, Xiong, Gang, Gou, Gaopeng, Wu, Qi",
+      "ref_year_cited": 2025,
+      "ref_url_cited": "https://doi.org/10.1109/cvpr52734.2025.02308",
+      "ref_raw_text": "@inproceedings{tang2025worldmodel, ...}",
+      "error_type": "url",
+      "error_details": "Reference could include arXiv URL: https://arxiv.org/abs/2503.17109",
+      "_original_errors": [
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2503.17109",
+          "ref_url_correct": "https://arxiv.org/abs/2503.17109"
+        }
+      ],
+      "original_reference": {
+        "title": "Missing Target-Relevant Information Prediction with World Model for Accurate Zero-Shot Composed Image Retrieval",
+        "authors": [
+          "Tang, Yuanmin",
+          "Yu, Jing",
+          "Gai, Keke",
+          "Zhuang, Jiamin",
+          "Xiong, Gang",
+          "Gou, Gaopeng",
+          "Wu, Qi"
+        ],
+        "year": 2025,
+        "journal": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+        "doi": "10.1109/CVPR52734.2025.02308",
+        "url": "https://doi.org/10.1109/cvpr52734.2025.02308",
+        "type": "non-arxiv",
+        "bibtex_key": "tang2025worldmodel",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{tang2025worldmodel, ...}",
+        "pages": "",
+        "organization": ""
+      },
+      "ref_url_correct": "https://arxiv.org/abs/2503.17109",
+      "ref_verified_url": "https://www.semanticscholar.org/paper/aa42b6b5757164a6fc8b1a9c765194796a2a447c",
+      "matched_database": "Semantic Scholar",
+      "ref_standard_format": "arXiv preprint arXiv:2503.17109.",
+      "ref_corrected_plaintext": "Yuanmin Tang, Jing Yu, Keke Gai, Jiamin Zhuang, Gang Xiong, Gaopeng Gou, Qi Wu. (2025). \"Missing Target-Relevant Information Prediction with World Model for Accurate Zero-Shot Composed Image Retrieval\". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/2503.17109.\n\n% Citation key for BibTeX: @inproceedings{tang2025worldmodel, ...}",
+      "ref_corrected_bibtex": "@inproceedings{tang2025worldmodel,\n  author = {Yuanmin Tang and Jing Yu and Keke Gai and Jiamin Zhuang and Gang Xiong and Gaopeng Gou and Qi Wu},\n  title = {Missing Target-Relevant Information Prediction with World Model for Accurate Zero-Shot Composed Image Retrieval},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},\n  year = {2025},\n  url = {https://arxiv.org/abs/2503.17109}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nYuanmin Tang, Jing Yu, Keke Gai, Jiamin Zhuang, Gang Xiong, Gaopeng Gou, Qi Wu. (2025). \\textit{Missing Target-Relevant Information Prediction with World Model for Accurate Zero-Shot Composed Image Retrieval}. In \\textit{Computer Vision and Pattern Recognition}. \\url{https://arxiv.org/abs/2503.17109}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "Reason-before-Retrieve: One-Stage Reflective Chain-of-Thoughts for Training-Free Zero-Shot Composed Image Retrieval",
+      "ref_authors_cited": "Tang, Yuanmin, Zhang, Jue, Qin, Xiaoting, Yu, Jing, Gou, Gaopeng, Xiong, Gang, Lin, Qingwei, Rajmohan, Saravan, Zhang, Dongmei, Wu, Qi",
+      "ref_year_cited": 2025,
+      "ref_url_cited": "https://doi.org/10.1109/cvpr52734.2025.01343",
+      "ref_raw_text": "@inproceedings{tang2025reason, ...}",
+      "original_reference": {
+        "title": "Reason-before-Retrieve: One-Stage Reflective Chain-of-Thoughts for Training-Free Zero-Shot Composed Image Retrieval",
+        "authors": [
+          "Tang, Yuanmin",
+          "Zhang, Jue",
+          "Qin, Xiaoting",
+          "Yu, Jing",
+          "Gou, Gaopeng",
+          "Xiong, Gang",
+          "Lin, Qingwei",
+          "Rajmohan, Saravan",
+          "Zhang, Dongmei",
+          "Wu, Qi"
+        ],
+        "year": 2025,
+        "journal": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+        "doi": "10.1109/CVPR52734.2025.01343",
+        "url": "https://doi.org/10.1109/cvpr52734.2025.01343",
+        "type": "non-arxiv",
+        "bibtex_key": "tang2025reason",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{tang2025reason, ...}",
+        "pages": "",
+        "organization": ""
+      },
+      "ref_year_correct": 2024,
+      "ref_url_correct": "https://arxiv.org/abs/2412.11077",
+      "error_type": "multiple",
+      "error_details": "- Year mismatch:\n       cited:  2025\n       actual: 2024\n- ",
+      "_original_errors": [
+        {
+          "warning_type": "year",
+          "warning_details": "Year mismatch:\n       cited:  2025\n       actual: 2024",
+          "ref_year_correct": 2024
+        },
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2412.11077",
+          "ref_url_correct": "https://arxiv.org/abs/2412.11077"
+        }
+      ],
+      "ref_verified_url": "https://www.semanticscholar.org/paper/67a740a01e7a2fe0adf629053685f16aa41abcf9",
+      "matched_database": "Semantic Scholar",
+      "ref_corrected_plaintext": "Yuanmin Tang, X. Qin, Jue Zhang, Jing Yu, Gaopeng Gou, Gang Xiong, Qingwei Ling, S. Rajmohan, Dongmei Zhang, Qi Wu. (2024). \"Reason-before-Retrieve: One-Stage Reflective Chain-of-Thoughts for Training-Free Zero-Shot Composed Image Retrieval\". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/2412.11077.\n\n% Citation key for BibTeX: @inproceedings{tang2025reason, ...}",
+      "ref_corrected_bibtex": "@inproceedings{tang2025reason,\n  author = {Yuanmin Tang and X. Qin and Jue Zhang and Jing Yu and Gaopeng Gou and Gang Xiong and Qingwei Ling and S. Rajmohan and Dongmei Zhang and Qi Wu},\n  title = {Reason-before-Retrieve: One-Stage Reflective Chain-of-Thoughts for Training-Free Zero-Shot Composed Image Retrieval},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},\n  year = {2024},\n  url = {https://arxiv.org/abs/2412.11077}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nYuanmin Tang, X. Qin, Jue Zhang, Jing Yu, Gaopeng Gou, Gang Xiong, Qingwei Ling, S. Rajmohan, Dongmei Zhang, Qi Wu. (2024). \\textit{Reason-before-Retrieve: One-Stage Reflective Chain-of-Thoughts for Training-Free Zero-Shot Composed Image Retrieval}. In \\textit{Computer Vision and Pattern Recognition}. \\url{https://arxiv.org/abs/2412.11077}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "{MCoT-MVS}: Multi-Level Vision Selection by Multi-Modal Chain-of-Thought Reasoning for Composed Image Retrieval",
+      "ref_authors_cited": "Ge, Xuri, Wang, Chunhao, Wang, Xindi, Qin, Zheyun, Chen, Zhumin, Xin, Xin",
+      "ref_year_cited": 2026,
+      "ref_url_cited": "https://doi.org/10.1145/3774904.3792287",
+      "ref_raw_text": "@inproceedings{ge2026mcot, ...}",
+      "error_type": "url",
+      "error_details": "Reference could include arXiv URL: https://arxiv.org/abs/2603.17360",
+      "_original_errors": [
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2603.17360",
+          "ref_url_correct": "https://arxiv.org/abs/2603.17360"
+        }
+      ],
+      "original_reference": {
+        "title": "{MCoT-MVS}: Multi-Level Vision Selection by Multi-Modal Chain-of-Thought Reasoning for Composed Image Retrieval",
+        "authors": [
+          "Ge, Xuri",
+          "Wang, Chunhao",
+          "Wang, Xindi",
+          "Qin, Zheyun",
+          "Chen, Zhumin",
+          "Xin, Xin"
+        ],
+        "year": 2026,
+        "journal": "Proceedings of the ACM Web Conference",
+        "doi": "10.1145/3774904.3792287",
+        "url": "https://doi.org/10.1145/3774904.3792287",
+        "type": "non-arxiv",
+        "bibtex_key": "ge2026mcot",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{ge2026mcot, ...}",
+        "pages": "2105--2113",
+        "organization": ""
+      },
+      "ref_url_correct": "https://arxiv.org/abs/2603.17360",
+      "ref_verified_url": "https://www.semanticscholar.org/paper/1ea8f18dfa4f64894c866a41b009839f05997836",
+      "matched_database": "Semantic Scholar",
+      "ref_standard_format": "arXiv preprint arXiv:2603.17360.",
+      "ref_corrected_plaintext": "Xuri Ge, Chunhao Wang, Xindi Wang, Zheyun Qin, Zhumin Chen, Xin Xin. (2026). \"MCoT-MVS: Multi-level Vision Selection by Multi-modal Chain-of-Thought Reasoning for Composed Image Retrieval\". In The Web Conference. https://arxiv.org/abs/2603.17360.\n\n% Citation key for BibTeX: @inproceedings{ge2026mcot, ...}",
+      "ref_corrected_bibtex": "@inproceedings{ge2026mcot,\n  author = {Xuri Ge and Chunhao Wang and Xindi Wang and Zheyun Qin and Zhumin Chen and Xin Xin},\n  title = {MCoT-MVS: Multi-level Vision Selection by Multi-modal Chain-of-Thought Reasoning for Composed Image Retrieval},\n  booktitle = {Proceedings of the ACM Web Conference},\n  pages = {2105--2113},\n  year = {2026},\n  url = {https://arxiv.org/abs/2603.17360}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nXuri Ge, Chunhao Wang, Xindi Wang, Zheyun Qin, Zhumin Chen, Xin Xin. (2026). \\textit{MCoT-MVS: Multi-level Vision Selection by Multi-modal Chain-of-Thought Reasoning for Composed Image Retrieval}. In \\textit{The Web Conference}. \\url{https://arxiv.org/abs/2603.17360}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "An Efficient Post-hoc Framework for Reducing Task Discrepancy of Text Encoders for Composed Image Retrieval",
+      "ref_authors_cited": "Byun, Jaeseok, Jeong, Seokhyeon, Kim, Wonjae, Chun, Sanghyuk, Moon, Taesup",
+      "ref_year_cited": 2025,
+      "ref_url_cited": "https://doi.org/10.1109/iccv51701.2025.00371",
+      "ref_raw_text": "@inproceedings{byun2025rtd, ...}",
+      "original_reference": {
+        "title": "An Efficient Post-hoc Framework for Reducing Task Discrepancy of Text Encoders for Composed Image Retrieval",
+        "authors": [
+          "Byun, Jaeseok",
+          "Jeong, Seokhyeon",
+          "Kim, Wonjae",
+          "Chun, Sanghyuk",
+          "Moon, Taesup"
+        ],
+        "year": 2025,
+        "journal": "Proceedings of the IEEE/CVF International Conference on Computer Vision",
+        "doi": "10.1109/ICCV51701.2025.00371",
+        "url": "https://doi.org/10.1109/iccv51701.2025.00371",
+        "type": "non-arxiv",
+        "bibtex_key": "byun2025rtd",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{byun2025rtd, ...}",
+        "pages": "3895--3904",
+        "organization": ""
+      },
+      "ref_year_correct": 2024,
+      "ref_url_correct": "https://arxiv.org/abs/2406.09188",
+      "error_type": "multiple",
+      "error_details": "- Year mismatch:\n       cited:  2025\n       actual: 2024\n- ",
+      "_original_errors": [
+        {
+          "warning_type": "year",
+          "warning_details": "Year mismatch:\n       cited:  2025\n       actual: 2024",
+          "ref_year_correct": 2024
+        },
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2406.09188",
+          "ref_url_correct": "https://arxiv.org/abs/2406.09188"
+        }
+      ],
+      "ref_verified_url": "https://www.semanticscholar.org/paper/edfaeea934e851b5ad985c251601a2fedf103319",
+      "matched_database": "Semantic Scholar",
+      "ref_corrected_plaintext": "Jaeseok Byun, Seokhyeon Jeong, Wonjae Kim, Sanghyuk Chun, Taesup Moon. (2024). \"An Efficient Post-Hoc Framework for Reducing Task Discrepancy of Text Encoders for Composed Image Retrieval\". In IEEE International Conference on Computer Vision. https://arxiv.org/abs/2406.09188.\n\n% Citation key for BibTeX: @inproceedings{byun2025rtd, ...}",
+      "ref_corrected_bibtex": "@inproceedings{byun2025rtd,\n  author = {Jaeseok Byun and Seokhyeon Jeong and Wonjae Kim and Sanghyuk Chun and Taesup Moon},\n  title = {An Efficient Post-Hoc Framework for Reducing Task Discrepancy of Text Encoders for Composed Image Retrieval},\n  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision},\n  pages = {3895--3904},\n  year = {2024},\n  url = {https://arxiv.org/abs/2406.09188}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nJaeseok Byun, Seokhyeon Jeong, Wonjae Kim, Sanghyuk Chun, Taesup Moon. (2024). \\textit{An Efficient Post-Hoc Framework for Reducing Task Discrepancy of Text Encoders for Composed Image Retrieval}. In \\textit{IEEE International Conference on Computer Vision}. \\url{https://arxiv.org/abs/2406.09188}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "{ConeSep}: Cone-Based Robust Noise-Unlearning Compositional Network for Composed Image Retrieval",
+      "ref_authors_cited": "Li, Zixu, Hu, Yupeng, Chen, Zhiwei, Zhang, Mingyu, Fu, Zhiheng, Nie, Liqiang",
+      "ref_year_cited": 2026,
+      "ref_url_cited": "https://openaccess.thecvf.com/content/CVPR2026/html/Li_ConeSep_Cone-based_Robust_Noise-Unlearning_Compositional_Network_for_Composed_Image_Retrieval_CVPR_2026_paper.html",
+      "ref_raw_text": "@inproceedings{li2026conesep, ...}",
+      "error_type": "url",
+      "error_details": "Reference could include arXiv URL: https://arxiv.org/abs/2604.20358",
+      "_original_errors": [
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2604.20358",
+          "ref_url_correct": "https://arxiv.org/abs/2604.20358"
+        }
+      ],
+      "original_reference": {
+        "title": "{ConeSep}: Cone-Based Robust Noise-Unlearning Compositional Network for Composed Image Retrieval",
+        "authors": [
+          "Li, Zixu",
+          "Hu, Yupeng",
+          "Chen, Zhiwei",
+          "Zhang, Mingyu",
+          "Fu, Zhiheng",
+          "Nie, Liqiang"
+        ],
+        "year": 2026,
+        "journal": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+        "doi": "",
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Li_ConeSep_Cone-based_Robust_Noise-Unlearning_Compositional_Network_for_Composed_Image_Retrieval_CVPR_2026_paper.html",
+        "type": "non-arxiv",
+        "bibtex_key": "li2026conesep",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{li2026conesep, ...}",
+        "pages": "16897--16909",
+        "organization": ""
+      },
+      "ref_url_correct": "https://arxiv.org/abs/2604.20358",
+      "ref_verified_url": "https://www.semanticscholar.org/paper/99aa6cea4b033adc8a58b11f380ae74827b4f6c5",
+      "matched_database": "Semantic Scholar",
+      "ref_standard_format": "arXiv preprint arXiv:2604.20358.",
+      "ref_corrected_plaintext": "Zixu Li, Yupeng Hu, Zhiwei Chen, Mingyu Zhang, Zhiheng Fu, Liqiang Nie. (2026). \"ConeSep: Cone-based Robust Noise-Unlearning Compositional Network for Composed Image Retrieval\". In arXiv.org. https://arxiv.org/abs/2604.20358.\n\n% Citation key for BibTeX: @inproceedings{li2026conesep, ...}",
+      "ref_corrected_bibtex": "@inproceedings{li2026conesep,\n  author = {Zixu Li and Yupeng Hu and Zhiwei Chen and Mingyu Zhang and Zhiheng Fu and Liqiang Nie},\n  title = {ConeSep: Cone-based Robust Noise-Unlearning Compositional Network for Composed Image Retrieval},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},\n  pages = {16897--16909},\n  year = {2026},\n  url = {https://arxiv.org/abs/2604.20358}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nZixu Li, Yupeng Hu, Zhiwei Chen, Mingyu Zhang, Zhiheng Fu, Liqiang Nie. (2026). \\textit{ConeSep: Cone-based Robust Noise-Unlearning Compositional Network for Composed Image Retrieval}. In \\textit{arXiv.org}. \\url{https://arxiv.org/abs/2604.20358}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "{ReCALL}: Recalibrating Capability Degradation for MLLM-Based Composed Image Retrieval",
+      "ref_authors_cited": "Yang, Tianyu, He, ChenWei, Hao, Xiangzhao, Wang, Tianyue, Guo, Jiarui, Guo, Haiyun, Qu, Leigang, Wang, Jinqiao, Chua, Tat-Seng",
+      "ref_year_cited": 2026,
+      "ref_url_cited": "https://openaccess.thecvf.com/content/CVPR2026/html/Yang_ReCALL_Recalibrating_Capability_Degradation_for_MLLM-based_Composed_Image_Retrieval_CVPR_2026_paper.html",
+      "ref_raw_text": "@inproceedings{yang2026recall, ...}",
+      "error_type": "url",
+      "error_details": "Reference could include arXiv URL: https://arxiv.org/abs/2602.01639",
+      "_original_errors": [
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2602.01639",
+          "ref_url_correct": "https://arxiv.org/abs/2602.01639"
+        }
+      ],
+      "original_reference": {
+        "title": "{ReCALL}: Recalibrating Capability Degradation for MLLM-Based Composed Image Retrieval",
+        "authors": [
+          "Yang, Tianyu",
+          "He, ChenWei",
+          "Hao, Xiangzhao",
+          "Wang, Tianyue",
+          "Guo, Jiarui",
+          "Guo, Haiyun",
+          "Qu, Leigang",
+          "Wang, Jinqiao",
+          "Chua, Tat-Seng"
+        ],
+        "year": 2026,
+        "journal": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+        "doi": "",
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Yang_ReCALL_Recalibrating_Capability_Degradation_for_MLLM-based_Composed_Image_Retrieval_CVPR_2026_paper.html",
+        "type": "non-arxiv",
+        "bibtex_key": "yang2026recall",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{yang2026recall, ...}",
+        "pages": "38763--38773",
+        "organization": ""
+      },
+      "ref_url_correct": "https://arxiv.org/abs/2602.01639",
+      "ref_verified_url": "https://www.semanticscholar.org/paper/dacaede9f9c38c79bac79389477903fab1bd2246",
+      "matched_database": "Semantic Scholar",
+      "ref_standard_format": "arXiv preprint arXiv:2602.01639.",
+      "ref_corrected_plaintext": "Tianyu Yang, ChenWei He, Xiangzhao Hao, Tianyu Wang, Jiarui Guo, Haiyun Guo, Leigang Qu, Jinqiao Wang, Tat-Seng Chua. (2026). \"ReCALL: Recalibrating Capability Degradation for MLLM-based Composed Image Retrieval\". In arXiv.org. https://arxiv.org/abs/2602.01639.\n\n% Citation key for BibTeX: @inproceedings{yang2026recall, ...}",
+      "ref_corrected_bibtex": "@inproceedings{yang2026recall,\n  author = {Tianyu Yang and ChenWei He and Xiangzhao Hao and Tianyu Wang and Jiarui Guo and Haiyun Guo and Leigang Qu and Jinqiao Wang and Tat-Seng Chua},\n  title = {ReCALL: Recalibrating Capability Degradation for MLLM-based Composed Image Retrieval},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},\n  pages = {38763--38773},\n  year = {2026},\n  url = {https://arxiv.org/abs/2602.01639}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nTianyu Yang, ChenWei He, Xiangzhao Hao, Tianyu Wang, Jiarui Guo, Haiyun Guo, Leigang Qu, Jinqiao Wang, Tat-Seng Chua. (2026). \\textit{ReCALL: Recalibrating Capability Degradation for MLLM-based Composed Image Retrieval}. In \\textit{arXiv.org}. \\url{https://arxiv.org/abs/2602.01639}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "{PinPoint}: Evaluation of Composed Image Retrieval with Explicit Negatives, Multi-Image Queries, and Paraphrase Testing",
+      "ref_authors_cited": "Mahadev, Rohan, Yuan, Joyce, Poirson, Patrick, Xue, David, Wu, Hao-Yu, Kislyuk, Dmitry",
+      "ref_year_cited": 2026,
+      "ref_url_cited": "https://openaccess.thecvf.com/content/CVPR2026/html/Mahadev_PinPoint_Evaluation_of_Composed_Image_Retrieval_with_Explicit_Negatives_Multi-Image_CVPR_2026_paper.html",
+      "ref_raw_text": "@inproceedings{mahadev2026pinpoint, ...}",
+      "error_type": "url",
+      "error_details": "Reference could include arXiv URL: https://arxiv.org/abs/2603.04598",
+      "_original_errors": [
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2603.04598",
+          "ref_url_correct": "https://arxiv.org/abs/2603.04598"
+        }
+      ],
+      "original_reference": {
+        "title": "{PinPoint}: Evaluation of Composed Image Retrieval with Explicit Negatives, Multi-Image Queries, and Paraphrase Testing",
+        "authors": [
+          "Mahadev, Rohan",
+          "Yuan, Joyce",
+          "Poirson, Patrick",
+          "Xue, David",
+          "Wu, Hao-Yu",
+          "Kislyuk, Dmitry"
+        ],
+        "year": 2026,
+        "journal": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+        "doi": "",
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Mahadev_PinPoint_Evaluation_of_Composed_Image_Retrieval_with_Explicit_Negatives_Multi-Image_CVPR_2026_paper.html",
+        "type": "non-arxiv",
+        "bibtex_key": "mahadev2026pinpoint",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{mahadev2026pinpoint, ...}",
+        "pages": "9742--9751",
+        "organization": ""
+      },
+      "ref_url_correct": "https://arxiv.org/abs/2603.04598",
+      "ref_verified_url": "https://www.semanticscholar.org/paper/15635dc1c18798b068521b81e76b049f266feda2",
+      "matched_database": "Semantic Scholar",
+      "ref_standard_format": "arXiv preprint arXiv:2603.04598.",
+      "ref_corrected_plaintext": "Rohan Mahadev, Joyce Yuan, Patrick Poirson, David Xue, Haoning Wu, Dmitry Kislyuk. (2026). \"PinPoint: Evaluation of Composed Image Retrieval with Explicit Negatives, Multi-Image Queries, and Paraphrase Testing\". In arXiv.org. https://arxiv.org/abs/2603.04598.\n\n% Citation key for BibTeX: @inproceedings{mahadev2026pinpoint, ...}",
+      "ref_corrected_bibtex": "@inproceedings{mahadev2026pinpoint,\n  author = {Rohan Mahadev and Joyce Yuan and Patrick Poirson and David Xue and Haoning Wu and Dmitry Kislyuk},\n  title = {PinPoint: Evaluation of Composed Image Retrieval with Explicit Negatives, Multi-Image Queries, and Paraphrase Testing},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},\n  pages = {9742--9751},\n  year = {2026},\n  url = {https://arxiv.org/abs/2603.04598}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nRohan Mahadev, Joyce Yuan, Patrick Poirson, David Xue, Haoning Wu, Dmitry Kislyuk. (2026). \\textit{PinPoint: Evaluation of Composed Image Retrieval with Explicit Negatives, Multi-Image Queries, and Paraphrase Testing}. In \\textit{arXiv.org}. \\url{https://arxiv.org/abs/2603.04598}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "{SAC}: Semantic Attention Composition for Text-Conditioned Image Retrieval",
+      "ref_authors_cited": "Jandial, Surgan, Badjatiya, Pinkesh, Chawla, Pranit, Chopra, Ayush, Sarkar, Mausoom, Krishnamurthy, Balaji",
+      "ref_year_cited": 2022,
+      "ref_url_cited": "",
+      "ref_raw_text": "@inproceedings{jandial2022sac, ...}",
+      "original_reference": {
+        "title": "{SAC}: Semantic Attention Composition for Text-Conditioned Image Retrieval",
+        "authors": [
+          "Jandial, Surgan",
+          "Badjatiya, Pinkesh",
+          "Chawla, Pranit",
+          "Chopra, Ayush",
+          "Sarkar, Mausoom",
+          "Krishnamurthy, Balaji"
+        ],
+        "year": 2022,
+        "journal": "Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision",
+        "doi": "",
+        "url": "",
+        "type": "other",
+        "bibtex_key": "jandial2022sac",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{jandial2022sac, ...}",
+        "pages": "4021--4030",
+        "organization": ""
+      },
+      "ref_year_correct": 2020,
+      "ref_url_correct": "https://arxiv.org/abs/2009.01485",
+      "error_type": "multiple",
+      "error_details": "- Year mismatch:\n       cited:  2022\n       actual: 2020\n- ",
+      "_original_errors": [
+        {
+          "warning_type": "year",
+          "warning_details": "Year mismatch:\n       cited:  2022\n       actual: 2020",
+          "ref_year_correct": 2020
+        },
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2009.01485",
+          "ref_url_correct": "https://arxiv.org/abs/2009.01485"
+        }
+      ],
+      "ref_verified_url": "https://www.semanticscholar.org/paper/711c018aac7305344e247e038c683cb9de589719",
+      "matched_database": "Semantic Scholar",
+      "ref_corrected_plaintext": "Surgan Jandial, Pinkesh Badjatiya, Pranit Chawla, Ayush Chopra, Mausoom Sarkar, Balaji Krishnamurthy. (2020). \"SAC: Semantic Attention Composition for Text-Conditioned Image Retrieval\". In IEEE Workshop/Winter Conference on Applications of Computer Vision. https://arxiv.org/abs/2009.01485.\n\n% Citation key for BibTeX: @inproceedings{jandial2022sac, ...}",
+      "ref_corrected_bibtex": "@inproceedings{jandial2022sac,\n  author = {Surgan Jandial and Pinkesh Badjatiya and Pranit Chawla and Ayush Chopra and Mausoom Sarkar and Balaji Krishnamurthy},\n  title = {SAC: Semantic Attention Composition for Text-Conditioned Image Retrieval},\n  booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision},\n  pages = {4021--4030},\n  year = {2020},\n  url = {https://arxiv.org/abs/2009.01485}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nSurgan Jandial, Pinkesh Badjatiya, Pranit Chawla, Ayush Chopra, Mausoom Sarkar, Balaji Krishnamurthy. (2020). \\textit{SAC: Semantic Attention Composition for Text-Conditioned Image Retrieval}. In \\textit{IEEE Workshop/Winter Conference on Applications of Computer Vision}. \\url{https://arxiv.org/abs/2009.01485}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "{ARTEMIS}: Attention-Based Retrieval With Text-Explicit Matching and Implicit Similarity",
+      "ref_authors_cited": "Delmas, Ginger, de Rezende, Rafael Sampaio, Csurka, Gabriela, Larlus, Diane",
+      "ref_year_cited": 2022,
+      "ref_url_cited": "",
+      "ref_raw_text": "@inproceedings{delmas2022artemis, ...}",
+      "error_type": "url",
+      "error_details": "Reference could include arXiv URL: https://arxiv.org/abs/2203.08101",
+      "_original_errors": [
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2203.08101",
+          "ref_url_correct": "https://arxiv.org/abs/2203.08101"
+        }
+      ],
+      "original_reference": {
+        "title": "{ARTEMIS}: Attention-Based Retrieval With Text-Explicit Matching and Implicit Similarity",
+        "authors": [
+          "Delmas, Ginger",
+          "de Rezende, Rafael Sampaio",
+          "Csurka, Gabriela",
+          "Larlus, Diane"
+        ],
+        "year": 2022,
+        "journal": "Proceedings of the International Conference on Learning Representations",
+        "doi": "",
+        "url": "",
+        "type": "other",
+        "bibtex_key": "delmas2022artemis",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{delmas2022artemis, ...}",
+        "pages": "",
+        "organization": ""
+      },
+      "ref_url_correct": "https://arxiv.org/abs/2203.08101",
+      "ref_verified_url": "https://www.semanticscholar.org/paper/69778262994c3183ac02c7e535a3e9256c5231fa",
+      "matched_database": "Semantic Scholar",
+      "ref_standard_format": "arXiv preprint arXiv:2203.08101.",
+      "ref_corrected_plaintext": "Ginger Delmas, Rafael Sampaio de Rezende, G. Csurka, Diane Larlus. (2022). \"ARTEMIS: Attention-based Retrieval with Text-Explicit Matching and Implicit Similarity\". https://arxiv.org/abs/2203.08101.\n\n% Citation key for BibTeX: @inproceedings{delmas2022artemis, ...}",
+      "ref_corrected_bibtex": "@inproceedings{delmas2022artemis,\n  author = {Ginger Delmas and Rafael Sampaio de Rezende and G. Csurka and Diane Larlus},\n  title = {ARTEMIS: Attention-based Retrieval with Text-Explicit Matching and Implicit Similarity},\n  booktitle = {Proceedings of the International Conference on Learning Representations},\n  year = {2022},\n  url = {https://arxiv.org/abs/2203.08101}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nGinger Delmas, Rafael Sampaio de Rezende, G. Csurka, Diane Larlus. (2022). \\textit{ARTEMIS: Attention-based Retrieval with Text-Explicit Matching and Implicit Similarity}. \\url{https://arxiv.org/abs/2203.08101}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "{Pic2Word}: Mapping Pictures to Words for Zero-Shot Composed Image Retrieval",
+      "ref_authors_cited": "Saito, Kuniaki, Sohn, Kihyuk, Zhang, Xiang, Li, Chun-Liang, Lee, Chen-Yu, Saenko, Kate, Pfister, Tomas",
+      "ref_year_cited": 2023,
+      "ref_url_cited": "",
+      "ref_raw_text": "@inproceedings{saito2023pic2word, ...}",
+      "error_type": "url",
+      "error_details": "Reference could include arXiv URL: https://arxiv.org/abs/2302.03084",
+      "_original_errors": [
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2302.03084",
+          "ref_url_correct": "https://arxiv.org/abs/2302.03084"
+        }
+      ],
+      "original_reference": {
+        "title": "{Pic2Word}: Mapping Pictures to Words for Zero-Shot Composed Image Retrieval",
+        "authors": [
+          "Saito, Kuniaki",
+          "Sohn, Kihyuk",
+          "Zhang, Xiang",
+          "Li, Chun-Liang",
+          "Lee, Chen-Yu",
+          "Saenko, Kate",
+          "Pfister, Tomas"
+        ],
+        "year": 2023,
+        "journal": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+        "doi": "",
+        "url": "",
+        "type": "other",
+        "bibtex_key": "saito2023pic2word",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{saito2023pic2word, ...}",
+        "pages": "19305--19314",
+        "organization": ""
+      },
+      "ref_url_correct": "https://arxiv.org/abs/2302.03084",
+      "ref_verified_url": "https://www.semanticscholar.org/paper/9b897a8739f04fa4eff7431fd8a3c547b49f4878",
+      "matched_database": "Semantic Scholar",
+      "ref_standard_format": "arXiv preprint arXiv:2302.03084.",
+      "ref_corrected_plaintext": "Kuniaki Saito, Kihyuk Sohn, Xiang Zhang, Chun-Liang Li, Chen-Yu Lee, Kate Saenko, Tomas Pfister. (2023). \"Pic2Word: Mapping Pictures to Words for Zero-shot Composed Image Retrieval\". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/2302.03084.\n\n% Citation key for BibTeX: @inproceedings{saito2023pic2word, ...}",
+      "ref_corrected_bibtex": "@inproceedings{saito2023pic2word,\n  author = {Kuniaki Saito and Kihyuk Sohn and Xiang Zhang and Chun-Liang Li and Chen-Yu Lee and Kate Saenko and Tomas Pfister},\n  title = {Pic2Word: Mapping Pictures to Words for Zero-shot Composed Image Retrieval},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},\n  pages = {19305--19314},\n  year = {2023},\n  url = {https://arxiv.org/abs/2302.03084}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nKuniaki Saito, Kihyuk Sohn, Xiang Zhang, Chun-Liang Li, Chen-Yu Lee, Kate Saenko, Tomas Pfister. (2023). \\textit{Pic2Word: Mapping Pictures to Words for Zero-shot Composed Image Retrieval}. In \\textit{Computer Vision and Pattern Recognition}. \\url{https://arxiv.org/abs/2302.03084}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "Zero-Shot Composed Image Retrieval With Textual Inversion",
+      "ref_authors_cited": "Baldrati, Alberto, Agnolucci, Lorenzo, Bertini, Marco, Del Bimbo, Alberto",
+      "ref_year_cited": 2023,
+      "ref_url_cited": "",
+      "ref_raw_text": "@inproceedings{baldrati2023searle, ...}",
+      "error_type": "url",
+      "error_details": "Reference could include arXiv URL: https://arxiv.org/abs/2303.15247",
+      "_original_errors": [
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2303.15247",
+          "ref_url_correct": "https://arxiv.org/abs/2303.15247"
+        }
+      ],
+      "original_reference": {
+        "title": "Zero-Shot Composed Image Retrieval With Textual Inversion",
+        "authors": [
+          "Baldrati, Alberto",
+          "Agnolucci, Lorenzo",
+          "Bertini, Marco",
+          "Del Bimbo, Alberto"
+        ],
+        "year": 2023,
+        "journal": "Proceedings of the IEEE/CVF International Conference on Computer Vision",
+        "doi": "",
+        "url": "",
+        "type": "other",
+        "bibtex_key": "baldrati2023searle",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{baldrati2023searle, ...}",
+        "pages": "15338--15347",
+        "organization": ""
+      },
+      "ref_url_correct": "https://arxiv.org/abs/2303.15247",
+      "ref_verified_url": "https://www.semanticscholar.org/paper/efff9573876f0b704e08fdaf0bf5779ae3b151f1",
+      "matched_database": "Semantic Scholar",
+      "ref_standard_format": "arXiv preprint arXiv:2303.15247.",
+      "ref_corrected_plaintext": "Alberto Baldrati, Lorenzo Agnolucci, Marco Bertini, A. Bimbo. (2023). \"Zero-Shot Composed Image Retrieval with Textual Inversion\". In IEEE International Conference on Computer Vision. https://arxiv.org/abs/2303.15247.\n\n% Citation key for BibTeX: @inproceedings{baldrati2023searle, ...}",
+      "ref_corrected_bibtex": "@inproceedings{baldrati2023searle,\n  author = {Alberto Baldrati and Lorenzo Agnolucci and Marco Bertini and A. Bimbo},\n  title = {Zero-Shot Composed Image Retrieval with Textual Inversion},\n  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision},\n  pages = {15338--15347},\n  year = {2023},\n  url = {https://arxiv.org/abs/2303.15247}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nAlberto Baldrati, Lorenzo Agnolucci, Marco Bertini, A. Bimbo. (2023). \\textit{Zero-Shot Composed Image Retrieval with Textual Inversion}. In \\textit{IEEE International Conference on Computer Vision}. \\url{https://arxiv.org/abs/2303.15247}."
+    },
+    {
+      "source_paper_id": "local_main",
+      "source_title": "Main",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib",
+      "ref_paper_id": null,
+      "ref_title": "{CompoDiff}: Versatile Composed Image Retrieval With Latent Diffusion",
+      "ref_authors_cited": "Gu, Geonmo, Chun, Sanghyuk, Jun, HeeJae, Kang, Yoohoon, Kim, Wonjae, Yun, Sangdoo",
+      "ref_year_cited": 2024,
+      "ref_url_cited": "",
+      "ref_raw_text": "@article{gu2024compodiff, ...}",
+      "original_reference": {
+        "title": "{CompoDiff}: Versatile Composed Image Retrieval With Latent Diffusion",
+        "authors": [
+          "Gu, Geonmo",
+          "Chun, Sanghyuk",
+          "Jun, HeeJae",
+          "Kang, Yoohoon",
+          "Kim, Wonjae",
+          "Yun, Sangdoo"
+        ],
+        "year": 2024,
+        "journal": "Transactions on Machine Learning Research",
+        "doi": "",
+        "url": "",
+        "type": "other",
+        "bibtex_key": "gu2024compodiff",
+        "bibtex_type": "article",
+        "raw_text": "@article{gu2024compodiff, ...}",
+        "volume": "",
+        "number": "",
+        "pages": ""
+      },
+      "ref_year_correct": 2023,
+      "ref_url_correct": "https://arxiv.org/abs/2303.11916",
+      "error_type": "multiple",
+      "error_details": "- Year mismatch:\n       cited:  2024\n       actual: 2023\n- ",
+      "_original_errors": [
+        {
+          "warning_type": "year",
+          "warning_details": "Year mismatch:\n       cited:  2024\n       actual: 2023",
+          "ref_year_correct": 2023
+        },
+        {
+          "info_type": "url",
+          "info_details": "Reference could include arXiv URL: https://arxiv.org/abs/2303.11916",
+          "ref_url_correct": "https://arxiv.org/abs/2303.11916"
+        }
+      ],
+      "ref_verified_url": "https://www.semanticscholar.org/paper/b6eb82fc94cacdf4575fe509ef437634bf090ac2",
+      "matched_database": "Semantic Scholar",
+      "ref_corrected_plaintext": "Geonmo Gu, Sanghyuk Chun, Wonjae Kim, Heejae Jun, Yoohoon Kang, Sangdoo Yun. (2023). \"CompoDiff: Versatile Composed Image Retrieval With Latent Diffusion\". In Trans. Mach. Learn. Res.. https://arxiv.org/abs/2303.11916.\n\n% Citation key for BibTeX: @article{gu2024compodiff, ...}",
+      "ref_corrected_bibtex": "@article{gu2024compodiff,\n  author = {Geonmo Gu and Sanghyuk Chun and Wonjae Kim and Heejae Jun and Yoohoon Kang and Sangdoo Yun},\n  title = {CompoDiff: Versatile Composed Image Retrieval With Latent Diffusion},\n  journal = {Transactions on Machine Learning Research},\n  year = {2023},\n  url = {https://arxiv.org/abs/2303.11916}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nGeonmo Gu, Sanghyuk Chun, Wonjae Kim, Heejae Jun, Yoohoon Kang, Sangdoo Yun. (2023). \\textit{CompoDiff: Versatile Composed Image Retrieval With Latent Diffusion}. In \\textit{Trans. Mach. Learn. Res.}. \\url{https://arxiv.org/abs/2303.11916}."
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 CrossPath is research code for combining two frozen composed-image-retrieval (CIR) endpoints through cross-compatible query/gallery paths and conservative, cutoff-aware routing.
 
-This repository is a public research snapshot. It contains the method implementation, tests, experiment commands, machine-readable result artifacts, and the append-only E0–E22 experiment log. Large endpoint checkpoints and third-party datasets are not redistributed because of size and licensing constraints.
+This repository is a public research snapshot. It contains the method implementation, tests, experiment commands, machine-readable result artifacts, and the append-only E0–E28 experiment log. Large endpoint checkpoints and third-party datasets are not redistributed because of size and licensing constraints.
 
 ## Current results
 
@@ -10,10 +10,13 @@ This repository is a public research snapshot. It contains the method implementa
 |---|---|---|
 | FashionGen-val / FashionMV official gallery | Base endpoint | R@1 42.73 / R@5 79.26 / R@10 87.75 |
 | FashionGen-val / FashionMV official gallery | CrossPath joint routing | **R@1 44.09 / R@5 80.36 / R@10 88.28** |
-| FashionIQ / DQU-CIR val-split | Reproduced DQU-CIR base | R@10 61.98 / R@50 81.57 |
-| FashionIQ / DQU-CIR val-split | Cross-compatible mean | **R@10 62.85 / R@50 82.03** |
+| FashionIQ / val-split | MCoT-MVS same-pipeline endpoint | R@10 63.56 / R@50 82.33 |
+| FashionIQ / val-split | DQU Base × MCoT cross mean | **R@10 64.61** / R@50 82.57 |
+| FashionIQ / val-split | DQU GradCache × MCoT cross mean | R@10 64.58 / **R@50 82.82** |
 
-The FashionIQ result is near the MCoT-MVS result of 63.24/82.01 under the same val-split convention: it is higher at R@50 by 0.02 and lower at R@10 by 0.39. We therefore do not claim overall FashionIQ SOTA. Full comparisons and protocol notes are in [03_MAIN_TABLE.md](03_MAIN_TABLE.md).
+Under a uniform source-exclusion evaluator, heterogeneous CrossPath improves the same-pipeline MCoT-MVS endpoint by +1.02 R@10 and +0.48 R@50. An author-code-aligned evaluation that retains the source image gives 64.16/82.68, versus 62.95/82.14 for MCoT-MVS in the identical embedding evaluator. Full comparisons and protocol notes are in [03_MAIN_TABLE.md](03_MAIN_TABLE.md).
+
+A coordinate-scrambling control preserves both endpoint rankings to numerical precision while reducing the FashionIQ cross path from 64.58/82.82 to 0.85/3.08 R@10/R@50. This isolates the result to genuine cross-coordinate compatibility rather than endpoint ensembling alone.
 
 ## Repository contents
 
@@ -25,9 +28,11 @@ The FashionIQ result is near the MCoT-MVS result of 63.24/82.01 under the same v
 - `weave_train_relational_crosspath.py`: the E19 single-endpoint relational-composer pilot.
 - `weave_extract_dqu_branches.py` / `weave_train_composition_crosspath.py`: the E20–E21 full-gallery composition experiments.
 - `weave_extract_crosspath_*.py`: endpoint embedding export for FashionMV/ProCIR and FashionIQ/DQU-CIR.
-- `scripts/`: exact experiment orchestration and zero-parameter compatibility evaluators.
+- `scripts/`: exact experiment orchestration, zero-parameter evaluators, and regression tests.
 - `results/`: table-level JSON manifests and NPZ evaluation artifacts.
-- `experiment.md`: append-only E0–E22 experiment record, including rejected variants.
+- `paper_assets/`: main-table CSVs, deterministic case manifests, camera-ready
+  figures, and an editable CrossPath framework diagram.
+- `experiment.md`: append-only E0–E28 experiment record, including rejected variants.
 - `test_weave_*.py`: method and protocol regression tests.
 
 ## Quick verification

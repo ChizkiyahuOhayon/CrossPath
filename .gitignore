@@ -12,3 +12,23 @@ CrossPath_项目进展汇报_2026-08-16/
 00_STRATEGY_AND_CLAIMS.md
 01_PAPER_DRAFT_EN.md
 02_EXPERIMENT_COMPLETION_PLAN.md
+
+# Licensed benchmark images copied locally for paper figures; never redistribute.
+paper_assets/source_images/
+results/e25_cirr/qualitative_export/
+results/e25_cirr/qualitative_export.tar.gz
+
+# Internal reviewer material and binary release artifacts.
+comment/
+release/checkpoints/*.pt
+release/checkpoints/*.zip
+
+# LaTeX intermediates; keep the compiled paper PDF.
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.brf
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out

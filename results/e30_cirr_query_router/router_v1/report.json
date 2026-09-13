@@ -1,0 +1,186 @@
+{
+  "actions": [
+    "mcot",
+    "q1_g0_a0.125",
+    "q1_g0_a0.25",
+    "q1_g0_a0.375",
+    "q1_g0_a0.5",
+    "q1_g0_a0.75",
+    "q1_g0_a1",
+    "cross_mean_a0.125",
+    "cross_mean_a0.25",
+    "cross_mean_a0.375",
+    "cross_mean_a0.5",
+    "cross_mean_a0.75",
+    "cross_mean_a1"
+  ],
+  "evaluation": {
+    "action_counts": {
+      "0": 4181
+    },
+    "base": {
+      "Avg": 81.643148,
+      "R@1": 54.93901,
+      "R@10": 91.891892,
+      "R@5": 85.266683,
+      "R@50": 98.493183,
+      "subset_R@1": 78.019613,
+      "subset_R@2": 91.939727,
+      "subset_R@3": 96.675436
+    },
+    "fixed": {
+      "Avg": 81.643148,
+      "R@1": 54.93901,
+      "R@10": 91.891892,
+      "R@5": 85.266683,
+      "R@50": 98.493183,
+      "subset_R@1": 78.019613,
+      "subset_R@2": 91.939727,
+      "subset_R@3": 96.675436
+    },
+    "intervention_rate": 0.0,
+    "oracle": {
+      "Avg": 87.144224,
+      "R@1": 57.569959,
+      "R@10": 92.896436,
+      "R@5": 89.81105,
+      "R@50": 98.660608,
+      "subset_R@1": 84.477398,
+      "subset_R@2": 93.398708,
+      "subset_R@3": 97.225544
+    },
+    "queries": 4181,
+    "router": {
+      "Avg": 81.643148,
+      "R@1": 54.93901,
+      "R@10": 91.891892,
+      "R@5": 85.266683,
+      "R@50": 98.493183,
+      "subset_R@1": 78.019613,
+      "subset_R@2": 91.939727,
+      "subset_R@3": 96.675436
+    }
+  },
+  "fixed_action": 0,
+  "fixed_action_name": "mcot",
+  "history": [
+    {
+      "development_Avg": 83.99856596558318,
+      "development_intervention_rate": 0.0,
+      "epoch": 1,
+      "threshold": Infinity,
+      "train_loss": 1.1121024795067616
+    },
+    {
+      "development_Avg": 83.99856596558318,
+      "development_intervention_rate": 0.0,
+      "epoch": 2,
+      "threshold": Infinity,
+      "train_loss": 0.7865258004420843
+    },
+    {
+      "development_Avg": 83.99856596558318,
+      "development_intervention_rate": 0.0,
+      "epoch": 3,
+      "threshold": Infinity,
+      "train_loss": 0.6557913743532621
+    },
+    {
+      "development_Avg": 83.99856596558318,
+      "development_intervention_rate": 0.0,
+      "epoch": 4,
+      "threshold": Infinity,
+      "train_loss": 0.5469716745309341
+    },
+    {
+      "development_Avg": 83.99856596558318,
+      "development_intervention_rate": 0.0,
+      "epoch": 5,
+      "threshold": Infinity,
+      "train_loss": 0.47252583007017773
+    },
+    {
+      "development_Avg": 83.99856596558318,
+      "development_intervention_rate": 0.0,
+      "epoch": 6,
+      "threshold": Infinity,
+      "train_loss": 0.4162033131489387
+    },
+    {
+      "development_Avg": 83.99856596558318,
+      "development_intervention_rate": 0.0,
+      "epoch": 7,
+      "threshold": Infinity,
+      "train_loss": 0.3938178483110208
+    },
+    {
+      "development_Avg": 83.99856596558318,
+      "development_intervention_rate": 0.0,
+      "epoch": 8,
+      "threshold": Infinity,
+      "train_loss": 0.36490004815352267
+    },
+    {
+      "development_Avg": 83.99856596558318,
+      "development_intervention_rate": 0.0,
+      "epoch": 9,
+      "threshold": Infinity,
+      "train_loss": 0.34307341545056075
+    },
+    {
+      "development_Avg": 83.99856596558318,
+      "development_intervention_rate": 0.0,
+      "epoch": 10,
+      "threshold": Infinity,
+      "train_loss": 0.3383063188730142
+    }
+  ],
+  "internal_test": {
+    "action_counts": {
+      "0": 4246
+    },
+    "base": {
+      "Avg": 84.715026,
+      "R@1": 48.65756,
+      "R@10": 93.947244,
+      "R@5": 84.809232,
+      "R@50": 99.905794,
+      "subset_R@1": 84.62082,
+      "subset_R@2": 95.619407,
+      "subset_R@3": 98.79887
+    },
+    "fixed": {
+      "Avg": 84.715026,
+      "R@1": 48.65756,
+      "R@10": 93.947244,
+      "R@5": 84.809232,
+      "R@50": 99.905794,
+      "subset_R@1": 84.62082,
+      "subset_R@2": 95.619407,
+      "subset_R@3": 98.79887
+    },
+    "intervention_rate": 0.0,
+    "oracle": {
+      "Avg": 89.437117,
+      "R@1": 50.0,
+      "R@10": 94.606689,
+      "R@5": 89.967028,
+      "R@50": 99.905794,
+      "subset_R@1": 88.907207,
+      "subset_R@2": 96.373057,
+      "subset_R@3": 98.963731
+    },
+    "queries": 4246,
+    "router": {
+      "Avg": 84.715026,
+      "R@1": 48.65756,
+      "R@10": 93.947244,
+      "R@5": 84.809232,
+      "R@50": 99.905794,
+      "subset_R@1": 84.62082,
+      "subset_R@2": 95.619407,
+      "subset_R@3": 98.79887
+    }
+  },
+  "threshold": Infinity
+}

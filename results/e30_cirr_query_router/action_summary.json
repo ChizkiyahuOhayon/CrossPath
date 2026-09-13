@@ -1,0 +1,1062 @@
+{
+  "development": {
+    "actions": {
+      "cross_mean_a0.125": {
+        "global_R@5": {
+          "recoveries": 62,
+          "regressions": 60
+        },
+        "metrics": {
+          "Avg": 83.783461,
+          "R@1": 48.231358,
+          "R@10": 94.16826,
+          "R@5": 84.751434,
+          "R@50": 99.832696,
+          "subset_R@1": 82.815488,
+          "subset_R@2": 96.056405,
+          "subset_R@3": 98.924474
+        },
+        "subset_R@1": {
+          "recoveries": 31,
+          "regressions": 51
+        }
+      },
+      "cross_mean_a0.25": {
+        "global_R@5": {
+          "recoveries": 93,
+          "regressions": 107
+        },
+        "metrics": {
+          "Avg": 83.424952,
+          "R@1": 47.227533,
+          "R@10": 93.73805,
+          "R@5": 84.369025,
+          "R@50": 99.784895,
+          "subset_R@1": 82.48088,
+          "subset_R@2": 95.865201,
+          "subset_R@3": 98.900574
+        },
+        "subset_R@1": {
+          "recoveries": 58,
+          "regressions": 92
+        }
+      },
+      "cross_mean_a0.375": {
+        "global_R@5": {
+          "recoveries": 116,
+          "regressions": 175
+        },
+        "metrics": {
+          "Avg": 82.576482,
+          "R@1": 46.032505,
+          "R@10": 93.021033,
+          "R@5": 83.293499,
+          "R@50": 99.713193,
+          "subset_R@1": 81.859465,
+          "subset_R@2": 95.482792,
+          "subset_R@3": 98.900574
+        },
+        "subset_R@1": {
+          "recoveries": 85,
+          "regressions": 145
+        }
+      },
+      "cross_mean_a0.5": {
+        "global_R@5": {
+          "recoveries": 125,
+          "regressions": 257
+        },
+        "metrics": {
+          "Avg": 81.297801,
+          "R@1": 45.148184,
+          "R@10": 92.471319,
+          "R@5": 81.548757,
+          "R@50": 99.617591,
+          "subset_R@1": 81.046845,
+          "subset_R@2": 95.100382,
+          "subset_R@3": 98.709369
+        },
+        "subset_R@1": {
+          "recoveries": 109,
+          "regressions": 203
+        }
+      },
+      "cross_mean_a0.75": {
+        "global_R@5": {
+          "recoveries": 136,
+          "regressions": 401
+        },
+        "metrics": {
+          "Avg": 78.692639,
+          "R@1": 43.212237,
+          "R@10": 89.818356,
+          "R@5": 78.369981,
+          "R@50": 99.378585,
+          "subset_R@1": 79.015296,
+          "subset_R@2": 94.024857,
+          "subset_R@3": 98.159656
+        },
+        "subset_R@1": {
+          "recoveries": 141,
+          "regressions": 320
+        }
+      },
+      "cross_mean_a1": {
+        "global_R@5": {
+          "recoveries": 143,
+          "regressions": 551
+        },
+        "metrics": {
+          "Avg": 75.932122,
+          "R@1": 41.013384,
+          "R@10": 86.567878,
+          "R@5": 74.952199,
+          "R@50": 98.804971,
+          "subset_R@1": 76.912046,
+          "subset_R@2": 92.543021,
+          "subset_R@3": 97.538241
+        },
+        "subset_R@1": {
+          "recoveries": 171,
+          "regressions": 438
+        }
+      },
+      "mcot": {
+        "global_R@5": {
+          "recoveries": 0,
+          "regressions": 0
+        },
+        "metrics": {
+          "Avg": 83.998566,
+          "R@1": 48.255258,
+          "R@10": 94.359465,
+          "R@5": 84.703633,
+          "R@50": 99.856597,
+          "subset_R@1": 83.293499,
+          "subset_R@2": 96.104207,
+          "subset_R@3": 98.948375
+        },
+        "subset_R@1": {
+          "recoveries": 0,
+          "regressions": 0
+        }
+      },
+      "q1_g0_a0.125": {
+        "global_R@5": {
+          "recoveries": 63,
+          "regressions": 91
+        },
+        "metrics": {
+          "Avg": 83.75956,
+          "R@1": 47.609943,
+          "R@10": 93.714149,
+          "R@5": 84.034417,
+          "R@50": 99.737094,
+          "subset_R@1": 83.484704,
+          "subset_R@2": 96.104207,
+          "subset_R@3": 99.067878
+        },
+        "subset_R@1": {
+          "recoveries": 52,
+          "regressions": 44
+        }
+      },
+      "q1_g0_a0.25": {
+        "global_R@5": {
+          "recoveries": 97,
+          "regressions": 196
+        },
+        "metrics": {
+          "Avg": 82.827438,
+          "R@1": 45.960803,
+          "R@10": 92.351816,
+          "R@5": 82.337476,
+          "R@50": 99.689293,
+          "subset_R@1": 83.3174,
+          "subset_R@2": 95.769598,
+          "subset_R@3": 98.900574
+        },
+        "subset_R@1": {
+          "recoveries": 94,
+          "regressions": 93
+        }
+      },
+      "q1_g0_a0.375": {
+        "global_R@5": {
+          "recoveries": 108,
+          "regressions": 309
+        },
+        "metrics": {
+          "Avg": 81.297801,
+          "R@1": 44.192161,
+          "R@10": 90.583174,
+          "R@5": 79.899618,
+          "R@50": 99.402486,
+          "subset_R@1": 82.695985,
+          "subset_R@2": 95.554493,
+          "subset_R@3": 98.73327
+        },
+        "subset_R@1": {
+          "recoveries": 122,
+          "regressions": 147
+        }
+      },
+      "q1_g0_a0.5": {
+        "global_R@5": {
+          "recoveries": 116,
+          "regressions": 421
+        },
+        "metrics": {
+          "Avg": 79.517208,
+          "R@1": 41.778203,
+          "R@10": 88.479924,
+          "R@5": 77.413958,
+          "R@50": 99.139579,
+          "subset_R@1": 81.620459,
+          "subset_R@2": 95.315488,
+          "subset_R@3": 98.470363
+        },
+        "subset_R@1": {
+          "recoveries": 144,
+          "regressions": 214
+        }
+      },
+      "q1_g0_a0.75": {
+        "global_R@5": {
+          "recoveries": 132,
+          "regressions": 658
+        },
+        "metrics": {
+          "Avg": 75.728967,
+          "R@1": 37.619503,
+          "R@10": 83.938815,
+          "R@5": 72.131931,
+          "R@50": 98.183556,
+          "subset_R@1": 79.326004,
+          "subset_R@2": 94.263862,
+          "subset_R@3": 98.111855
+        },
+        "subset_R@1": {
+          "recoveries": 167,
+          "regressions": 333
+        }
+      },
+      "q1_g0_a1": {
+        "global_R@5": {
+          "recoveries": 130,
+          "regressions": 889
+        },
+        "metrics": {
+          "Avg": 72.155832,
+          "R@1": 34.58413,
+          "R@10": 79.541109,
+          "R@5": 66.563098,
+          "R@50": 96.869025,
+          "subset_R@1": 77.748566,
+          "subset_R@2": 92.758126,
+          "subset_R@3": 97.586042
+        },
+        "subset_R@1": {
+          "recoveries": 185,
+          "regressions": 417
+        }
+      }
+    },
+    "queries": 4184
+  },
+  "evaluation": {
+    "actions": {
+      "cross_mean_a0.125": {
+        "global_R@5": {
+          "recoveries": 40,
+          "regressions": 23
+        },
+        "metrics": {
+          "Avg": 81.786654,
+          "R@1": 55.082516,
+          "R@10": 92.370246,
+          "R@5": 85.673284,
+          "R@50": 98.517101,
+          "subset_R@1": 77.900024,
+          "subset_R@2": 91.844056,
+          "subset_R@3": 96.603683
+        },
+        "subset_R@1": {
+          "recoveries": 30,
+          "regressions": 35
+        }
+      },
+      "cross_mean_a0.25": {
+        "global_R@5": {
+          "recoveries": 54,
+          "regressions": 42
+        },
+        "metrics": {
+          "Avg": 81.583353,
+          "R@1": 55.369529,
+          "R@10": 92.322411,
+          "R@5": 85.553695,
+          "R@50": 98.541019,
+          "subset_R@1": 77.613011,
+          "subset_R@2": 91.652715,
+          "subset_R@3": 96.436259
+        },
+        "subset_R@1": {
+          "recoveries": 50,
+          "regressions": 67
+        }
+      },
+      "cross_mean_a0.375": {
+        "global_R@5": {
+          "recoveries": 76,
+          "regressions": 72
+        },
+        "metrics": {
+          "Avg": 81.607271,
+          "R@1": 55.369529,
+          "R@10": 92.346329,
+          "R@5": 85.362354,
+          "R@50": 98.445348,
+          "subset_R@1": 77.852188,
+          "subset_R@2": 91.293949,
+          "subset_R@3": 96.340588
+        },
+        "subset_R@1": {
+          "recoveries": 86,
+          "regressions": 93
+        }
+      },
+      "cross_mean_a0.5": {
+        "global_R@5": {
+          "recoveries": 85,
+          "regressions": 86
+        },
+        "metrics": {
+          "Avg": 81.392011,
+          "R@1": 55.034681,
+          "R@10": 92.22674,
+          "R@5": 85.242765,
+          "R@50": 98.301842,
+          "subset_R@1": 77.541258,
+          "subset_R@2": 91.006936,
+          "subset_R@3": 96.221
+        },
+        "subset_R@1": {
+          "recoveries": 101,
+          "regressions": 121
+        }
+      },
+      "cross_mean_a0.75": {
+        "global_R@5": {
+          "recoveries": 100,
+          "regressions": 126
+        },
+        "metrics": {
+          "Avg": 80.662521,
+          "R@1": 53.982301,
+          "R@10": 91.987563,
+          "R@5": 84.644822,
+          "R@50": 98.397513,
+          "subset_R@1": 76.68022,
+          "subset_R@2": 90.64817,
+          "subset_R@3": 96.173164
+        },
+        "subset_R@1": {
+          "recoveries": 126,
+          "regressions": 182
+        }
+      },
+      "cross_mean_a1": {
+        "global_R@5": {
+          "recoveries": 119,
+          "regressions": 178
+        },
+        "metrics": {
+          "Avg": 79.909112,
+          "R@1": 52.30806,
+          "R@10": 91.509208,
+          "R@5": 83.855537,
+          "R@50": 98.254006,
+          "subset_R@1": 75.962688,
+          "subset_R@2": 90.169816,
+          "subset_R@3": 96.101411
+        },
+        "subset_R@1": {
+          "recoveries": 150,
+          "regressions": 236
+        }
+      },
+      "mcot": {
+        "global_R@5": {
+          "recoveries": 0,
+          "regressions": 0
+        },
+        "metrics": {
+          "Avg": 81.643148,
+          "R@1": 54.93901,
+          "R@10": 91.891892,
+          "R@5": 85.266683,
+          "R@50": 98.493183,
+          "subset_R@1": 78.019613,
+          "subset_R@2": 91.939727,
+          "subset_R@3": 96.675436
+        },
+        "subset_R@1": {
+          "recoveries": 0,
+          "regressions": 0
+        }
+      },
+      "q1_g0_a0.125": {
+        "global_R@5": {
+          "recoveries": 44,
+          "regressions": 26
+        },
+        "metrics": {
+          "Avg": 82.193255,
+          "R@1": 55.297776,
+          "R@10": 92.274575,
+          "R@5": 85.697202,
+          "R@50": 98.517101,
+          "subset_R@1": 78.689309,
+          "subset_R@2": 92.154987,
+          "subset_R@3": 96.818943
+        },
+        "subset_R@1": {
+          "recoveries": 65,
+          "regressions": 37
+        }
+      },
+      "q1_g0_a0.25": {
+        "global_R@5": {
+          "recoveries": 70,
+          "regressions": 66
+        },
+        "metrics": {
+          "Avg": 82.193255,
+          "R@1": 55.226022,
+          "R@10": 92.322411,
+          "R@5": 85.362354,
+          "R@50": 98.397513,
+          "subset_R@1": 79.024157,
+          "subset_R@2": 92.083234,
+          "subset_R@3": 96.986367
+        },
+        "subset_R@1": {
+          "recoveries": 108,
+          "regressions": 66
+        }
+      },
+      "q1_g0_a0.375": {
+        "global_R@5": {
+          "recoveries": 94,
+          "regressions": 93
+        },
+        "metrics": {
+          "Avg": 82.109543,
+          "R@1": 54.843339,
+          "R@10": 92.298493,
+          "R@5": 85.2906,
+          "R@50": 98.349677,
+          "subset_R@1": 78.928486,
+          "subset_R@2": 92.250658,
+          "subset_R@3": 97.082038
+        },
+        "subset_R@1": {
+          "recoveries": 131,
+          "regressions": 93
+        }
+      },
+      "q1_g0_a0.5": {
+        "global_R@5": {
+          "recoveries": 110,
+          "regressions": 119
+        },
+        "metrics": {
+          "Avg": 82.013872,
+          "R@1": 53.958383,
+          "R@10": 91.939727,
+          "R@5": 85.051423,
+          "R@50": 98.301842,
+          "subset_R@1": 78.976321,
+          "subset_R@2": 92.202822,
+          "subset_R@3": 96.986367
+        },
+        "subset_R@1": {
+          "recoveries": 162,
+          "regressions": 122
+        }
+      },
+      "q1_g0_a0.75": {
+        "global_R@5": {
+          "recoveries": 120,
+          "regressions": 190
+        },
+        "metrics": {
+          "Avg": 80.937575,
+          "R@1": 51.949294,
+          "R@10": 91.150442,
+          "R@5": 83.592442,
+          "R@50": 98.158335,
+          "subset_R@1": 78.282707,
+          "subset_R@2": 92.22674,
+          "subset_R@3": 96.771107
+        },
+        "subset_R@1": {
+          "recoveries": 195,
+          "regressions": 184
+        }
+      },
+      "q1_g0_a1": {
+        "global_R@5": {
+          "recoveries": 131,
+          "regressions": 266
+        },
+        "metrics": {
+          "Avg": 79.873236,
+          "R@1": 50.011959,
+          "R@10": 89.643626,
+          "R@5": 82.03779,
+          "R@50": 97.943076,
+          "subset_R@1": 77.708682,
+          "subset_R@2": 92.178905,
+          "subset_R@3": 96.627601
+        },
+        "subset_R@1": {
+          "recoveries": 227,
+          "regressions": 240
+        }
+      }
+    },
+    "queries": 4181
+  },
+  "internal_test": {
+    "actions": {
+      "cross_mean_a0.125": {
+        "global_R@5": {
+          "recoveries": 56,
+          "regressions": 57
+        },
+        "metrics": {
+          "Avg": 84.467735,
+          "R@1": 48.751766,
+          "R@10": 93.923693,
+          "R@5": 84.785681,
+          "R@50": 99.882242,
+          "subset_R@1": 84.149788,
+          "subset_R@2": 95.548752,
+          "subset_R@3": 98.728215
+        },
+        "subset_R@1": {
+          "recoveries": 16,
+          "regressions": 36
+        }
+      },
+      "cross_mean_a0.25": {
+        "global_R@5": {
+          "recoveries": 90,
+          "regressions": 98
+        },
+        "metrics": {
+          "Avg": 84.114461,
+          "R@1": 48.139425,
+          "R@10": 93.405558,
+          "R@5": 84.62082,
+          "R@50": 99.858691,
+          "subset_R@1": 83.608102,
+          "subset_R@2": 95.360339,
+          "subset_R@3": 98.704663
+        },
+        "subset_R@1": {
+          "recoveries": 40,
+          "regressions": 83
+        }
+      },
+      "cross_mean_a0.375": {
+        "global_R@5": {
+          "recoveries": 116,
+          "regressions": 172
+        },
+        "metrics": {
+          "Avg": 83.172397,
+          "R@1": 47.268017,
+          "R@10": 92.746114,
+          "R@5": 83.490344,
+          "R@50": 99.811587,
+          "subset_R@1": 82.854451,
+          "subset_R@2": 95.242581,
+          "subset_R@3": 98.586905
+        },
+        "subset_R@1": {
+          "recoveries": 58,
+          "regressions": 133
+        }
+      },
+      "cross_mean_a0.5": {
+        "global_R@5": {
+          "recoveries": 129,
+          "regressions": 238
+        },
+        "metrics": {
+          "Avg": 82.159679,
+          "R@1": 46.373057,
+          "R@10": 91.851154,
+          "R@5": 82.24211,
+          "R@50": 99.670278,
+          "subset_R@1": 82.077249,
+          "subset_R@2": 94.747998,
+          "subset_R@3": 98.492699
+        },
+        "subset_R@1": {
+          "recoveries": 71,
+          "regressions": 179
+        }
+      },
+      "cross_mean_a0.75": {
+        "global_R@5": {
+          "recoveries": 145,
+          "regressions": 394
+        },
+        "metrics": {
+          "Avg": 79.33349,
+          "R@1": 43.900141,
+          "R@10": 89.660857,
+          "R@5": 78.944889,
+          "R@50": 99.293453,
+          "subset_R@1": 79.722091,
+          "subset_R@2": 93.688177,
+          "subset_R@3": 97.809703
+        },
+        "subset_R@1": {
+          "recoveries": 97,
+          "regressions": 305
+        }
+      },
+      "cross_mean_a1": {
+        "global_R@5": {
+          "recoveries": 151,
+          "regressions": 547
+        },
+        "metrics": {
+          "Avg": 76.601507,
+          "R@1": 41.63919,
+          "R@10": 87.187942,
+          "R@5": 75.482807,
+          "R@50": 98.845973,
+          "subset_R@1": 77.720207,
+          "subset_R@2": 92.510598,
+          "subset_R@3": 97.385775
+        },
+        "subset_R@1": {
+          "recoveries": 113,
+          "regressions": 406
+        }
+      },
+      "mcot": {
+        "global_R@5": {
+          "recoveries": 0,
+          "regressions": 0
+        },
+        "metrics": {
+          "Avg": 84.715026,
+          "R@1": 48.65756,
+          "R@10": 93.947244,
+          "R@5": 84.809232,
+          "R@50": 99.905794,
+          "subset_R@1": 84.62082,
+          "subset_R@2": 95.619407,
+          "subset_R@3": 98.79887
+        },
+        "subset_R@1": {
+          "recoveries": 0,
+          "regressions": 0
+        }
+      },
+      "q1_g0_a0.125": {
+        "global_R@5": {
+          "recoveries": 52,
+          "regressions": 83
+        },
+        "metrics": {
+          "Avg": 84.126237,
+          "R@1": 48.162977,
+          "R@10": 93.311352,
+          "R@5": 84.079133,
+          "R@50": 99.811587,
+          "subset_R@1": 84.17334,
+          "subset_R@2": 95.595855,
+          "subset_R@3": 98.728215
+        },
+        "subset_R@1": {
+          "recoveries": 31,
+          "regressions": 50
+        }
+      },
+      "q1_g0_a0.25": {
+        "global_R@5": {
+          "recoveries": 89,
+          "regressions": 178
+        },
+        "metrics": {
+          "Avg": 83.078192,
+          "R@1": 45.925577,
+          "R@10": 92.08667,
+          "R@5": 82.713142,
+          "R@50": 99.764484,
+          "subset_R@1": 83.443241,
+          "subset_R@2": 95.619407,
+          "subset_R@3": 98.79887
+        },
+        "subset_R@1": {
+          "recoveries": 60,
+          "regressions": 110
+        }
+      },
+      "q1_g0_a0.375": {
+        "global_R@5": {
+          "recoveries": 110,
+          "regressions": 297
+        },
+        "metrics": {
+          "Avg": 81.512011,
+          "R@1": 44.865756,
+          "R@10": 90.273198,
+          "R@5": 80.405087,
+          "R@50": 99.528968,
+          "subset_R@1": 82.618935,
+          "subset_R@2": 95.07772,
+          "subset_R@3": 98.79887
+        },
+        "subset_R@1": {
+          "recoveries": 83,
+          "regressions": 168
+        }
+      },
+      "q1_g0_a0.5": {
+        "global_R@5": {
+          "recoveries": 115,
+          "regressions": 414
+        },
+        "metrics": {
+          "Avg": 79.616109,
+          "R@1": 42.722562,
+          "R@10": 88.577485,
+          "R@5": 77.76731,
+          "R@50": 99.293453,
+          "subset_R@1": 81.464908,
+          "subset_R@2": 94.441828,
+          "subset_R@3": 98.586905
+        },
+        "subset_R@1": {
+          "recoveries": 100,
+          "regressions": 234
+        }
+      },
+      "q1_g0_a0.75": {
+        "global_R@5": {
+          "recoveries": 112,
+          "regressions": 650
+        },
+        "metrics": {
+          "Avg": 75.765426,
+          "R@1": 38.318417,
+          "R@10": 84.17334,
+          "R@5": 72.138483,
+          "R@50": 98.257183,
+          "subset_R@1": 79.392369,
+          "subset_R@2": 93.593971,
+          "subset_R@3": 98.092322
+        },
+        "subset_R@1": {
+          "recoveries": 117,
+          "regressions": 339
+        }
+      },
+      "q1_g0_a1": {
+        "global_R@5": {
+          "recoveries": 115,
+          "regressions": 878
+        },
+        "metrics": {
+          "Avg": 72.044277,
+          "R@1": 34.597268,
+          "R@10": 79.439472,
+          "R@5": 66.839378,
+          "R@50": 96.938295,
+          "subset_R@1": 77.249176,
+          "subset_R@2": 92.604805,
+          "subset_R@3": 97.362223
+        },
+        "subset_R@1": {
+          "recoveries": 132,
+          "regressions": 445
+        }
+      }
+    },
+    "queries": 4246
+  },
+  "train": {
+    "actions": {
+      "cross_mean_a0.125": {
+        "global_R@5": {
+          "recoveries": 232,
+          "regressions": 257
+        },
+        "metrics": {
+          "Avg": 84.581965,
+          "R@1": 49.542814,
+          "R@10": 94.023743,
+          "R@5": 84.874968,
+          "R@50": 99.863602,
+          "subset_R@1": 84.288962,
+          "subset_R@2": 96.115181,
+          "subset_R@3": 98.934074
+        },
+        "subset_R@1": {
+          "recoveries": 122,
+          "regressions": 206
+        }
+      },
+      "cross_mean_a0.25": {
+        "global_R@5": {
+          "recoveries": 394,
+          "regressions": 491
+        },
+        "metrics": {
+          "Avg": 84.187926,
+          "R@1": 49.113412,
+          "R@10": 93.654963,
+          "R@5": 84.51124,
+          "R@50": 99.85855,
+          "subset_R@1": 83.864612,
+          "subset_R@2": 95.928265,
+          "subset_R@3": 98.848194
+        },
+        "subset_R@1": {
+          "recoveries": 237,
+          "regressions": 405
+        }
+      },
+      "cross_mean_a0.375": {
+        "global_R@5": {
+          "recoveries": 522,
+          "regressions": 807
+        },
+        "metrics": {
+          "Avg": 83.367011,
+          "R@1": 48.118212,
+          "R@10": 92.937611,
+          "R@5": 83.561505,
+          "R@50": 99.813084,
+          "subset_R@1": 83.172518,
+          "subset_R@2": 95.569588,
+          "subset_R@3": 98.711796
+        },
+        "subset_R@1": {
+          "recoveries": 340,
+          "regressions": 645
+        }
+      },
+      "cross_mean_a0.5": {
+        "global_R@5": {
+          "recoveries": 611,
+          "regressions": 1105
+        },
+        "metrics": {
+          "Avg": 82.333922,
+          "R@1": 47.087648,
+          "R@10": 92.139429,
+          "R@5": 82.505683,
+          "R@50": 99.7171,
+          "subset_R@1": 82.162162,
+          "subset_R@2": 95.135135,
+          "subset_R@3": 98.585501
+        },
+        "subset_R@1": {
+          "recoveries": 414,
+          "regressions": 919
+        }
+      },
+      "cross_mean_a0.75": {
+        "global_R@5": {
+          "recoveries": 677,
+          "regressions": 1782
+        },
+        "metrics": {
+          "Avg": 79.871179,
+          "R@1": 44.854761,
+          "R@10": 89.714574,
+          "R@5": 79.419045,
+          "R@50": 99.474615,
+          "subset_R@1": 80.323314,
+          "subset_R@2": 94.033847,
+          "subset_R@3": 98.075272
+        },
+        "subset_R@1": {
+          "recoveries": 558,
+          "regressions": 1427
+        }
+      },
+      "cross_mean_a1": {
+        "global_R@5": {
+          "recoveries": 754,
+          "regressions": 2446
+        },
+        "metrics": {
+          "Avg": 77.302349,
+          "R@1": 42.29856,
+          "R@10": 87.027027,
+          "R@5": 76.45365,
+          "R@50": 98.969437,
+          "subset_R@1": 78.151048,
+          "subset_R@2": 92.897196,
+          "subset_R@3": 97.509472
+        },
+        "subset_R@1": {
+          "recoveries": 649,
+          "regressions": 1948
+        }
+      },
+      "mcot": {
+        "global_R@5": {
+          "recoveries": 0,
+          "regressions": 0
+        },
+        "metrics": {
+          "Avg": 84.857287,
+          "R@1": 49.472089,
+          "R@10": 94.084365,
+          "R@5": 85.001263,
+          "R@50": 99.843395,
+          "subset_R@1": 84.713311,
+          "subset_R@2": 96.261682,
+          "subset_R@3": 98.969437
+        },
+        "subset_R@1": {
+          "recoveries": 0,
+          "regressions": 0
+        }
+      },
+      "q1_g0_a0.125": {
+        "global_R@5": {
+          "recoveries": 270,
+          "regressions": 444
+        },
+        "metrics": {
+          "Avg": 84.38242,
+          "R@1": 48.694115,
+          "R@10": 93.639808,
+          "R@5": 84.122253,
+          "R@50": 99.828239,
+          "subset_R@1": 84.642587,
+          "subset_R@2": 96.241475,
+          "subset_R@3": 98.954281
+        },
+        "subset_R@1": {
+          "recoveries": 226,
+          "regressions": 240
+        }
+      },
+      "q1_g0_a0.25": {
+        "global_R@5": {
+          "recoveries": 404,
+          "regressions": 874
+        },
+        "metrics": {
+          "Avg": 83.389745,
+          "R@1": 46.850215,
+          "R@10": 92.386966,
+          "R@5": 82.626926,
+          "R@50": 99.757515,
+          "subset_R@1": 84.152564,
+          "subset_R@2": 96.079818,
+          "subset_R@3": 98.883556
+        },
+        "subset_R@1": {
+          "recoveries": 378,
+          "regressions": 489
+        }
+      },
+      "q1_g0_a0.375": {
+        "global_R@5": {
+          "recoveries": 490,
+          "regressions": 1389
+        },
+        "metrics": {
+          "Avg": 81.965142,
+          "R@1": 45.309422,
+          "R@10": 90.861329,
+          "R@5": 80.459712,
+          "R@50": 99.600909,
+          "subset_R@1": 83.470573,
+          "subset_R@2": 95.736297,
+          "subset_R@3": 98.75221
+        },
+        "subset_R@1": {
+          "recoveries": 514,
+          "regressions": 760
+        }
+      },
+      "q1_g0_a0.5": {
+        "global_R@5": {
+          "recoveries": 556,
+          "regressions": 1965
+        },
+        "metrics": {
+          "Avg": 80.285426,
+          "R@1": 43.4049,
+          "R@10": 88.820409,
+          "R@5": 77.883304,
+          "R@50": 99.307906,
+          "subset_R@1": 82.687547,
+          "subset_R@2": 95.226067,
+          "subset_R@3": 98.590553
+        },
+        "subset_R@1": {
+          "recoveries": 639,
+          "regressions": 1040
+        }
+      },
+      "q1_g0_a0.75": {
+        "global_R@5": {
+          "recoveries": 568,
+          "regressions": 3043
+        },
+        "metrics": {
+          "Avg": 76.703714,
+          "R@1": 39.57565,
+          "R@10": 84.415256,
+          "R@5": 72.498106,
+          "R@50": 98.307653,
+          "subset_R@1": 80.909321,
+          "subset_R@2": 94.301591,
+          "subset_R@3": 98.140945
+        },
+        "subset_R@1": {
+          "recoveries": 795,
+          "regressions": 1548
+        }
+      },
+      "q1_g0_a1": {
+        "global_R@5": {
+          "recoveries": 584,
+          "regressions": 4011
+        },
+        "metrics": {
+          "Avg": 73.286183,
+          "R@1": 35.695883,
+          "R@10": 80.005052,
+          "R@5": 67.68881,
+          "R@50": 97.014398,
+          "subset_R@1": 78.883556,
+          "subset_R@2": 93.094216,
+          "subset_R@3": 97.625663
+        },
+        "subset_R@1": {
+          "recoveries": 878,
+          "regressions": 2032
+        }
+      }
+    },
+    "queries": 19795
+  }
+}

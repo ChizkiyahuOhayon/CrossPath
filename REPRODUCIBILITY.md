@@ -38,6 +38,15 @@ The core CrossPath code only requires NumPy and PyTorch. Encoder extraction inhe
 
 Two FashionIQ gallery conventions occur in prior work. The paper-comparable main result here uses the DQU-CIR **val-split** gallery (the union of validation source and target images, with the source excluded per query). The stricter **original-split** full gallery is recorded separately under `results/fashioniq_original/` and must not be mixed with val-split numbers.
 
+### FashionIQ / MCoT-MVS
+
+1. Clone the official MCoT-MVS repository at commit `cb57a336843f94827a319a0b94b071ca29f9c187`.
+2. Prepare its FashionIQ LLM annotations and `seg_features_vit-h_patch` assets using the upstream layout.
+3. Download the author-released dress, shirt, and toptee checkpoints. Their SHA-256 values are recorded in `results/e24_heterogeneous/mcot/*/manifest.json`.
+4. Configure the paths at the top of `scripts/run_e24_heterogeneous_crosspath.sh`. The script exports MCoT embeddings once, links them with both DQU endpoints, and evaluates the fixed diagonal/cross/all compatibility reducers.
+
+MCoT-MVS's released FashionIQ evaluator retains the source image, while the DQU/CrossPath evaluator removes it. E24 therefore saves both protocols: `*_include_source_summary.json` reproduces the MCoT author-code convention, and `*_summary.json` applies uniform source exclusion to every local endpoint and fusion.
+
 ## Reproducing the reported stages
 
 The principal sequence is:
@@ -76,6 +85,33 @@ python weave_eval_crosspath_gate.py \
 
 Use cutoffs `1 5 10` and do not exclude the source for the FashionGen protocol. Use cutoffs `1 10 50` and `--exclude-source` for FashionIQ. The exact historical commands for each variant are retained in `scripts/` and the settings/outcomes are indexed in `experiment.md`.
 
+The heterogeneous FashionIQ main result is reproduced with:
+
+```bash
+bash scripts/run_e24_heterogeneous_crosspath.sh
+```
+
+After E24 embeddings are available, the coordinate-scrambling control, rescue/harm decomposition, and FashionIQ 3×3 endpoint matrix are reproduced with:
+
+```bash
+bash scripts/run_e26_e27_controls.sh
+```
+
+The control applies one fixed signed permutation to both query and gallery coordinates of endpoint 1. This orthogonal map preserves all within-endpoint dot products while breaking off-diagonal coordinate correspondence. The saved report includes the maximum endpoint score error, per-path recall, and the complete rescue/harm partition at each cutoff.
+
+Paper tables and quantitative figures are regenerated directly from the saved
+artifacts with:
+
+```bash
+python figures/gen_fig_paper_results.py
+```
+
+Qualitative case export additionally requires the licensed benchmark images and
+the aligned E24 embeddings. `scripts/export_retrieval_cases.py` writes a portable
+manifest and copies the selected original files; after that, run
+`python figures/gen_fig_retrieval_cases.py`. Exact dataset-specific arguments are
+listed by `python scripts/export_retrieval_cases.py --help`.
+
 ## Artifact integrity
 
 Run:
@@ -84,6 +120,9 @@ Run:
 python scripts/verify_release.py
 ```
 
-It checks that E0–E22 are all present, all JSON artifacts parse, all NPZ archives are readable, required headline artifacts exist, and no result file is silently empty.
+It checks that E0–E28 are all present, all JSON artifacts parse, all NPZ archives
+are readable, required headline and paper artifacts exist, high-resolution figure
+exports have valid signatures, and displayed qualitative ranks match the exact
+stable rankings.
 
 Absolute `/root/...` paths in saved manifests are provenance from the original experiment machine, not required installation paths. Configure local paths in the orchestration scripts when reproducing.

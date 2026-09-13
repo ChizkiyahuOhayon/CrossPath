@@ -1,0 +1,10 @@
+query_encoder,gallery_encoder,R@10,R@50
+dqu_base,dqu_base,61.984084,81.574428
+dqu_base,dqu_gradcache,62.465703,81.673717
+dqu_base,mcot,61.765847,81.554599
+dqu_gradcache,dqu_base,62.023271,81.503998
+dqu_gradcache,dqu_gradcache,62.189306,81.755365
+dqu_gradcache,mcot,61.862242,81.456045
+mcot,dqu_base,63.988887,82.501433
+mcot,dqu_gradcache,63.936856,82.451002
+mcot,mcot,63.560778,82.334020

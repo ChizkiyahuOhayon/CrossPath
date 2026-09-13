@@ -1,0 +1,158 @@
+{
+  "base_label": "MCoT-MVS",
+  "cases": [
+    {
+      "base_rank": 19,
+      "base_top_ids": [
+        "B003WT11KY",
+        "B004HD4V1K",
+        "B004X9MA66",
+        "B003VQRQ66",
+        "B004MMF00W"
+      ],
+      "category": "dress",
+      "method_rank": 3,
+      "method_top_ids": [
+        "B004HD4V1K",
+        "B003WT11KY",
+        "B00A16DXWK",
+        "B00AKR44XM",
+        "B00ALSQQKY"
+      ],
+      "modification": "has less sleeves with red and gray / is blue with a higher neckline and black belt",
+      "query_index": 230,
+      "selection_cutoff": 10,
+      "source_id": "B0036DE0R2",
+      "target_id": "B00A16DXWK"
+    },
+    {
+      "base_rank": 40,
+      "base_top_ids": [
+        "B0081SF8AU",
+        "B0007R8KA8",
+        "B001LZKV6Q",
+        "B009PPO9KI",
+        "B000YHF5K4"
+      ],
+      "category": "shirt",
+      "method_rank": 2,
+      "method_top_ids": [
+        "B0081SF8AU",
+        "B0064SJ6EI",
+        "B009PPO9KI",
+        "B001L4TRKS",
+        "B0007R8KA8"
+      ],
+      "modification": "Is more whimsical and colorful / different larger graphic",
+      "query_index": 637,
+      "selection_cutoff": 10,
+      "source_id": "B00BY6SGZA",
+      "target_id": "B0064SJ6EI"
+    },
+    {
+      "base_rank": 15,
+      "base_top_ids": [
+        "B00588V1UW",
+        "B00644M0ZE",
+        "B00EPC7JMQ",
+        "B0097AH5DY",
+        "B008PSUVGC"
+      ],
+      "category": "toptee",
+      "method_rank": 3,
+      "method_top_ids": [
+        "B00588V1UW",
+        "B00CDVICKY",
+        "B008FPW6IG",
+        "B0097AH5DY",
+        "B00EPC7JMQ"
+      ],
+      "modification": "Has longer sleeves and is more feminine / has longer sleeves and buttons",
+      "query_index": 629,
+      "selection_cutoff": 10,
+      "source_id": "B009Q55MKI",
+      "target_id": "B008FPW6IG"
+    }
+  ],
+  "dataset": "fashioniq",
+  "method_label": "CrossPath (DQU-GC x MCoT)",
+  "selection": "largest deterministic base-miss/method-hit rescue; ties use method rank then query index",
+  "source_images": {
+    "B0007R8KA8": [
+      "source_images/fashioniq/B0007R8KA8/B0007R8KA8.jpg"
+    ],
+    "B000YHF5K4": [
+      "source_images/fashioniq/B000YHF5K4/B000YHF5K4.jpg"
+    ],
+    "B001L4TRKS": [
+      "source_images/fashioniq/B001L4TRKS/B001L4TRKS.jpg"
+    ],
+    "B001LZKV6Q": [
+      "source_images/fashioniq/B001LZKV6Q/B001LZKV6Q.jpg"
+    ],
+    "B0036DE0R2": [
+      "source_images/fashioniq/B0036DE0R2/B0036DE0R2.jpg"
+    ],
+    "B003VQRQ66": [
+      "source_images/fashioniq/B003VQRQ66/B003VQRQ66.jpg"
+    ],
+    "B003WT11KY": [
+      "source_images/fashioniq/B003WT11KY/B003WT11KY.jpg"
+    ],
+    "B004HD4V1K": [
+      "source_images/fashioniq/B004HD4V1K/B004HD4V1K.jpg"
+    ],
+    "B004MMF00W": [
+      "source_images/fashioniq/B004MMF00W/B004MMF00W.jpg"
+    ],
+    "B004X9MA66": [
+      "source_images/fashioniq/B004X9MA66/B004X9MA66.jpg"
+    ],
+    "B00588V1UW": [
+      "source_images/fashioniq/B00588V1UW/B00588V1UW.jpg"
+    ],
+    "B00644M0ZE": [
+      "source_images/fashioniq/B00644M0ZE/B00644M0ZE.jpg"
+    ],
+    "B0064SJ6EI": [
+      "source_images/fashioniq/B0064SJ6EI/B0064SJ6EI.jpg"
+    ],
+    "B0081SF8AU": [
+      "source_images/fashioniq/B0081SF8AU/B0081SF8AU.jpg"
+    ],
+    "B008FPW6IG": [
+      "source_images/fashioniq/B008FPW6IG/B008FPW6IG.jpg"
+    ],
+    "B008PSUVGC": [
+      "source_images/fashioniq/B008PSUVGC/B008PSUVGC.jpg"
+    ],
+    "B0097AH5DY": [
+      "source_images/fashioniq/B0097AH5DY/B0097AH5DY.jpg"
+    ],
+    "B009PPO9KI": [
+      "source_images/fashioniq/B009PPO9KI/B009PPO9KI.jpg"
+    ],
+    "B009Q55MKI": [
+      "source_images/fashioniq/B009Q55MKI/B009Q55MKI.jpg"
+    ],
+    "B00A16DXWK": [
+      "source_images/fashioniq/B00A16DXWK/B00A16DXWK.jpg"
+    ],
+    "B00AKR44XM": [
+      "source_images/fashioniq/B00AKR44XM/B00AKR44XM.jpg"
+    ],
+    "B00ALSQQKY": [
+      "source_images/fashioniq/B00ALSQQKY/B00ALSQQKY.jpg"
+    ],
+    "B00BY6SGZA": [
+      "source_images/fashioniq/B00BY6SGZA/B00BY6SGZA.jpg"
+    ],
+    "B00CDVICKY": [
+      "source_images/fashioniq/B00CDVICKY/B00CDVICKY.jpg"
+    ],
+    "B00EPC7JMQ": [
+      "source_images/fashioniq/B00EPC7JMQ/B00EPC7JMQ.jpg"
+    ]
+  },
+  "top_k": 5
+}

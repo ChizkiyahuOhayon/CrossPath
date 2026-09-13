@@ -1,0 +1,129 @@
+figure:
+  id: crosspath-framework
+  venue: cvpr
+  width: double
+  font: times
+  pad: 3
+  pad_top: 2
+
+layout: row
+gap: 8
+
+panels:
+  - id: s_input
+    title: "Composed Retrieval Input"
+    frame: dashed
+    valign: top
+    pad: 6
+    body:
+      - row:
+          gap: 5
+          body:
+            - id: reference
+              shape: image
+              src: "../paper_assets/source_images/fashiongen/1237113/00.jpg"
+              w: 46
+              h: 46
+              fit: contain
+              caption: "Reference image"
+            - id: modification
+              text: "Remove graphics\nHidden placket"
+              role: input
+              tint: pale
+              wrap: 55
+      - {id: input_gap, shape: spacer, w: 4, h: 8}
+      - {id: gallery_bank, shape: slab, n: 5, cell: 7, cellh: 28, role: neutral, caption: "Gallery images"}
+
+  - id: s_endpoints
+    title: "Frozen CIR Endpoints"
+    frame: dashed
+    valign: top
+    pad: 6
+    body:
+      - group:
+          id: endpoint0_group
+          frame: region
+          frame_color: blue.deep
+          fill: blue.pale
+          pad: 6
+          gap: 5
+          body:
+            - {id: endpoint0, shape: trapezoid, text: "Endpoint 0", fill: blue.pale, stroke: blue.deep, outline: match, w: 56, h: 18}
+            - row:
+                gap: 7
+                body:
+                  - {id: q0, shape: slab, n: 3, cell: 6, cellh: 22, fill: blue.pale, stroke: blue.deep, caption: "q_0"}
+                  - {id: g0, shape: slab, n: 3, cell: 6, cellh: 22, fill: blue.pale, stroke: blue.deep, caption: "g_0"}
+      - {id: endpoint_gap, shape: spacer, w: 4, h: 8}
+      - group:
+          id: endpoint1_group
+          frame: region
+          frame_color: blue.deep
+          fill: blue.pale
+          pad: 6
+          gap: 5
+          body:
+            - {id: endpoint1, shape: trapezoid, text: "Endpoint 1", fill: blue.pale, stroke: blue.deep, outline: match, w: 56, h: 18}
+            - row:
+                gap: 7
+                body:
+                  - {id: q1, shape: slab, n: 3, cell: 6, cellh: 22, fill: blue.pale, stroke: blue.deep, caption: "q_1"}
+                  - {id: g1, shape: slab, n: 3, cell: 6, cellh: 22, fill: blue.pale, stroke: blue.deep, caption: "g_1"}
+
+  - id: s_matrix
+    title: "CrossPath Compatibility Matrix"
+    frame: dashed
+    frame_color: orange.strong
+    fill: orange.pale
+    valign: top
+    pad: 8
+    body:
+      - row:
+          gap: 6
+          body:
+            - {id: p00, text: "q_0 · g_0", role: baseline, tint: light, minw: 55}
+            - {id: p01, text: "q_0 · g_1", role: ours, tint: soft, outline: match, minw: 55}
+      - {id: matrix_gap, shape: spacer, w: 4, h: 6}
+      - row:
+          gap: 6
+          body:
+            - {id: p10, text: "q_1 · g_0", role: ours, tint: soft, outline: match, minw: 55}
+            - {id: p11, text: "q_1 · g_1", role: baseline, tint: light, minw: 55}
+      - {id: matrix_gap2, shape: spacer, w: 4, h: 8}
+      - {id: offdiag, text: "Off-diagonal retrieval paths", role: core, tint: light, outline: match}
+
+  - id: s_output
+    title: "Path Fusion and Ranking"
+    frame: dashed
+    valign: top
+    pad: 6
+    body:
+      - {id: fixed, text: "Cross mean\n0 parameters", role: ours, tint: light, outline: match}
+      - {id: or_label, shape: text, text: "or", italic: true, size: 6.5}
+      - {id: router, shape: hexagon, text: "Cutoff-aware\nrouting", role: core, tint: light, outline: match, w: 68, h: 28}
+      - {id: output_gap, shape: spacer, w: 4, h: 7}
+      - id: recovered
+        shape: image
+        src: "../paper_assets/source_images/fashiongen/2188587/00.jpg"
+        w: 52
+        h: 52
+        fit: contain
+        stroke: green.deep
+        lw: emphasis
+        badge: "rank 9 → 1"
+        caption: "Recovered target"
+
+edges:
+  - {from: reference.e, to: modification.w, color: input, lw: box}
+  - {from: s_input.e, to: s_endpoints.w, route: straight, label: "query + gallery", label_size: 6.2}
+  - {from: endpoint0.s, to: q0.n, color: encoder, lw: box}
+  - {from: endpoint0.s, to: g0.n, route: bus, bend: 6, color: encoder, lw: box}
+  - {from: endpoint1.s, to: q1.n, color: encoder, lw: box}
+  - {from: endpoint1.s, to: g1.n, route: bus, bend: 6, color: encoder, lw: box}
+  - {from: s_endpoints.e, to: s_matrix.w, route: straight, label: "four paths", label_size: 6.2}
+  - {from: p01.e, to: offdiag.e, route: bus, bend: 7, color: orange.deep, lw: box}
+  - {from: p10.s, to: offdiag.n, route: bus, bend: 7, color: orange.deep, lw: box}
+  - {from: s_matrix.e, to: fixed.w, route: hv, color: orange.deep, lw: emphasis}
+  - {from: s_matrix.e, to: router.w, route: hv, color: orange.deep, lw: emphasis}
+  - {from: fixed.e, to: recovered.e, route: bus, bend: 8, color: orange.deep, lw: box}
+  - {from: router.s, to: recovered.n, route: bus, bend: 8, color: orange.deep, lw: box}
