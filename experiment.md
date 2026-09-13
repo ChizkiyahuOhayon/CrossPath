@@ -341,7 +341,7 @@ head 使用完整训练 gallery 中每 batch 2048 个 negatives 训练；10 epoc
 
 完整汇总：`results/e22_composition_refit_summary.json`；逐类 manifest/history/result/checkpoint/joint matrix：`results/e22_composition_refit_{dress,shirt,toptee}/`；远端 run：`runs/CompositionCrossPath_FashionIQ_{dress,shirt,toptee}_E22_refit_20260824_v1`。
 
-## E23 — MCoT-MVS FashionIQ 官方基线复现（2026-08-24，协议已锁定；进行中）
+## E23 — MCoT-MVS FashionIQ 官方基线复现（2026-08-24，完成）
 
 目的：在构造 DQU × MCoT-MVS 异构 CrossPath 前，先原样复现公开强基线，排除 checkpoint、数据协议或实现差异造成的虚假增益。本实验只运行 MCoT-MVS 作者发布的 FashionIQ checkpoint 与官方 `fiq_validate.py`；不修改模型结构、不重训、不调参，也不使用 CrossPath reducer。
 
@@ -375,8 +375,197 @@ GPU 首轮复现（2026-08-24）：三类 checkpoint 均通过严格 `load_state
 
 首轮结果说明 checkpoint、数据和总体执行链路有效，偏差集中在 dress，而不是三类普遍失效。该复现均值相对 E12 CrossPath 62.85/82.03 为 +0.11/+0.06；相对论文公开 MCoT-MVS 63.24/82.01 为 −0.28/+0.08。首轮原始日志保存于远端 `runs/E23_MCoT_MVS_FashionIQ_20260824_v1`。曾为隔离环境差异创建 Python 3.10 + PyTorch 2.3.1 环境及可断点续跑脚本；2026-08-24 根据项目决策停止第二次复现，不再消耗 GPU，未将中止输出计为正式结果。后续论文将透明报告首轮复现环境与数值，并以异构 CrossPath 的指标改进为优先事项。
 
-## E24 — DQU × MCoT-MVS 异构 CrossPath（2026-08-24，协议锁定；待执行）
+## E24 — DQU × MCoT-MVS 异构 CrossPath（2026-08-25，完成；晋级为 FashionIQ 主结果）
 
 目的：用结构更强且不同于既有 GradCache endpoint 的 MCoT-MVS 组成异构 compatibility matrix，在不重训 endpoint 的条件下测试 off-diagonal query-gallery paths 是否能同时超过 DQU 与 MCoT。第一阶段固定评估 DQU-base × MCoT 和 DQU-GradCache × MCoT 的 diagonal/cross/all reducers；若三类平均未超过 MCoT-MVS 复现值 62.96/82.09，则不进入模块消融，继续改进主模型。
 
 执行前对齐检查：MCoT 官方 val annotations 与现有 DQU official embeddings 的 source/target 顺序逐项一致，dress 2017/2017、shirt 2038/2038、toptee 1961/1961 均无错位。新增导出器 `weave_extract_crosspath_mcot.py` 在保存表征前再次执行 batch-level 对齐断言，并通过 2 项新增单元测试及既有 DQU/compatibility tests。toptee 冒烟在运行约 42 秒后因用户计划关机而主动停止，未生成指标；半成品已移至远端 `runs/E24_Heterogeneous_CrossPath_FashionIQ_20260824_v1/aborted_toptee_mcot_smoke_20260824`，正式输出目录保持空闲，开机后从头执行。
+
+正式执行固定使用三类 MCoT 作者 checkpoint、DQU seed42/GradCache-b128 已保存 embeddings，以及 diagonal/cross/all mean 三个预设 reducer；不训练 endpoint、不拟合融合权重、不按类别选择 reducer。MCoT 导出均通过 strict `load_state_dict` 和 batch-level query 对齐断言，三类输出维度均为 1024。
+
+统一 source-exclusion 协议结果如下；该协议与既有 E2/E12 的 DQU 结果一致：
+
+| Endpoint pair / reducer | R@1 | R@10 | R@50 |
+|---|---:|---:|---:|
+| DQU Base | 29.64 | 61.98 | 81.57 |
+| DQU GradCache-b128 | 29.47 | 62.19 | 81.76 |
+| MCoT-MVS（E24 同管线） | 30.77 | 63.56 | 82.33 |
+| DQU Base × MCoT diagonal mean | **31.67** | 64.42 | 82.44 |
+| DQU Base × MCoT cross mean | 31.51 | **64.61** | 82.57 |
+| DQU GradCache × MCoT diagonal mean | 31.60 | 64.52 | 82.75 |
+| **DQU GradCache × MCoT cross mean** | 31.58 | 64.58 | **82.82** |
+| DQU GradCache × MCoT all mean | 31.56 | 64.57 | 82.80 |
+
+总体主候选为 DQU GradCache × MCoT cross mean：相对同管线 MCoT 提升 +0.81/+1.02/+0.48 R@1/R@10/R@50；DQU Base × MCoT cross mean 保持最高 R@10 64.61。两个 endpoint pair 的 cross mean 都超过对应 diagonal mean，直接支持 off-diagonal query-gallery paths 的核心机制，而不是仅靠两个模型的普通同路融合。
+
+MCoT 作者的 FashionIQ `validate.py` 保留 reference/source image，而既有 DQU/CrossPath evaluator 默认移除 source。为与 E23 和 MCoT 公开执行链严格对照，E24 额外在 include-source 下重算相同冻结 rankings：
+
+| 类目 | MCoT-MVS R@10/R@50 | DQU GradCache × MCoT cross mean | 差值 |
+|---|---:|---:|---:|
+| dress | 57.56 / 79.33 | **59.00 / 80.02** | +1.44 / +0.69 |
+| shirt | 63.10 / 81.21 | **64.03 / 81.75** | +0.93 / +0.54 |
+| toptee | 68.18 / 85.87 | **69.45 / 86.28** | +1.27 / +0.41 |
+| **三类平均** | **62.95 / 82.14** | **64.16 / 82.68** | **+1.21 / +0.55** |
+
+同 embedding evaluator 的 MCoT 62.95/82.14 与 E23 官方脚本的 62.96/82.09 相差仅 −0.01/+0.05，验证协议复现成立；E24 相对 E23 记录提升 +1.20/+0.59，并超过 MCoT-MVS 论文公开的 63.24/82.01。裁决：E24 晋级为 FashionIQ 主结果，不进入 learned reducer 或类别特定选择；主表同时保留 DQU Base × MCoT cross mean（最高 R@10）与 DQU GradCache × MCoT cross mean（最高 R@50/SumR）。
+
+效率：cross mean 的新增可训练参数为 0；MCoT 三类 query encoder 宏平均 43.41 ms/query，与 DQU GradCache 的 12.03 ms/query 合计约 55.44 ms/query（未计 gallery dot products）。两份 1024 维 FP32 gallery embeddings 的每类平均存储为 22.45 MiB。
+
+本地产物：`results/e24_heterogeneous/`；可复现启动器：`scripts/run_e24_heterogeneous_crosspath.sh`；远端 run：`runs/E24_Heterogeneous_CrossPath_FashionIQ_20260824_v1`。
+
+## E25 — CIRR 跨域泛化（2026-09-02，完成；零参数路径不成立）
+
+DQU-CIRR 按官方 recipe（lr=1e-4, clip_lr=1e-6, batch=16, seed=42）从头训练，early stopping 于 epoch 8 触发，best 为 epoch 3。MCoT-MVS 使用作者 CIRR checkpoint（strict 加载，731 张量，0 missing/unexpected）。两个 endpoint 同为 open_clip ViT-H-14 / laion2b_s32b_b79k，故 off-diagonal 路径有意义。val gallery 顺序与官方 `split.rc2.val.json` 逐项一致（2,297），query 数一致（4,181）。
+
+CIRR val 官方七指标下的 13 条路径（source 显式移除）：
+
+| path | R@1 | R@5 | R@10 | R@50 | subset R@1 | Avg |
+|---|---:|---:|---:|---:|---:|---:|
+| q0_g0（DQU） | 42.79 | 77.21 | 87.51 | 97.49 | 67.35 | 72.28 |
+| **q1_g1（MCoT）** | **54.94** | **85.27** | **91.89** | **98.49** | **78.02** | **81.64** |
+| q1_g0 | 50.01 | 82.04 | 89.64 | 97.94 | 77.71 | 79.87 |
+| cross_mean（13 条中最优融合） | 52.31 | 83.86 | 91.51 | 98.25 | 75.96 | 79.91 |
+
+裁决：13 条路径无一超过 MCoT 单模型，最优融合为 −1.73 Avg。零参数 cross path 在 CIRR 上不成立。
+
+关键校准：MCoT val R@1 54.94 对其公开 test1 55.33，val≈test1。据此 DQU 的 42.79 确为欠训（其公开 test1 为 46.22），但即使补训至 46.2，端点差距仍有约 8.7，仍在失效区。失败根因是端点选型，不是评测或实现。
+
+产物：`results/e25_cirr/val_summary.json`；test1 双端点 embedding 与 cross_mean/diagonal_mean/q1_g1 三份官方 submission 已生成于远端 `runs/E25_CIRR_CrossPath_20260901_v1/submission/`（其中 recall_q1_g1.json 为 MCoT 单模型提交，可用于换取自行复现的官方 test 分数）。
+
+## E26 — 正交坐标扰动与 Rescue/Harm 控制（2026-08-24，完成）
+
+目的：区分真实 off-diagonal 坐标兼容性与普通 endpoint ensemble。对 endpoint 1 的 query/gallery 同时施加由 seed 2027 固定的 signed permutation (R)。由于 (R^\top R=I)，所有 (q_1g_1^\top) 分数应保持，而 (q_0g_1^\top) 与 (q_1g_0^\top) 的坐标对应被破坏。无训练、无权重拟合，FashionGen 不移除 source，FashionIQ 沿用 E24 的 source exclusion。
+
+| Dataset / path | Real | Scrambled |
+|---|---:|---:|
+| FashionGen endpoint 0, R@1/5/10 | 42.73 / 79.26 / 87.75 | 42.73 / 79.26 / 87.75 |
+| FashionGen endpoint 1, R@1/5/10 | 42.40 / 79.35 / 88.14 | 42.40 / 79.35 / 88.14 |
+| FashionGen cross mean, R@1/5/10 | **44.10 / 79.74 / 88.16** | 0.14 / 0.59 / 0.95 |
+| FashionIQ DQU GradCache, R@10/50 | 62.19 / 81.76 | 62.19 / 81.76 |
+| FashionIQ MCoT, R@10/50 | 63.56 / 82.33 | 63.56 / 82.33 |
+| FashionIQ cross mean, R@10/50 | **64.58 / 82.82** | 0.85 / 3.08 |
+
+最大 endpoint 分数误差为 FashionGen `7.75e-7`、FashionIQ 不超过 `3.58e-7`；endpoint recall 与 diagonal mean 逐项完全不变。真实 cross mean 相对基线的 pooled Rescue/Harm 为：FashionGen R@1 `294/170`、R@5 `169/126`、R@10 `125/88`；FashionIQ R@1 `218/170`、R@10 `199/138`、R@50 `121/92`。每个 cutoff 均为净正收益。
+
+裁决：通过。CrossPath 的 off-diagonal 增益要求真实共享坐标语义，不能由保持各 endpoint 强度的任意正交重参数化复制。产物：`results/e26_controls/`；代码：`scripts/analyze_crosspath_controls.py`。
+
+## E27 — FashionIQ 三端点 3×3 兼容矩阵（2026-08-24，完成）
+
+固定 DQU Base、DQU GradCache 与 MCoT 三个 endpoint，统一 source exclusion，一次性计算全部九条 (q_i g_j^\top) 原始路径及三个 endpoint pair 的 diagonal/cross/all mean；不训练、不调参、不按类目选 reducer。
+
+| Query endpoint → Gallery endpoint | DQU Base | DQU GradCache | MCoT |
+|---|---:|---:|---:|
+| DQU Base | 61.98 / 81.57 | 62.47 / 81.67 | 61.77 / 81.55 |
+| DQU GradCache | 62.02 / 81.50 | 62.19 / 81.76 | 61.86 / 81.46 |
+| MCoT | **63.99 / 82.50** | **63.94 / 82.45** | 63.56 / 82.33 |
+
+表内为三类平均 R@10/R@50。MCoT query 在两个 DQU gallery 中均优于其自身 gallery，反向的 DQU query → MCoT gallery 则较弱，说明兼容性具有稳定方向结构。pairwise cross mean 为：DQU Base × GradCache 62.85/82.03、DQU Base × MCoT **64.61/82.57**、DQU GradCache × MCoT 64.58/**82.82**。
+
+裁决：通过。异构 DQU × MCoT 的提升显著强于两个相近 DQU endpoint 的组合，并在两个独立 DQU endpoint 上复现，因此不是单一 checkpoint 偶然。产物：`results/e27_fashioniq_matrix3/fashioniq_matrix3.json`；代码：`scripts/eval_fashioniq_matrix3.py`；统一启动器：`scripts/run_e26_e27_controls.sh`。
+
+## E28 — 论文主表、正向消融与原图检索可视化（2026-08-26，完成）
+
+目标：在不重训、不扫参的前提下，将 FashionGen/FashionIQ 正式结果收口为传统方法论文所需的主表、cost-matched 消融、compatibility heatmap 和真实检索案例。
+
+案例由脚本按固定规则从完整 official rankings 自动选取：对每个指定 cutoff 或 FashionIQ 类目，选择 `base miss / CrossPath hit` 中 target rank 改善最大的 query；依次以 method rank 和 query index 打破并列，不人工浏览后挑图。FashionGen 三例为 `9→1`、`23→4`、`21→5`；FashionIQ dress/shirt/toptee 分别为 `19→3`、`40→2`、`15→3`。
+
+所有案例涉及的官方图像均逐字节复制到本地 `paper_assets/source_images/`，不改写、不上采样；FashionGen 保存全部 81 张 256×256 官方多视图，FashionIQ 保存全部 25 张原始不同分辨率 JPG。原图目录因数据许可被 git-ignore，不随代码发布。合成图同时导出矢量 PDF 与 600 DPI PNG，目标商品以绿色边框标记。
+
+定量图包括：FashionIQ 3×3 query-gallery compatibility R@10/R@50 双热力图，以及正向模块消融。FashionGen SumR 为 `209.74→210.83→212.00→212.73`；FashionIQ R@10+R@50 为 `145.89→147.27→147.39`。主表与画图数据另存 CSV，均从正式 JSON 直接生成。
+
+框架图采用两冻结端点形成完整 2×2 query-gallery compatibility matrix 的主叙事，以 FashionGen `9→1` 真实案例为输出；同时保存 SVG/PDF/600 DPI PNG/PPTX/VSDX 和 CVPR LaTeX 片段。严格版面检查为 0 error、0 warning；图库、对角项三个未连线节点是有意的数据/矩阵单元。
+
+最终案例导出统一使用 stable argsort，与官方 rank 的图库索引并列规则一致；发布校验要求 target 的图中位置与精确 rank 相同。六个案例的逐项检查为 FashionGen `1/4/5`、FashionIQ `3/2/3`，全部通过。该修正仅影响并列分数下的 top-5 展示顺序，不改变任何 recall 指标。
+
+产物：`paper_assets/`；案例选择代码：`scripts/export_retrieval_cases.py`；画图代码：`figures/gen_fig_paper_results.py`、`figures/gen_fig_retrieval_cases.py`；框架规范：`figures/crosspath_framework.yaml`；远端只读导出：`runs/E28_PaperAssets_20260826_v1`。
+
+## E29 — CIRR 候选侧表示改进（2026-09-03，完成；不采用，CIRR 线终止）
+
+动机来自三条证据交汇：E24 中 q1_g0 > q1_g1 而 q0_g1 < q0_g0（换 gallery 有效、换 query 无效，方向不对称）；E25 中后融合在端点失衡下失效；以及 MCoT 源码中 `extract_target` 仅为单行 `encode_image`——gallery 表示是裸 CLIP CLS，而 query 侧含 patch attention、LLM retained/deleted、SAM segment 与两个 TriCombiner。第三条解释了第一条：MCoT 的短板在 target 侧。WEAVE 早先诊断显示失败集中于局部结构属性（77.02%）而非整体外观（38.15%），与裸 CLS 的失效模式一致。
+
+冻结 MCoT，仅训练新增模块。零初始化使模块在初始时刻逐位等于 baseline，故消融表中「不加模块」一行是数学恒等而非另一次训练；已固化为单元测试（`test_sate_model.py` 5 项、`test_sate_reranker.py` 4 项，含恒等性、梯度第 1 步解锁、置换不变性、padding mask 正确性、query 条件化）。
+
+成本结构：除新增模块外全部冻结，query 表示与 target CLS 恒定，一次性预计算（28,225 queries 1583s + 16,939 gallery CLS 619s）后每轮训练 15–90 秒；验证复用 E25 已导出的 val embedding，零 GPU。
+
+基线诊断（frozen MCoT，16,939 train gallery）：R@1 41.45、R@10 93.46、target 中位排名 2.0。val 上 R@1 54.94 而 R@10 91.89，即 37 个点的头寸锁在 top-10 内部排序。
+
+两类架构：**SATE（静态）**——gallery 的 SAM segment 经固定可学习 query 做 attention pooling，零初始化残差注入 CLS，gallery 仍为单向量、检索仍是点积；**重排器（query 条件化）**——attention 的 query 换成真实 query embedding，同一候选在不同修改文本下聚合出不同表示，对 frozen 排序 top-50 重排，subset 单独在 img_set 内重排。
+
+结果（CIRR val）：
+
+| 方法 | R@1 | R@5 | subset R@1 | Avg | Δ Avg |
+|---|---:|---:|---:|---:|---:|
+| MCoT baseline | 54.94 | 85.27 | 78.0196 | 81.643 | — |
+| SATE v1（in-batch 负样本） | 54.75 | 85.27 | 77.64 | 81.452 | −0.19 |
+| SATE v2（全局 top-64 硬负样本） | 55.42 | 85.77 | 77.71 | 81.739 | +0.08 |
+| SATE v3（+ img_set group 负样本） | 55.18 | 85.19 | 77.68 | 81.440 | ±0.00 |
+| 重排器 v2（top-50 query 条件化，完整 8 epoch） | 55.66 | 85.43 | 78.2110 | 81.823 | +0.18 |
+
+两个可复用教训：
+
+1. **in-batch 负样本无信号**（v1 loss 0.12）。query 来自已训练好的模型，256 路 in-batch softmax 近乎满分。改用 frozen 模型自身 top-k 混淆项后 R@1 才动。
+2. **残差修正的 softmax 温度决定 baseline 先验强度**。重排器 v1 用 logit_scale=10，base 余弦差距被压平，loss 卡在随机水平 ln(50)=3.91 附近（实测 3.35）并单调破坏原排序（Avg 81.64→69.68）；改为 100（对齐 MCoT 自身 loss_weight）后恢复正常。极易被误判为「方法无效」。
+
+裁决：不将候选侧增强单独作为 CIRR 主方法。两条判据：
+
+1. 完整 8 epoch 重排器仅将 subset R@1 从 78.0196 提高到 78.2110（+0.19），与其专门面向细粒度候选区分的设计相比收益偏小。
+2. 静态 SATE 与 query 条件重排器结构差异明显，但 Avg 最大增益分别只有 +0.10 和 +0.18，说明继续扩大候选侧模块的预期收益有限。
+
+距 ReCALL 的 82.81 尚差 0.99 Avg，四次尝试最大增益 0.18。继续解冻骨干判断为低期望值：候选侧信号已证饱和，解冻只是给同一批信息更多参数。此前本地保存的 4 epoch 摘要最高为 81.787；2026-09-12 从服务器补齐的 8 epoch 历史显示 epoch 5 达到 81.823，完整记录位于 `results/e29_sate/reranker_v2_full/`。
+
+产物：`results/e29_sate/`（五次运行日志 + 硬负样本统计）；代码：`sate_model.py`、`sate_reranker.py`、`sate_precompute_cirr.py`、`sate_mine_negatives.py`、`sate_dump_groups.py`、`sate_train_head.py`、`sate_train_reranker.py`。
+
+### CIRR 线的阶段性产出
+
+E25 的完整 cross mean 给出了 CrossPath 的适用边界，后续 E30 则表明保守弱融合可以恢复正向收益：
+
+| 端点组合 | 差距 | cross path 效果 |
+|---|---:|---:|
+| FashionGen A1 seed1 × seed2 | ~0.3 | +0.92 R@1 |
+| FashionIQ DQU × MCoT | 1.37 | +1.02 R@10 |
+| CIRR DQU × MCoT（完整 cross mean） | 8.06 | −1.41 R@5 |
+| CIRR MCoT query × 0.25 DQU gallery（弱融合） | 8.06 | +0.10 R@5 / +1.00 subset R@1 / +0.55 Avg |
+
+端点差距较大时，完整 cross mean 会让弱端点成为噪声源；保留强端点主导、只注入少量 off-diagonal score 可以获得正向泛化收益。
+
+## E30 — CIRR 保守弱融合与逐查询路由（2026-09-12，完成）
+
+目的：在不重训 DQU/MCoT 的前提下检验两件事：（1）弱 off-diagonal 注入能否避免 E25 完整融合的退化；（2）能否从 CIRR train 学到逐查询选择策略。补齐 DQU train 导出后，DQU/MCoT 训练端点严格对齐为 28,225 条 query 和 16,939 个 gallery；图库 ID 顺序与 target index 全部一致。
+
+固定 action 使用 MCoT `q1_g1` 为精确 fallback，并分别向 `q1_g0` 与 `cross_mean` 插值。val 上最优固定结果为：
+
+| 方法 | R@1 | R@5 | R@10 | R@50 | subset R@1 | subset R@2 | subset R@3 | Avg | Δ Avg |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| MCoT | 54.94 | 85.27 | 91.89 | 98.49 | 78.02 | 91.94 | 96.68 | 81.643 | — |
+| `0.875 q1_g1 + 0.125 q1_g0` | 55.30 | **85.70** | 92.27 | **98.52** | 78.69 | 92.15 | 96.82 | 82.193 | +0.550 |
+| `0.75 q1_g1 + 0.25 q1_g0` | 55.23 | 85.36 | **92.32** | 98.40 | **79.02** | 92.08 | **96.99** | 82.193 | +0.550 |
+| E29 re-ranker + 0.25 弱融合 | **55.78** | 85.77 | 92.42 | 98.40 | 79.00 | **92.15** | **96.99** | **82.385** | **+0.741** |
+| action oracle（仅上限） | — | 89.81 | — | — | 84.48 | — | — | 87.144 | +5.501 |
+
+学习式路由结果：多类 oracle-action 分类在 development/test 均选择 100% fallback，val Avg 81.643；收益差回归在 development 为 +0.215、独立内部 test 为 +0.047，冻结后 val 为 81.727（+0.084）。其泛化增益低于固定弱融合，因此不采用为主方法。E29 的 query-conditioned re-ranker 与弱融合位于不同阶段，组合后达到当前 CIRR 最佳 82.385，但仍低于 ReCALL 82.81。
+
+裁决：保留无训练弱融合及 E29+E30 组合为正向 generalization 结果；停止继续设计路由器。产物：`results/e30_cirr_query_router/`；核心代码：`weave_cirr_query_router.py`、`weave_prepare_cirr_router.py`、`weave_train_cirr_router.py`、`weave_eval_cirr_router.py`、`sate_eval_crosspath_reranker.py`。
+
+test1 已按冻结的 E29 re-ranker + E30 `alpha=0.25` 配置导出，不再选择参数。两份官方 `rc2` JSON 共含 4,148 条 query；逐条校验 general top-50、subset top-3 和 source exclusion 均通过。本地产物位于 `results/e30_cirr_query_router/test1_submission/`，最终数值需上传 CIRR evaluation server 后取得。
+
+## E31 — CIRR 正交兼容映射（2026-09-12，完成；不采用）
+
+按预定补实验计划，在 train gallery 的 16,939 对同图 DQU/MCoT 表示上拟合无标签 orthogonal Procrustes map。映射满足归一化 Frobenius 正交误差 `1.24e-5`，并将成对训练表示平均余弦从 0.6080 提高到 0.7032，说明优化目标被正确实现。
+
+固定 `alpha=0.25` 后，映射弱融合在 val 上为 R@1 55.37、R@5 85.22、R@10 92.23、R@50 98.21、subset R@1 79.10、Avg 82.157；低于同权重未映射版本的 82.193。几何对齐提高并未转化为检索指标提高，因此不继续扫描 alpha 或非正交映射。
+
+裁决：不采用。CIRR 的最终配置保持 E29 re-ranker + E30 0.25 弱融合（Avg 82.385）。产物：`results/e31_cirr_procrustes/`；代码：`weave_eval_cirr_procrustes.py`。
+
+## E32 — candidate-wise four-path compatibility residual（2026-09-12，完成；未进入 val）
+
+目的：解决 E30 query-wise action 粒度过粗的问题。对每个 query-candidate 对分别计算 `s00/s01/s10/s11` 四个分数，以强 MCoT `s11` 为基线，学习 `4→32→1` 的零初始化残差。DQU/MCoT 全冻结；训练使用 MCoT top-31 hard negatives 与 CIRR img_set negatives。内部划分与 E30 完全一致，只有 internal test Avg 至少 +0.30 且 R@5/subset R@1 均不下降才评测 val。
+
+| 版本 | group loss 权重 | internal R@5 | internal subset R@1 | internal Avg | Δ Avg | 通过 |
+|---|---:|---:|---:|---:|---:|---:|
+| MCoT base | — | 84.809 | 84.621 | 84.715 | — | — |
+| E32 v1 | 1 | **85.704** | 83.891 | 84.797 | +0.082 | 否 |
+| E32 v2 | 4 | 85.351 | **84.338** | **84.845** | **+0.130** | 否 |
+
+v1 证明四路径候选信号可以改善全局 hard-negative 排序（R@5 +0.895），但 subset R@1 -0.730；将 group loss 加权到 4 后，subset 回退缩小到 -0.283，同时 R@5 仍 +0.542，但无法同时满足两个主指标不降。两版均未触碰 CIRR val。
+
+裁决：停止 E32，不继续调 group 权重、隐藏层或 residual scale。CIRR 后处理实验收口，最终采用 E29+E30 组合的 val 82.385。产物：`results/e32_candidate_compatibility/`；代码：`weave_train_candidate_compatibility.py`。

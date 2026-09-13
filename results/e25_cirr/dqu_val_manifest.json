@@ -1,0 +1,13 @@
+{
+  "batch_size": 16,
+  "checkpoint": "/root/autodl-tmp/dqucir_2026-08-05/repo/checkpoints/e25_seed42/cirr_seed42_best_model.pt",
+  "checkpoint_sha256": "815a2105627005f83598c6095fd5cea2d95c9eb8b4443e0880c81ce34769821b",
+  "dataset": "cirr_val",
+  "embedding_dim": 1024,
+  "endpoint": "DQU-CIR",
+  "gallery": 2297,
+  "gallery_seconds": 29.035530395805836,
+  "queries": 4181,
+  "query_seconds": 53.24601358175278,
+  "script_sha256": "ff4ac8149f70dcb8991f7fef05abab4fc780b6d0a1a02a17880328120b954654"
+}

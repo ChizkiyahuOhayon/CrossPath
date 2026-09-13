@@ -1,0 +1,94 @@
+\section{Method}
+\label{sec:method}
+
+\subsection{Problem Setup}
+
+A CIR query consists of a reference image $I_r$ and a modification text $t$. Given a gallery $\mathcal{G}$, the goal is to rank the target image $I_t$ above all other candidates. Endpoint $i$ contains a query composer $C_i$ and a gallery encoder $V_i$:
+\begin{equation}
+q_i = \operatorname{norm}(C_i(I_r,t)), \qquad
+g_i(x) = \operatorname{norm}(V_i(x)),
+\label{eq:endpoints}
+\end{equation}
+where $x\in\mathcal{G}$ and all vectors have dimension $d$. A conventional endpoint ranks $x$ with $q_i^\top g_i(x)$. We keep all endpoint parameters frozen.
+
+\subsection{The Cross-Endpoint Compatibility Matrix}
+
+Two endpoints define four query-gallery pairings:
+\begin{equation}
+\mathbf{S}(x)=
+\begin{bmatrix}
+q_0^\top g_0(x) & q_0^\top g_1(x)\\
+q_1^\top g_0(x) & q_1^\top g_1(x)
+\end{bmatrix}
+=
+\begin{bmatrix}
+S_{00}(x) & S_{01}(x)\\
+S_{10}(x) & S_{11}(x)
+\end{bmatrix}.
+\label{eq:matrix}
+\end{equation}
+The diagonal terms are the two original retrieval systems. Their mean,
+\begin{equation}
+D(x)=\tfrac{1}{2}\left(S_{00}(x)+S_{11}(x)\right),
+\label{eq:diagonal}
+\end{equation}
+is our compute-matched ensemble. It uses the same four encoded vectors as \method and is the appropriate control for additional endpoint cost.
+
+The off-diagonal entries exchange the query and gallery sides. We combine them as
+\begin{equation}
+X(x)=\tfrac{1}{2}\left(S_{01}(x)+S_{10}(x)\right).
+\label{eq:crossmean}
+\end{equation}
+This cross mean has no learned fusion parameters. It only requires aligned embedding dimensionality and meaningful coordinate correspondence. Both conditions hold for the endpoint pairs in our experiments. The use of both directions is important because compatibility is not symmetric: $S_{01}$ and $S_{10}$ couple different learned functions even though each score is a dot product.
+
+\subsection{Joint Rank-Path Routing}
+\label{sec:routing}
+
+Fixed $X$ is effective when one ranking improves all target cutoffs. FashionGen exhibits a more structured tradeoff: $X$ is strongest at \Rone, while diagonal paths are stronger at deeper cutoffs. We therefore construct a small action space that moves from the base ranking $S_{00}$ toward either $S_{11}$ or $X$.
+
+Raw scores from independently trained endpoints need not share calibration. For any score function $A$, we convert each candidate to a deterministic rank percentile $p_A(x)\in[0,1]$. Ties are resolved by ascending gallery identifier. A path action toward branch $B\in\{S_{11},X\}$ is
+\begin{equation}
+p_{B,\alpha}(x)=(1-\alpha)p_{S_{00}}(x)+\alpha p_B(x),
+\quad \alpha\in\{0,\tfrac18,\ldots,1\}.
+\label{eq:rankpath}
+\end{equation}
+The two branches share the base action, giving $9+8=17$ rankings. For cutoff $k$, only candidates whose top-$k$ membership changes along these actions can affect recall. We call this set $\mathcal{B}_k$.
+
+The router is a two-layer listwise scorer over $\mathcal{B}_k$ plus a learned none class. For candidate $x$, its features contain the query, candidate embedding, elementwise interaction, absolute difference, endpoint rank percentiles, action membership trace, and normalized cutoff. The listwise target is the ground-truth candidate when it lies in $\mathcal{B}_k$, and none otherwise. This training target asks a direct question: which boundary candidate is responsible for a possible recall change?
+
+At inference, the predicted responsibility distribution $\pi_k(x)$ determines the utility of action $a$:
+\begin{equation}
+U_k(a)=\sum_{x\in\mathcal{B}_k}\pi_k(x)
+\left[(1-m_x^0)m_x^a-\lambda m_x^0(1-m_x^a)\right],
+\label{eq:utility}
+\end{equation}
+where $m_x^a$ indicates top-$k$ membership, action $0$ is the base, and $\lambda=2$ penalizes regressions. Utilities are averaged across evaluation cutoffs so each query still emits one ranking. We select the highest-utility action only when it exceeds a development-set threshold. Otherwise the output is exactly the base order. The router has 0.526M parameters for $d=1024$ and hidden width 128.
+
+\subsection{Conservative Transfer and Target Refinement}
+\label{sec:conservative}
+
+Equal-weight fusion is unnecessary when one endpoint is clearly stronger. Let endpoint 1 be the stronger system. We retain its query representation and inject the alternative gallery geometry through
+\begin{equation}
+S_{\alpha}(x)=(1-\alpha)S_{11}(x)+\alpha S_{10}(x), \qquad 0<\alpha<\tfrac{1}{2}.
+\label{eq:weakpath}
+\end{equation}
+This form preserves the strong query composer and treats the cross path as a bounded correction. We use $\alpha=\tfrac{1}{4}$ for CIRR.
+
+CIRR also requires fine discrimination among visually similar members of each six-image subset. We therefore refine the top-50 candidates with the frozen segment features available to MCoT. For segment tokens $\{z_{x,s}\}$, projected query $\hat q$, and attention-pooled target $\bar z_x$, the score is
+\begin{equation}
+\begin{aligned}
+a_{x,s} &= \operatorname{softmax}_s
+\left((W_q q)^{\top}W_k z_{x,s}/\sqrt h\right),\\
+\bar z_x &= \sum_s a_{x,s}W_vz_{x,s},\\
+\delta_\theta(q,x) &= f_\theta[\hat q\odot\bar z_x;\hat q;\bar z_x],\\
+\widetilde S(x) &= S_{\alpha}(x)+\delta_\theta(q,x).
+\end{aligned}
+\label{eq:reranker}
+\end{equation}
+The final layer of $f_\theta$ is zero initialized, so training starts from the frozen ranking. The 1.18M-parameter head learns only from CIRR training queries with endpoint top-ranked negatives and subset members. All endpoint and segmentation parameters remain frozen.
+
+\subsection{Why Off-Diagonal Paths Can Help}
+
+Endpoint training jointly changes two objects: the query composition function and the gallery geometry. The diagonal score entangles their effects. Equation~\ref{eq:matrix} separates them. If $C_1$ extracts a more faithful modification intent while $V_0$ retains a more discriminative gallery organization, $S_{10}$ can surpass both $S_{00}$ and $S_{11}$. The reverse direction can behave differently. \method captures both possibilities without retraining either endpoint.
+
+This view also gives a sharp intervention test. Let $P$ be a signed permutation matrix and replace $q_1,g_1$ by $Pq_1,Pg_1$. Since $P^\top P=I$, $q_1^\top g_1$ is unchanged, as are all rankings of endpoint 1 and the diagonal ensemble. In contrast, $q_0^\top Pg_1$ and $(Pq_1)^\top g_0$ lose coordinate correspondence. A large cross-path drop under this transformation is direct evidence that the original gain depends on compatible coordinates.

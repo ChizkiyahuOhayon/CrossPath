@@ -1,0 +1,107 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 0.29954171620118314,
+    "development_Avg": 84.09416826003824,
+    "development_intervention_rate": 0.20650095602294455,
+    "threshold": 0.10054218769073486
+  },
+  {
+    "epoch": 2,
+    "train_loss": 0.2870110227511479,
+    "development_Avg": 84.07026768642447,
+    "development_intervention_rate": 0.37810707456978965,
+    "threshold": 0.03903810173273087
+  },
+  {
+    "epoch": 3,
+    "train_loss": 0.28605944758806473,
+    "development_Avg": 84.13001912045888,
+    "development_intervention_rate": 0.45076481835564053,
+    "threshold": 0.025558604076504707
+  },
+  {
+    "epoch": 4,
+    "train_loss": 0.2846733763431891,
+    "development_Avg": 84.16586998087953,
+    "development_intervention_rate": 0.619980879541109,
+    "threshold": 0.02333700899034739
+  },
+  {
+    "epoch": 5,
+    "train_loss": 0.2840979915016737,
+    "development_Avg": 84.21367112810708,
+    "development_intervention_rate": 0.5607074569789675,
+    "threshold": 0.017931205332279203
+  },
+  {
+    "epoch": 6,
+    "train_loss": 0.28556921734259677,
+    "development_Avg": 84.09416826003824,
+    "development_intervention_rate": 0.4574569789674952,
+    "threshold": 0.013069391855970025
+  },
+  {
+    "epoch": 7,
+    "train_loss": 0.28464207186912877,
+    "development_Avg": 84.10611854684512,
+    "development_intervention_rate": 0.4299713193116635,
+    "threshold": 0.013084439914673568
+  },
+  {
+    "epoch": 8,
+    "train_loss": 0.2845386476852955,
+    "development_Avg": 84.16586998087953,
+    "development_intervention_rate": 0.4706022944550669,
+    "threshold": 0.016577675193548202
+  },
+  {
+    "epoch": 9,
+    "train_loss": 0.2836017979261203,
+    "development_Avg": 84.11806883365202,
+    "development_intervention_rate": 0.5148183556405354,
+    "threshold": 0.004154133470728994
+  },
+  {
+    "epoch": 10,
+    "train_loss": 0.2832308829976962,
+    "development_Avg": 84.10611854684512,
+    "development_intervention_rate": 0.2946940726577438,
+    "threshold": 0.027972043454647065
+  },
+  {
+    "epoch": 11,
+    "train_loss": 0.2842601776505128,
+    "development_Avg": 84.16586998087953,
+    "development_intervention_rate": 0.5418260038240917,
+    "threshold": 0.003029442206025124
+  },
+  {
+    "epoch": 12,
+    "train_loss": 0.2825474318785545,
+    "development_Avg": 84.11806883365202,
+    "development_intervention_rate": 0.49187380497131933,
+    "threshold": 0.008967993110418319
+  },
+  {
+    "epoch": 13,
+    "train_loss": 0.2829546122214733,
+    "development_Avg": 84.1300191204589,
+    "development_intervention_rate": 0.4854206500956023,
+    "threshold": 0.0019287173449993133
+  },
+  {
+    "epoch": 14,
+    "train_loss": 0.2827434192101161,
+    "development_Avg": 84.03441682600382,
+    "development_intervention_rate": 0.03776290630975143,
+    "threshold": 0.1331390753388405
+  },
+  {
+    "epoch": 15,
+    "train_loss": 0.2833684444045409,
+    "development_Avg": 84.15391969407267,
+    "development_intervention_rate": 0.5317877629063098,
+    "threshold": 0.0040335656143724915
+  }
+]

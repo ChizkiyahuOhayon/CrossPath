@@ -1,0 +1,188 @@
+{
+  "actions": [
+    "mcot",
+    "q1_g0_a0.125",
+    "q1_g0_a0.25",
+    "q1_g0_a0.375",
+    "q1_g0_a0.5",
+    "q1_g0_a0.75",
+    "q1_g0_a1",
+    "cross_mean_a0.125",
+    "cross_mean_a0.25",
+    "cross_mean_a0.375",
+    "cross_mean_a0.5",
+    "cross_mean_a0.75",
+    "cross_mean_a1"
+  ],
+  "feature_mode": "retrieval",
+  "fixed_action": 0,
+  "fixed_action_name": "mcot",
+  "history": [
+    {
+      "development_Avg": 84.09416826003824,
+      "development_intervention_rate": 0.20650095602294455,
+      "epoch": 1,
+      "threshold": 0.10054218769073486,
+      "train_loss": 0.29954171620118314
+    },
+    {
+      "development_Avg": 84.07026768642447,
+      "development_intervention_rate": 0.37810707456978965,
+      "epoch": 2,
+      "threshold": 0.03903810173273087,
+      "train_loss": 0.2870110227511479
+    },
+    {
+      "development_Avg": 84.13001912045888,
+      "development_intervention_rate": 0.45076481835564053,
+      "epoch": 3,
+      "threshold": 0.025558604076504707,
+      "train_loss": 0.28605944758806473
+    },
+    {
+      "development_Avg": 84.16586998087953,
+      "development_intervention_rate": 0.619980879541109,
+      "epoch": 4,
+      "threshold": 0.02333700899034739,
+      "train_loss": 0.2846733763431891
+    },
+    {
+      "development_Avg": 84.21367112810708,
+      "development_intervention_rate": 0.5607074569789675,
+      "epoch": 5,
+      "threshold": 0.017931205332279203,
+      "train_loss": 0.2840979915016737
+    },
+    {
+      "development_Avg": 84.09416826003824,
+      "development_intervention_rate": 0.4574569789674952,
+      "epoch": 6,
+      "threshold": 0.013069391855970025,
+      "train_loss": 0.28556921734259677
+    },
+    {
+      "development_Avg": 84.10611854684512,
+      "development_intervention_rate": 0.4299713193116635,
+      "epoch": 7,
+      "threshold": 0.013084439914673568,
+      "train_loss": 0.28464207186912877
+    },
+    {
+      "development_Avg": 84.16586998087953,
+      "development_intervention_rate": 0.4706022944550669,
+      "epoch": 8,
+      "threshold": 0.016577675193548202,
+      "train_loss": 0.2845386476852955
+    },
+    {
+      "development_Avg": 84.11806883365202,
+      "development_intervention_rate": 0.5148183556405354,
+      "epoch": 9,
+      "threshold": 0.004154133470728994,
+      "train_loss": 0.2836017979261203
+    },
+    {
+      "development_Avg": 84.10611854684512,
+      "development_intervention_rate": 0.2946940726577438,
+      "epoch": 10,
+      "threshold": 0.027972043454647065,
+      "train_loss": 0.2832308829976962
+    },
+    {
+      "development_Avg": 84.16586998087953,
+      "development_intervention_rate": 0.5418260038240917,
+      "epoch": 11,
+      "threshold": 0.003029442206025124,
+      "train_loss": 0.2842601776505128
+    },
+    {
+      "development_Avg": 84.11806883365202,
+      "development_intervention_rate": 0.49187380497131933,
+      "epoch": 12,
+      "threshold": 0.008967993110418319,
+      "train_loss": 0.2825474318785545
+    },
+    {
+      "development_Avg": 84.1300191204589,
+      "development_intervention_rate": 0.4854206500956023,
+      "epoch": 13,
+      "threshold": 0.0019287173449993133,
+      "train_loss": 0.2829546122214733
+    },
+    {
+      "development_Avg": 84.03441682600382,
+      "development_intervention_rate": 0.03776290630975143,
+      "epoch": 14,
+      "threshold": 0.1331390753388405,
+      "train_loss": 0.2827434192101161
+    },
+    {
+      "development_Avg": 84.15391969407267,
+      "development_intervention_rate": 0.5317877629063098,
+      "epoch": 15,
+      "threshold": 0.0040335656143724915,
+      "train_loss": 0.2833684444045409
+    }
+  ],
+  "internal_test": {
+    "action_counts": {
+      "0": 1895,
+      "1": 378,
+      "10": 112,
+      "11": 60,
+      "12": 129,
+      "2": 272,
+      "3": 73,
+      "4": 93,
+      "5": 7,
+      "6": 4,
+      "7": 573,
+      "8": 395,
+      "9": 255
+    },
+    "base": {
+      "Avg": 84.715026,
+      "R@1": 48.65756,
+      "R@10": 93.947244,
+      "R@5": 84.809232,
+      "R@50": 99.905794,
+      "subset_R@1": 84.62082,
+      "subset_R@2": 95.619407,
+      "subset_R@3": 98.79887
+    },
+    "fixed": {
+      "Avg": 84.715026,
+      "R@1": 48.65756,
+      "R@10": 93.947244,
+      "R@5": 84.809232,
+      "R@50": 99.905794,
+      "subset_R@1": 84.62082,
+      "subset_R@2": 95.619407,
+      "subset_R@3": 98.79887
+    },
+    "intervention_rate": 0.553698,
+    "oracle": {
+      "Avg": 89.437117,
+      "R@1": 50.0,
+      "R@10": 94.606689,
+      "R@5": 89.967028,
+      "R@50": 99.905794,
+      "subset_R@1": 88.907207,
+      "subset_R@2": 96.373057,
+      "subset_R@3": 98.963731
+    },
+    "queries": 4246,
+    "router": {
+      "Avg": 84.762129,
+      "R@1": 48.728215,
+      "R@10": 93.947244,
+      "R@5": 85.186057,
+      "R@50": 99.905794,
+      "subset_R@1": 84.338201,
+      "subset_R@2": 95.619407,
+      "subset_R@3": 98.775318
+    }
+  },
+  "objective": "delta_regression",
+  "threshold": 0.017931205332279203
+}

@@ -1,0 +1,8 @@
+{
+  "baseline_train_R@1": 41.44552701505757,
+  "baseline_train_R@10": 93.46324180690877,
+  "baseline_train_R@50": 99.85473870682019,
+  "median_target_rank": 2.0,
+  "queries": 28225,
+  "topk": 64
+}

@@ -1,0 +1,7 @@
+method,R@10,R@50,source
+DQU-CIR (paper),62.000000,81.580000,DQU-CIR paper
+MCoT-MVS (paper),63.240000,82.010000,MCoT-MVS paper
+MCoT-MVS same pipeline,63.560778,82.33402,local artifact
+Cost-matched diagonal ensemble,64.524688,82.748683,local artifact
+CrossPath DQU Base x MCoT,64.606112,82.567708,local artifact
+CrossPath DQU GradCache x MCoT,64.576193,82.816165,local artifact

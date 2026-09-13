@@ -1,0 +1,204 @@
+{
+  "base_label": "A1 endpoint",
+  "cases": [
+    {
+      "base_rank": 9,
+      "base_top_ids": [
+        "2651588",
+        "1238083",
+        "1910983",
+        "2076197",
+        "1237113"
+      ],
+      "category": null,
+      "method_rank": 1,
+      "method_top_ids": [
+        "2188587",
+        "2076197",
+        "2651588",
+        "1237113",
+        "1388053"
+      ],
+      "modification": "Front: remove graphics, change to hidden placket, and add a small lower-hem logo patch. Back: introduce a center box pleat below the yoke.",
+      "query_index": 6195,
+      "selection_cutoff": 1,
+      "source_id": "1237113",
+      "target_id": "2188587"
+    },
+    {
+      "base_rank": 23,
+      "base_top_ids": [
+        "1706763",
+        "2070417",
+        "2304617",
+        "1442723",
+        "2635518"
+      ],
+      "category": null,
+      "method_rank": 4,
+      "method_top_ids": [
+        "2070417",
+        "1706763",
+        "2304617",
+        "2304697",
+        "1442723"
+      ],
+      "modification": "Add whiskering and fading to the front thigh area and decorative contrast stitching to the back patch pockets while keeping the original slim-fit black denim construction.",
+      "query_index": 1200,
+      "selection_cutoff": 5,
+      "source_id": "2436118",
+      "target_id": "2304697"
+    },
+    {
+      "base_rank": 21,
+      "base_top_ids": [
+        "2501888",
+        "2342647",
+        "1622163",
+        "95410",
+        "103813"
+      ],
+      "category": null,
+      "method_rank": 5,
+      "method_top_ids": [
+        "2501888",
+        "2342647",
+        "103813",
+        "1622163",
+        "2264777"
+      ],
+      "modification": "Remove the grid check pattern for a solid finish and replace the straight, tailored hems with gathered ribbed knit cuffs for a jogger-inspired silhouette.",
+      "query_index": 8043,
+      "selection_cutoff": 10,
+      "source_id": "2501888",
+      "target_id": "2264777"
+    }
+  ],
+  "dataset": "fashiongen",
+  "method_label": "CrossPath cross mean",
+  "selection": "largest deterministic base-miss/method-hit rescue; ties use method rank then query index",
+  "source_images": {
+    "103813": [
+      "source_images/fashiongen/103813/00.jpg",
+      "source_images/fashiongen/103813/01.jpg",
+      "source_images/fashiongen/103813/02.jpg",
+      "source_images/fashiongen/103813/03.jpg"
+    ],
+    "1237113": [
+      "source_images/fashiongen/1237113/00.jpg",
+      "source_images/fashiongen/1237113/01.jpg",
+      "source_images/fashiongen/1237113/02.jpg",
+      "source_images/fashiongen/1237113/03.jpg"
+    ],
+    "1238083": [
+      "source_images/fashiongen/1238083/00.jpg",
+      "source_images/fashiongen/1238083/01.jpg",
+      "source_images/fashiongen/1238083/02.jpg",
+      "source_images/fashiongen/1238083/03.jpg"
+    ],
+    "1388053": [
+      "source_images/fashiongen/1388053/00.jpg",
+      "source_images/fashiongen/1388053/01.jpg",
+      "source_images/fashiongen/1388053/02.jpg",
+      "source_images/fashiongen/1388053/03.jpg"
+    ],
+    "1442723": [
+      "source_images/fashiongen/1442723/00.jpg",
+      "source_images/fashiongen/1442723/01.jpg",
+      "source_images/fashiongen/1442723/02.jpg",
+      "source_images/fashiongen/1442723/03.jpg"
+    ],
+    "1622163": [
+      "source_images/fashiongen/1622163/00.jpg",
+      "source_images/fashiongen/1622163/01.jpg",
+      "source_images/fashiongen/1622163/02.jpg",
+      "source_images/fashiongen/1622163/03.jpg"
+    ],
+    "1706763": [
+      "source_images/fashiongen/1706763/00.jpg",
+      "source_images/fashiongen/1706763/01.jpg",
+      "source_images/fashiongen/1706763/02.jpg",
+      "source_images/fashiongen/1706763/03.jpg"
+    ],
+    "1910983": [
+      "source_images/fashiongen/1910983/00.jpg",
+      "source_images/fashiongen/1910983/01.jpg",
+      "source_images/fashiongen/1910983/02.jpg",
+      "source_images/fashiongen/1910983/03.jpg"
+    ],
+    "2070417": [
+      "source_images/fashiongen/2070417/00.jpg",
+      "source_images/fashiongen/2070417/01.jpg",
+      "source_images/fashiongen/2070417/02.jpg",
+      "source_images/fashiongen/2070417/03.jpg"
+    ],
+    "2076197": [
+      "source_images/fashiongen/2076197/00.jpg",
+      "source_images/fashiongen/2076197/01.jpg",
+      "source_images/fashiongen/2076197/02.jpg",
+      "source_images/fashiongen/2076197/03.jpg"
+    ],
+    "2188587": [
+      "source_images/fashiongen/2188587/00.jpg",
+      "source_images/fashiongen/2188587/01.jpg",
+      "source_images/fashiongen/2188587/02.jpg",
+      "source_images/fashiongen/2188587/03.jpg",
+      "source_images/fashiongen/2188587/04.jpg"
+    ],
+    "2264777": [
+      "source_images/fashiongen/2264777/00.jpg",
+      "source_images/fashiongen/2264777/01.jpg",
+      "source_images/fashiongen/2264777/02.jpg",
+      "source_images/fashiongen/2264777/03.jpg"
+    ],
+    "2304617": [
+      "source_images/fashiongen/2304617/00.jpg",
+      "source_images/fashiongen/2304617/01.jpg",
+      "source_images/fashiongen/2304617/02.jpg",
+      "source_images/fashiongen/2304617/03.jpg"
+    ],
+    "2304697": [
+      "source_images/fashiongen/2304697/00.jpg",
+      "source_images/fashiongen/2304697/01.jpg",
+      "source_images/fashiongen/2304697/02.jpg",
+      "source_images/fashiongen/2304697/03.jpg"
+    ],
+    "2342647": [
+      "source_images/fashiongen/2342647/00.jpg",
+      "source_images/fashiongen/2342647/01.jpg",
+      "source_images/fashiongen/2342647/02.jpg",
+      "source_images/fashiongen/2342647/03.jpg"
+    ],
+    "2436118": [
+      "source_images/fashiongen/2436118/00.jpg",
+      "source_images/fashiongen/2436118/01.jpg",
+      "source_images/fashiongen/2436118/02.jpg",
+      "source_images/fashiongen/2436118/03.jpg"
+    ],
+    "2501888": [
+      "source_images/fashiongen/2501888/00.jpg",
+      "source_images/fashiongen/2501888/01.jpg",
+      "source_images/fashiongen/2501888/02.jpg",
+      "source_images/fashiongen/2501888/03.jpg"
+    ],
+    "2635518": [
+      "source_images/fashiongen/2635518/00.jpg",
+      "source_images/fashiongen/2635518/01.jpg",
+      "source_images/fashiongen/2635518/02.jpg",
+      "source_images/fashiongen/2635518/03.jpg"
+    ],
+    "2651588": [
+      "source_images/fashiongen/2651588/00.jpg",
+      "source_images/fashiongen/2651588/01.jpg",
+      "source_images/fashiongen/2651588/02.jpg",
+      "source_images/fashiongen/2651588/03.jpg"
+    ],
+    "95410": [
+      "source_images/fashiongen/95410/00.jpg",
+      "source_images/fashiongen/95410/01.jpg",
+      "source_images/fashiongen/95410/02.jpg",
+      "source_images/fashiongen/95410/03.jpg"
+    ]
+  },
+  "top_k": 5
+}

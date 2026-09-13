@@ -1,0 +1,8 @@
+{
+  "alpha": 0.25,
+  "checkpoint": "/root/autodl-tmp/weave/runs/RERANK_v2/reranker_best.pt",
+  "general_submission": "/root/autodl-tmp/weave/runs/E30_CIRR_QueryRouter_20260912/test1_submission/recall_e29_e30_alpha0.25.json",
+  "queries": 4148,
+  "split": "test1",
+  "subset_submission": "/root/autodl-tmp/weave/runs/E30_CIRR_QueryRouter_20260912/test1_submission/recall_subset_e29_e30_alpha0.25.json"
+}

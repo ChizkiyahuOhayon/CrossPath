@@ -1,0 +1,685 @@
+REFERENCE VERIFICATION ERRORS
+
+PAPER: Main
+Paper ID: local_main
+URL: file:///Users/zhao/Desktop/NLP/CrossPath_CVPR2027/paper/main.bib
+Authors: Unknown
+Year: 2026
+--------------------------------------------------------------------------------
+REFERENCE: Composing Text and Image for Image Retrieval: An Empirical Odyssey
+Type: ❌ multiple
+Details: - Year mismatch:
+       cited:  2019
+       actual: 2018
+-
+
+RAW REFERENCE TEXT:
+@inproceedings{vo2019tirg, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/fd5129e8ebfaa5dcce3d4ce2839b90c6cd3ca39d
+
+CORRECTED REFERENCE (Plain Text):
+Nam S. Vo, Lu Jiang, Chen Sun, K. Murphy, Li-Jia Li, Li Fei-Fei, James Hays. (2018). "Composing Text and Image for Image Retrieval - an Empirical Odyssey". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/1812.07119.
+
+% Citation key for BibTeX: @inproceedings{vo2019tirg, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{vo2019tirg,
+  author = {Nam S. Vo and Lu Jiang and Chen Sun and K. Murphy and Li-Jia Li and Li Fei-Fei and James Hays},
+  title = {Composing Text and Image for Image Retrieval - an Empirical Odyssey},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages = {6439--6448},
+  year = {2018},
+  url = {https://arxiv.org/abs/1812.07119}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Nam S. Vo, Lu Jiang, Chen Sun, K. Murphy, Li-Jia Li, Li Fei-Fei, James Hays. (2018). \textit{Composing Text and Image for Image Retrieval - an Empirical Odyssey}. In \textit{Computer Vision and Pattern Recognition}. \url{https://arxiv.org/abs/1812.07119}.
+
+================================================================================
+REFERENCE: Image Retrieval on Real-Life Images With Pre-Trained Vision-and-Language Models
+Type: ℹ️ url
+Details: Reference could include arXiv URL: https://arxiv.org/abs/2108.04024
+
+RAW REFERENCE TEXT:
+@inproceedings{liucirr, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/c2d5426ee019d3d894b9d4416dc866b65fe64312
+
+CORRECTED REFERENCE (Plain Text):
+Zheyuan Liu, Cristian Rodriguez-Opazo, Damien Teney, Stephen Gould. (2021). "Image Retrieval on Real-life Images with Pre-trained Vision-and-Language Models". In IEEE International Conference on Computer Vision. https://arxiv.org/abs/2108.04024.
+
+% Citation key for BibTeX: @inproceedings{liucirr, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{liucirr,
+  author = {Zheyuan Liu and Cristian Rodriguez-Opazo and Damien Teney and Stephen Gould},
+  title = {Image Retrieval on Real-life Images with Pre-trained Vision-and-Language Models},
+  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages = {2125--2134},
+  year = {2021},
+  url = {https://arxiv.org/abs/2108.04024}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Zheyuan Liu, Cristian Rodriguez-Opazo, Damien Teney, Stephen Gould. (2021). \textit{Image Retrieval on Real-life Images with Pre-trained Vision-and-Language Models}. In \textit{IEEE International Conference on Computer Vision}. \url{https://arxiv.org/abs/2108.04024}.
+
+================================================================================
+REFERENCE: Learning Transferable Visual Models From Natural Language Supervision
+Type: ℹ️ url
+Details: Reference could include arXiv URL: https://arxiv.org/abs/2103.00020
+
+RAW REFERENCE TEXT:
+@inproceedings{radford2021clip, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/6f870f7f02a8c59c3e23f407f3ef00dd1dcf8fc4
+
+CORRECTED REFERENCE (Plain Text):
+Alec Radford, Jong Wook Kim, Chris Hallacy, A. Ramesh, Gabriel Goh, S. Agarwal, G. Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen Krueger, I. Sutskever. (2021). "Learning Transferable Visual Models From Natural Language Supervision". In International Conference on Machine Learning. https://arxiv.org/abs/2103.00020.
+
+% Citation key for BibTeX: @inproceedings{radford2021clip, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{radford2021clip,
+  author = {Alec Radford and Jong Wook Kim and Chris Hallacy and A. Ramesh and Gabriel Goh and S. Agarwal and G. Sastry and Amanda Askell and Pamela Mishkin and Jack Clark and Gretchen Krueger and I. Sutskever},
+  title = {Learning Transferable Visual Models From Natural Language Supervision},
+  booktitle = {Proceedings of the International Conference on Machine Learning},
+  pages = {8748--8763},
+  year = {2021},
+  url = {https://arxiv.org/abs/2103.00020}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Alec Radford, Jong Wook Kim, Chris Hallacy, A. Ramesh, Gabriel Goh, S. Agarwal, G. Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen Krueger, I. Sutskever. (2021). \textit{Learning Transferable Visual Models From Natural Language Supervision}. In \textit{International Conference on Machine Learning}. \url{https://arxiv.org/abs/2103.00020}.
+
+================================================================================
+REFERENCE: Simple but Effective Raw-Data Level Multimodal Fusion for Composed Image Retrieval
+Type: ℹ️ url
+Details: Reference could include arXiv URL: https://arxiv.org/abs/2404.15875
+
+RAW REFERENCE TEXT:
+@inproceedings{wen2024dqu, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/ab9c850b716d72646340d4f8bc9436e83d2ff55e
+
+CORRECTED REFERENCE (Plain Text):
+Haokun Wen, Xuemeng Song, Xiaolin Chen, Yin-wei Wei, Liqiang Nie, Tat-Seng Chua. (2024). "Simple but Effective Raw-Data Level Multimodal Fusion for Composed Image Retrieval". In Annual International ACM SIGIR Conference on Research and Development in Information Retrieval. https://arxiv.org/abs/2404.15875.
+
+% Citation key for BibTeX: @inproceedings{wen2024dqu, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{wen2024dqu,
+  author = {Haokun Wen and Xuemeng Song and Xiaolin Chen and Yin-wei Wei and Liqiang Nie and Tat-Seng Chua},
+  title = {Simple but Effective Raw-Data Level Multimodal Fusion for Composed Image Retrieval},
+  booktitle = {Proceedings of the 47th International ACM SIGIR Conference on Research and Development in Information Retrieval},
+  pages = {229--239},
+  year = {2024},
+  url = {https://arxiv.org/abs/2404.15875}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Haokun Wen, Xuemeng Song, Xiaolin Chen, Yin-wei Wei, Liqiang Nie, Tat-Seng Chua. (2024). \textit{Simple but Effective Raw-Data Level Multimodal Fusion for Composed Image Retrieval}. In \textit{Annual International ACM SIGIR Conference on Research and Development in Information Retrieval}. \url{https://arxiv.org/abs/2404.15875}.
+
+================================================================================
+REFERENCE: Language-Only Training of Zero-Shot Composed Image Retrieval
+Type: ❌ multiple
+Details: - Year mismatch:
+       cited:  2024
+       actual: 2023
+-
+
+RAW REFERENCE TEXT:
+@inproceedings{gu2024lincir, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/15d6053cc60880524c6b01c5364e6e3f4217a522
+
+CORRECTED REFERENCE (Plain Text):
+Geonmo Gu, Sanghyuk Chun, Wonjae Kim, Yoohoon Kang, Sangdoo Yun. (2023). "Language-only Efficient Training of Zero-shot Composed Image Retrieval". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/2312.01998.
+
+% Citation key for BibTeX: @inproceedings{gu2024lincir, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{gu2024lincir,
+  author = {Geonmo Gu and Sanghyuk Chun and Wonjae Kim and Yoohoon Kang and Sangdoo Yun},
+  title = {Language-only Efficient Training of Zero-shot Composed Image Retrieval},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages = {13225--13236},
+  year = {2023},
+  url = {https://arxiv.org/abs/2312.01998}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Geonmo Gu, Sanghyuk Chun, Wonjae Kim, Yoohoon Kang, Sangdoo Yun. (2023). \textit{Language-only Efficient Training of Zero-shot Composed Image Retrieval}. In \textit{Computer Vision and Pattern Recognition}. \url{https://arxiv.org/abs/2312.01998}.
+
+================================================================================
+REFERENCE: Knowledge-Enhanced Dual-Stream Zero-Shot Composed Image Retrieval
+Type: ℹ️ url
+Details: Reference could include arXiv URL: https://arxiv.org/abs/2403.16005
+
+RAW REFERENCE TEXT:
+@inproceedings{suo2024keds, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/6e34a65ab45ccbf245f10a65e91215b2278042ed
+
+CORRECTED REFERENCE (Plain Text):
+Yuchen Suo, Fan Ma, Linchao Zhu, Yi Yang. (2024). "Knowledge-Enhanced Dual-Stream Zero-Shot Composed Image Retrieval". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/2403.16005.
+
+% Citation key for BibTeX: @inproceedings{suo2024keds, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{suo2024keds,
+  author = {Yuchen Suo and Fan Ma and Linchao Zhu and Yi Yang},
+  title = {Knowledge-Enhanced Dual-Stream Zero-Shot Composed Image Retrieval},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages = {26951--26962},
+  year = {2024},
+  url = {https://arxiv.org/abs/2403.16005}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Yuchen Suo, Fan Ma, Linchao Zhu, Yi Yang. (2024). \textit{Knowledge-Enhanced Dual-Stream Zero-Shot Composed Image Retrieval}. In \textit{Computer Vision and Pattern Recognition}. \url{https://arxiv.org/abs/2403.16005}.
+
+================================================================================
+REFERENCE: Visual Delta Generator with Large Multi-Modal Models for Semi-Supervised Composed Image Retrieval
+Type: ℹ️ url
+Details: Reference could include arXiv URL: https://arxiv.org/abs/2404.15516
+
+RAW REFERENCE TEXT:
+@inproceedings{jang2024vdg, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/d3c2ae1c9bc18b023b58ed5cde0d8b1f7402aae2
+
+CORRECTED REFERENCE (Plain Text):
+Young Kyun Jang, Donghyun Kim, Zihang Meng, Dat Huynh, Ser-Nam Lim. (2024). "Visual Delta Generator with Large Multi-Modal Models for Semi-Supervised Composed Image Retrieval". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/2404.15516.
+
+% Citation key for BibTeX: @inproceedings{jang2024vdg, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{jang2024vdg,
+  author = {Young Kyun Jang and Donghyun Kim and Zihang Meng and Dat Huynh and Ser-Nam Lim},
+  title = {Visual Delta Generator with Large Multi-Modal Models for Semi-Supervised Composed Image Retrieval},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages = {16805--16814},
+  year = {2024},
+  url = {https://arxiv.org/abs/2404.15516}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Young Kyun Jang, Donghyun Kim, Zihang Meng, Dat Huynh, Ser-Nam Lim. (2024). \textit{Visual Delta Generator with Large Multi-Modal Models for Semi-Supervised Composed Image Retrieval}. In \textit{Computer Vision and Pattern Recognition}. \url{https://arxiv.org/abs/2404.15516}.
+
+================================================================================
+REFERENCE: {CoLLM}: A Large Language Model for Composed Image Retrieval
+Type: ℹ️ url
+Details: Reference could include arXiv URL: https://arxiv.org/abs/2503.19910
+
+RAW REFERENCE TEXT:
+@inproceedings{huynh2025collm, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/ecdbed008d38328141d3eb73d806857ac665c57d
+
+CORRECTED REFERENCE (Plain Text):
+Chuong Huynh, Jinyu Yang, Ashish Tawari, Mubarak Shah, Son Tran, Raffay Hamid, Trishul M. Chilimbi, Abhinav Shrivastava. (2025). "CoLLM: A Large Language Model for Composed Image Retrieval". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/2503.19910.
+
+% Citation key for BibTeX: @inproceedings{huynh2025collm, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{huynh2025collm,
+  author = {Chuong Huynh and Jinyu Yang and Ashish Tawari and Mubarak Shah and Son Tran and Raffay Hamid and Trishul M. Chilimbi and Abhinav Shrivastava},
+  title = {CoLLM: A Large Language Model for Composed Image Retrieval},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages = {3994--4004},
+  year = {2025},
+  url = {https://arxiv.org/abs/2503.19910}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Chuong Huynh, Jinyu Yang, Ashish Tawari, Mubarak Shah, Son Tran, Raffay Hamid, Trishul M. Chilimbi, Abhinav Shrivastava. (2025). \textit{CoLLM: A Large Language Model for Composed Image Retrieval}. In \textit{Computer Vision and Pattern Recognition}. \url{https://arxiv.org/abs/2503.19910}.
+
+================================================================================
+REFERENCE: {ConText-CIR}: Learning from Concepts in Text for Composed Image Retrieval
+Type: ℹ️ url
+Details: Reference could include arXiv URL: https://arxiv.org/abs/2505.20764
+
+RAW REFERENCE TEXT:
+@inproceedings{xing2025context, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/d0c7eb456c6b3c2a39dcedf3f6660a735ad89ba8
+
+CORRECTED REFERENCE (Plain Text):
+Eric Xing, Pranavi Kolouju, Robert Pless, Abby Stylianou, Nathan Jacobs. (2025). "ConText-CIR: Learning from Concepts in Text for Composed Image Retrieval". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/2505.20764.
+
+% Citation key for BibTeX: @inproceedings{xing2025context, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{xing2025context,
+  author = {Eric Xing and Pranavi Kolouju and Robert Pless and Abby Stylianou and Nathan Jacobs},
+  title = {ConText-CIR: Learning from Concepts in Text for Composed Image Retrieval},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages = {19638--19648},
+  year = {2025},
+  url = {https://arxiv.org/abs/2505.20764}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Eric Xing, Pranavi Kolouju, Robert Pless, Abby Stylianou, Nathan Jacobs. (2025). \textit{ConText-CIR: Learning from Concepts in Text for Composed Image Retrieval}. In \textit{Computer Vision and Pattern Recognition}. \url{https://arxiv.org/abs/2505.20764}.
+
+================================================================================
+REFERENCE: Imagine and Seek: Improving Composed Image Retrieval with an Imagined Proxy
+Type: ❌ multiple
+Details: - Year mismatch:
+       cited:  2025
+       actual: 2024
+-
+
+RAW REFERENCE TEXT:
+@inproceedings{li2025imagine, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/ed122df553206f27034f159d7e51bd258e80f613
+
+CORRECTED REFERENCE (Plain Text):
+You Li, Fan Ma, Yi Yang. (2024). "Imagine and Seek: Improving Composed Image Retrieval with an Imagined Proxy". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/2411.16752.
+
+% Citation key for BibTeX: @inproceedings{li2025imagine, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{li2025imagine,
+  author = {You Li and Fan Ma and Yi Yang},
+  title = {Imagine and Seek: Improving Composed Image Retrieval with an Imagined Proxy},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages = {3984--3993},
+  year = {2024},
+  url = {https://arxiv.org/abs/2411.16752}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+You Li, Fan Ma, Yi Yang. (2024). \textit{Imagine and Seek: Improving Composed Image Retrieval with an Imagined Proxy}. In \textit{Computer Vision and Pattern Recognition}. \url{https://arxiv.org/abs/2411.16752}.
+
+================================================================================
+REFERENCE: Missing Target-Relevant Information Prediction with World Model for Accurate Zero-Shot Composed Image Retrieval
+Type: ℹ️ url
+Details: Reference could include arXiv URL: https://arxiv.org/abs/2503.17109
+
+RAW REFERENCE TEXT:
+@inproceedings{tang2025worldmodel, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/aa42b6b5757164a6fc8b1a9c765194796a2a447c
+
+CORRECTED REFERENCE (Plain Text):
+Yuanmin Tang, Jing Yu, Keke Gai, Jiamin Zhuang, Gang Xiong, Gaopeng Gou, Qi Wu. (2025). "Missing Target-Relevant Information Prediction with World Model for Accurate Zero-Shot Composed Image Retrieval". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/2503.17109.
+
+% Citation key for BibTeX: @inproceedings{tang2025worldmodel, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{tang2025worldmodel,
+  author = {Yuanmin Tang and Jing Yu and Keke Gai and Jiamin Zhuang and Gang Xiong and Gaopeng Gou and Qi Wu},
+  title = {Missing Target-Relevant Information Prediction with World Model for Accurate Zero-Shot Composed Image Retrieval},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year = {2025},
+  url = {https://arxiv.org/abs/2503.17109}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Yuanmin Tang, Jing Yu, Keke Gai, Jiamin Zhuang, Gang Xiong, Gaopeng Gou, Qi Wu. (2025). \textit{Missing Target-Relevant Information Prediction with World Model for Accurate Zero-Shot Composed Image Retrieval}. In \textit{Computer Vision and Pattern Recognition}. \url{https://arxiv.org/abs/2503.17109}.
+
+================================================================================
+REFERENCE: Reason-before-Retrieve: One-Stage Reflective Chain-of-Thoughts for Training-Free Zero-Shot Composed Image Retrieval
+Type: ❌ multiple
+Details: - Year mismatch:
+       cited:  2025
+       actual: 2024
+-
+
+RAW REFERENCE TEXT:
+@inproceedings{tang2025reason, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/67a740a01e7a2fe0adf629053685f16aa41abcf9
+
+CORRECTED REFERENCE (Plain Text):
+Yuanmin Tang, X. Qin, Jue Zhang, Jing Yu, Gaopeng Gou, Gang Xiong, Qingwei Ling, S. Rajmohan, Dongmei Zhang, Qi Wu. (2024). "Reason-before-Retrieve: One-Stage Reflective Chain-of-Thoughts for Training-Free Zero-Shot Composed Image Retrieval". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/2412.11077.
+
+% Citation key for BibTeX: @inproceedings{tang2025reason, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{tang2025reason,
+  author = {Yuanmin Tang and X. Qin and Jue Zhang and Jing Yu and Gaopeng Gou and Gang Xiong and Qingwei Ling and S. Rajmohan and Dongmei Zhang and Qi Wu},
+  title = {Reason-before-Retrieve: One-Stage Reflective Chain-of-Thoughts for Training-Free Zero-Shot Composed Image Retrieval},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year = {2024},
+  url = {https://arxiv.org/abs/2412.11077}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Yuanmin Tang, X. Qin, Jue Zhang, Jing Yu, Gaopeng Gou, Gang Xiong, Qingwei Ling, S. Rajmohan, Dongmei Zhang, Qi Wu. (2024). \textit{Reason-before-Retrieve: One-Stage Reflective Chain-of-Thoughts for Training-Free Zero-Shot Composed Image Retrieval}. In \textit{Computer Vision and Pattern Recognition}. \url{https://arxiv.org/abs/2412.11077}.
+
+================================================================================
+REFERENCE: {MCoT-MVS}: Multi-Level Vision Selection by Multi-Modal Chain-of-Thought Reasoning for Composed Image Retrieval
+Type: ℹ️ url
+Details: Reference could include arXiv URL: https://arxiv.org/abs/2603.17360
+
+RAW REFERENCE TEXT:
+@inproceedings{ge2026mcot, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/1ea8f18dfa4f64894c866a41b009839f05997836
+
+CORRECTED REFERENCE (Plain Text):
+Xuri Ge, Chunhao Wang, Xindi Wang, Zheyun Qin, Zhumin Chen, Xin Xin. (2026). "MCoT-MVS: Multi-level Vision Selection by Multi-modal Chain-of-Thought Reasoning for Composed Image Retrieval". In The Web Conference. https://arxiv.org/abs/2603.17360.
+
+% Citation key for BibTeX: @inproceedings{ge2026mcot, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{ge2026mcot,
+  author = {Xuri Ge and Chunhao Wang and Xindi Wang and Zheyun Qin and Zhumin Chen and Xin Xin},
+  title = {MCoT-MVS: Multi-level Vision Selection by Multi-modal Chain-of-Thought Reasoning for Composed Image Retrieval},
+  booktitle = {Proceedings of the ACM Web Conference},
+  pages = {2105--2113},
+  year = {2026},
+  url = {https://arxiv.org/abs/2603.17360}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Xuri Ge, Chunhao Wang, Xindi Wang, Zheyun Qin, Zhumin Chen, Xin Xin. (2026). \textit{MCoT-MVS: Multi-level Vision Selection by Multi-modal Chain-of-Thought Reasoning for Composed Image Retrieval}. In \textit{The Web Conference}. \url{https://arxiv.org/abs/2603.17360}.
+
+================================================================================
+REFERENCE: An Efficient Post-hoc Framework for Reducing Task Discrepancy of Text Encoders for Composed Image Retrieval
+Type: ❌ multiple
+Details: - Year mismatch:
+       cited:  2025
+       actual: 2024
+-
+
+RAW REFERENCE TEXT:
+@inproceedings{byun2025rtd, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/edfaeea934e851b5ad985c251601a2fedf103319
+
+CORRECTED REFERENCE (Plain Text):
+Jaeseok Byun, Seokhyeon Jeong, Wonjae Kim, Sanghyuk Chun, Taesup Moon. (2024). "An Efficient Post-Hoc Framework for Reducing Task Discrepancy of Text Encoders for Composed Image Retrieval". In IEEE International Conference on Computer Vision. https://arxiv.org/abs/2406.09188.
+
+% Citation key for BibTeX: @inproceedings{byun2025rtd, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{byun2025rtd,
+  author = {Jaeseok Byun and Seokhyeon Jeong and Wonjae Kim and Sanghyuk Chun and Taesup Moon},
+  title = {An Efficient Post-Hoc Framework for Reducing Task Discrepancy of Text Encoders for Composed Image Retrieval},
+  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages = {3895--3904},
+  year = {2024},
+  url = {https://arxiv.org/abs/2406.09188}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Jaeseok Byun, Seokhyeon Jeong, Wonjae Kim, Sanghyuk Chun, Taesup Moon. (2024). \textit{An Efficient Post-Hoc Framework for Reducing Task Discrepancy of Text Encoders for Composed Image Retrieval}. In \textit{IEEE International Conference on Computer Vision}. \url{https://arxiv.org/abs/2406.09188}.
+
+================================================================================
+REFERENCE: {ConeSep}: Cone-Based Robust Noise-Unlearning Compositional Network for Composed Image Retrieval
+Type: ℹ️ url
+Details: Reference could include arXiv URL: https://arxiv.org/abs/2604.20358
+
+RAW REFERENCE TEXT:
+@inproceedings{li2026conesep, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/99aa6cea4b033adc8a58b11f380ae74827b4f6c5
+
+CORRECTED REFERENCE (Plain Text):
+Zixu Li, Yupeng Hu, Zhiwei Chen, Mingyu Zhang, Zhiheng Fu, Liqiang Nie. (2026). "ConeSep: Cone-based Robust Noise-Unlearning Compositional Network for Composed Image Retrieval". In arXiv.org. https://arxiv.org/abs/2604.20358.
+
+% Citation key for BibTeX: @inproceedings{li2026conesep, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{li2026conesep,
+  author = {Zixu Li and Yupeng Hu and Zhiwei Chen and Mingyu Zhang and Zhiheng Fu and Liqiang Nie},
+  title = {ConeSep: Cone-based Robust Noise-Unlearning Compositional Network for Composed Image Retrieval},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages = {16897--16909},
+  year = {2026},
+  url = {https://arxiv.org/abs/2604.20358}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Zixu Li, Yupeng Hu, Zhiwei Chen, Mingyu Zhang, Zhiheng Fu, Liqiang Nie. (2026). \textit{ConeSep: Cone-based Robust Noise-Unlearning Compositional Network for Composed Image Retrieval}. In \textit{arXiv.org}. \url{https://arxiv.org/abs/2604.20358}.
+
+================================================================================
+REFERENCE: {ReCALL}: Recalibrating Capability Degradation for MLLM-Based Composed Image Retrieval
+Type: ℹ️ url
+Details: Reference could include arXiv URL: https://arxiv.org/abs/2602.01639
+
+RAW REFERENCE TEXT:
+@inproceedings{yang2026recall, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/dacaede9f9c38c79bac79389477903fab1bd2246
+
+CORRECTED REFERENCE (Plain Text):
+Tianyu Yang, ChenWei He, Xiangzhao Hao, Tianyu Wang, Jiarui Guo, Haiyun Guo, Leigang Qu, Jinqiao Wang, Tat-Seng Chua. (2026). "ReCALL: Recalibrating Capability Degradation for MLLM-based Composed Image Retrieval". In arXiv.org. https://arxiv.org/abs/2602.01639.
+
+% Citation key for BibTeX: @inproceedings{yang2026recall, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{yang2026recall,
+  author = {Tianyu Yang and ChenWei He and Xiangzhao Hao and Tianyu Wang and Jiarui Guo and Haiyun Guo and Leigang Qu and Jinqiao Wang and Tat-Seng Chua},
+  title = {ReCALL: Recalibrating Capability Degradation for MLLM-based Composed Image Retrieval},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages = {38763--38773},
+  year = {2026},
+  url = {https://arxiv.org/abs/2602.01639}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Tianyu Yang, ChenWei He, Xiangzhao Hao, Tianyu Wang, Jiarui Guo, Haiyun Guo, Leigang Qu, Jinqiao Wang, Tat-Seng Chua. (2026). \textit{ReCALL: Recalibrating Capability Degradation for MLLM-based Composed Image Retrieval}. In \textit{arXiv.org}. \url{https://arxiv.org/abs/2602.01639}.
+
+================================================================================
+REFERENCE: {PinPoint}: Evaluation of Composed Image Retrieval with Explicit Negatives, Multi-Image Queries, and Paraphrase Testing
+Type: ℹ️ url
+Details: Reference could include arXiv URL: https://arxiv.org/abs/2603.04598
+
+RAW REFERENCE TEXT:
+@inproceedings{mahadev2026pinpoint, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/15635dc1c18798b068521b81e76b049f266feda2
+
+CORRECTED REFERENCE (Plain Text):
+Rohan Mahadev, Joyce Yuan, Patrick Poirson, David Xue, Haoning Wu, Dmitry Kislyuk. (2026). "PinPoint: Evaluation of Composed Image Retrieval with Explicit Negatives, Multi-Image Queries, and Paraphrase Testing". In arXiv.org. https://arxiv.org/abs/2603.04598.
+
+% Citation key for BibTeX: @inproceedings{mahadev2026pinpoint, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{mahadev2026pinpoint,
+  author = {Rohan Mahadev and Joyce Yuan and Patrick Poirson and David Xue and Haoning Wu and Dmitry Kislyuk},
+  title = {PinPoint: Evaluation of Composed Image Retrieval with Explicit Negatives, Multi-Image Queries, and Paraphrase Testing},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages = {9742--9751},
+  year = {2026},
+  url = {https://arxiv.org/abs/2603.04598}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Rohan Mahadev, Joyce Yuan, Patrick Poirson, David Xue, Haoning Wu, Dmitry Kislyuk. (2026). \textit{PinPoint: Evaluation of Composed Image Retrieval with Explicit Negatives, Multi-Image Queries, and Paraphrase Testing}. In \textit{arXiv.org}. \url{https://arxiv.org/abs/2603.04598}.
+
+================================================================================
+REFERENCE: {SAC}: Semantic Attention Composition for Text-Conditioned Image Retrieval
+Type: ❌ multiple
+Details: - Year mismatch:
+       cited:  2022
+       actual: 2020
+-
+
+RAW REFERENCE TEXT:
+@inproceedings{jandial2022sac, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/711c018aac7305344e247e038c683cb9de589719
+
+CORRECTED REFERENCE (Plain Text):
+Surgan Jandial, Pinkesh Badjatiya, Pranit Chawla, Ayush Chopra, Mausoom Sarkar, Balaji Krishnamurthy. (2020). "SAC: Semantic Attention Composition for Text-Conditioned Image Retrieval". In IEEE Workshop/Winter Conference on Applications of Computer Vision. https://arxiv.org/abs/2009.01485.
+
+% Citation key for BibTeX: @inproceedings{jandial2022sac, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{jandial2022sac,
+  author = {Surgan Jandial and Pinkesh Badjatiya and Pranit Chawla and Ayush Chopra and Mausoom Sarkar and Balaji Krishnamurthy},
+  title = {SAC: Semantic Attention Composition for Text-Conditioned Image Retrieval},
+  booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision},
+  pages = {4021--4030},
+  year = {2020},
+  url = {https://arxiv.org/abs/2009.01485}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Surgan Jandial, Pinkesh Badjatiya, Pranit Chawla, Ayush Chopra, Mausoom Sarkar, Balaji Krishnamurthy. (2020). \textit{SAC: Semantic Attention Composition for Text-Conditioned Image Retrieval}. In \textit{IEEE Workshop/Winter Conference on Applications of Computer Vision}. \url{https://arxiv.org/abs/2009.01485}.
+
+================================================================================
+REFERENCE: {ARTEMIS}: Attention-Based Retrieval With Text-Explicit Matching and Implicit Similarity
+Type: ℹ️ url
+Details: Reference could include arXiv URL: https://arxiv.org/abs/2203.08101
+
+RAW REFERENCE TEXT:
+@inproceedings{delmas2022artemis, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/69778262994c3183ac02c7e535a3e9256c5231fa
+
+CORRECTED REFERENCE (Plain Text):
+Ginger Delmas, Rafael Sampaio de Rezende, G. Csurka, Diane Larlus. (2022). "ARTEMIS: Attention-based Retrieval with Text-Explicit Matching and Implicit Similarity". https://arxiv.org/abs/2203.08101.
+
+% Citation key for BibTeX: @inproceedings{delmas2022artemis, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{delmas2022artemis,
+  author = {Ginger Delmas and Rafael Sampaio de Rezende and G. Csurka and Diane Larlus},
+  title = {ARTEMIS: Attention-based Retrieval with Text-Explicit Matching and Implicit Similarity},
+  booktitle = {Proceedings of the International Conference on Learning Representations},
+  year = {2022},
+  url = {https://arxiv.org/abs/2203.08101}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Ginger Delmas, Rafael Sampaio de Rezende, G. Csurka, Diane Larlus. (2022). \textit{ARTEMIS: Attention-based Retrieval with Text-Explicit Matching and Implicit Similarity}. \url{https://arxiv.org/abs/2203.08101}.
+
+================================================================================
+REFERENCE: {Pic2Word}: Mapping Pictures to Words for Zero-Shot Composed Image Retrieval
+Type: ℹ️ url
+Details: Reference could include arXiv URL: https://arxiv.org/abs/2302.03084
+
+RAW REFERENCE TEXT:
+@inproceedings{saito2023pic2word, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/9b897a8739f04fa4eff7431fd8a3c547b49f4878
+
+CORRECTED REFERENCE (Plain Text):
+Kuniaki Saito, Kihyuk Sohn, Xiang Zhang, Chun-Liang Li, Chen-Yu Lee, Kate Saenko, Tomas Pfister. (2023). "Pic2Word: Mapping Pictures to Words for Zero-shot Composed Image Retrieval". In Computer Vision and Pattern Recognition. https://arxiv.org/abs/2302.03084.
+
+% Citation key for BibTeX: @inproceedings{saito2023pic2word, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{saito2023pic2word,
+  author = {Kuniaki Saito and Kihyuk Sohn and Xiang Zhang and Chun-Liang Li and Chen-Yu Lee and Kate Saenko and Tomas Pfister},
+  title = {Pic2Word: Mapping Pictures to Words for Zero-shot Composed Image Retrieval},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages = {19305--19314},
+  year = {2023},
+  url = {https://arxiv.org/abs/2302.03084}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Kuniaki Saito, Kihyuk Sohn, Xiang Zhang, Chun-Liang Li, Chen-Yu Lee, Kate Saenko, Tomas Pfister. (2023). \textit{Pic2Word: Mapping Pictures to Words for Zero-shot Composed Image Retrieval}. In \textit{Computer Vision and Pattern Recognition}. \url{https://arxiv.org/abs/2302.03084}.
+
+================================================================================
+REFERENCE: Zero-Shot Composed Image Retrieval With Textual Inversion
+Type: ℹ️ url
+Details: Reference could include arXiv URL: https://arxiv.org/abs/2303.15247
+
+RAW REFERENCE TEXT:
+@inproceedings{baldrati2023searle, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/efff9573876f0b704e08fdaf0bf5779ae3b151f1
+
+CORRECTED REFERENCE (Plain Text):
+Alberto Baldrati, Lorenzo Agnolucci, Marco Bertini, A. Bimbo. (2023). "Zero-Shot Composed Image Retrieval with Textual Inversion". In IEEE International Conference on Computer Vision. https://arxiv.org/abs/2303.15247.
+
+% Citation key for BibTeX: @inproceedings{baldrati2023searle, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@inproceedings{baldrati2023searle,
+  author = {Alberto Baldrati and Lorenzo Agnolucci and Marco Bertini and A. Bimbo},
+  title = {Zero-Shot Composed Image Retrieval with Textual Inversion},
+  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages = {15338--15347},
+  year = {2023},
+  url = {https://arxiv.org/abs/2303.15247}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Alberto Baldrati, Lorenzo Agnolucci, Marco Bertini, A. Bimbo. (2023). \textit{Zero-Shot Composed Image Retrieval with Textual Inversion}. In \textit{IEEE International Conference on Computer Vision}. \url{https://arxiv.org/abs/2303.15247}.
+
+================================================================================
+REFERENCE: {CompoDiff}: Versatile Composed Image Retrieval With Latent Diffusion
+Type: ❌ multiple
+Details: - Year mismatch:
+       cited:  2024
+       actual: 2023
+-
+
+RAW REFERENCE TEXT:
+@article{gu2024compodiff, ...}
+
+VERIFIED URL:
+  https://www.semanticscholar.org/paper/b6eb82fc94cacdf4575fe509ef437634bf090ac2
+
+CORRECTED REFERENCE (Plain Text):
+Geonmo Gu, Sanghyuk Chun, Wonjae Kim, Heejae Jun, Yoohoon Kang, Sangdoo Yun. (2023). "CompoDiff: Versatile Composed Image Retrieval With Latent Diffusion". In Trans. Mach. Learn. Res.. https://arxiv.org/abs/2303.11916.
+
+% Citation key for BibTeX: @article{gu2024compodiff, ...}
+
+CORRECTED REFERENCE (BibTeX):
+@article{gu2024compodiff,
+  author = {Geonmo Gu and Sanghyuk Chun and Wonjae Kim and Heejae Jun and Yoohoon Kang and Sangdoo Yun},
+  title = {CompoDiff: Versatile Composed Image Retrieval With Latent Diffusion},
+  journal = {Transactions on Machine Learning Research},
+  year = {2023},
+  url = {https://arxiv.org/abs/2303.11916}
+}
+
+CORRECTED REFERENCE (LaTeX/Biblatex):
+\bibitem{unknown}
+Geonmo Gu, Sanghyuk Chun, Wonjae Kim, Heejae Jun, Yoohoon Kang, Sangdoo Yun. (2023). \textit{CompoDiff: Versatile Composed Image Retrieval With Latent Diffusion}. In \textit{Trans. Mach. Learn. Res.}. \url{https://arxiv.org/abs/2303.11916}.
+
+================================================================================

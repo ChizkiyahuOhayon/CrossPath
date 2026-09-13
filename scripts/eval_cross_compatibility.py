@@ -32,6 +32,52 @@ def load_jsonl(path):
         return [json.loads(line) for line in handle if line.strip()]
 
 
+def load_alignment(embedding_dir):
+    gallery_ids = json.loads((embedding_dir / "gallery_ids.json").read_text())
+    gallery_index = {image_id: index for index, image_id in enumerate(gallery_ids)}
+    if len(gallery_index) != len(gallery_ids):
+        raise ValueError("gallery_ids.json contains duplicate IDs")
+    rows = load_jsonl(embedding_dir / "queries.jsonl")
+    targets = np.asarray([gallery_index[row["target_id"]] for row in rows])
+    sources = np.asarray([gallery_index[row["source_id"]] for row in rows])
+    return rows, gallery_ids, targets, sources
+
+
+def validate_endpoints(endpoints, query_count, gallery_count):
+    dimensions = set()
+    for name, (queries, gallery) in endpoints.items():
+        if queries.ndim != 2 or gallery.ndim != 2:
+            raise ValueError(f"{name} embeddings must be rank-2 arrays")
+        if len(queries) != query_count or len(gallery) != gallery_count:
+            raise ValueError(
+                f"{name} alignment mismatch: queries={len(queries)}/{query_count}, "
+                f"gallery={len(gallery)}/{gallery_count}"
+            )
+        dimensions.update((queries.shape[1], gallery.shape[1]))
+    if len(dimensions) != 1:
+        raise ValueError(f"embedding dimensions differ: {sorted(dimensions)}")
+
+
+def normalized_tensor(array, device):
+    import torch
+    import torch.nn.functional as functional
+
+    return functional.normalize(
+        torch.tensor(array, dtype=torch.float32, device=device), dim=-1
+    )
+
+
+def exclude_sources_(scores, source_indices):
+    import torch
+
+    scores = tuple(scores)
+    first = scores[0]
+    rows = torch.arange(len(source_indices), device=first.device)
+    sources = torch.tensor(source_indices, dtype=torch.long, device=first.device)
+    for score in scores:
+        score[rows, sources] = -torch.inf
+
+
 def target_ranks(scores, target_indices):
     rows = np.arange(scores.shape[0])
     target_scores = scores[rows, target_indices]
@@ -55,46 +101,41 @@ def evaluate_category(
     embedding_dir, device, batch_size, cutoffs=CUTOFFS, exclude_source=True
 ):
     import torch
-    import torch.nn.functional as functional
 
-    gallery_ids = json.loads((embedding_dir / "gallery_ids.json").read_text())
-    gallery_index = {image_id: index for index, image_id in enumerate(gallery_ids)}
-    rows = load_jsonl(embedding_dir / "queries.jsonl")
-    target_indices = np.asarray([gallery_index[row["target_id"]] for row in rows])
-    source_indices = np.asarray([gallery_index[row["source_id"]] for row in rows])
+    rows, gallery_ids, target_indices, source_indices = load_alignment(embedding_dir)
 
     arrays = {
         name: np.load(embedding_dir / f"{name}.npy", mmap_mode="r")
         for name in ("base_gallery", "correction_gallery", "base_queries", "correction_queries")
     }
-    gallery0 = functional.normalize(
-        torch.as_tensor(arrays["base_gallery"], dtype=torch.float32, device=device), dim=-1
+    validate_endpoints(
+        {
+            "base": (arrays["base_queries"], arrays["base_gallery"]),
+            "correction": (
+                arrays["correction_queries"],
+                arrays["correction_gallery"],
+            ),
+        },
+        len(rows),
+        len(gallery_ids),
     )
-    gallery1 = functional.normalize(
-        torch.as_tensor(arrays["correction_gallery"], dtype=torch.float32, device=device), dim=-1
-    )
+    gallery0 = normalized_tensor(arrays["base_gallery"], device)
+    gallery1 = normalized_tensor(arrays["correction_gallery"], device)
     ranks = {path: [] for path in PATHS}
 
     for start in range(0, len(rows), batch_size):
         stop = min(start + batch_size, len(rows))
-        query0 = functional.normalize(
-            torch.as_tensor(arrays["base_queries"][start:stop], dtype=torch.float32, device=device), dim=-1
-        )
-        query1 = functional.normalize(
-            torch.as_tensor(arrays["correction_queries"][start:stop], dtype=torch.float32, device=device), dim=-1
-        )
+        query0 = normalized_tensor(arrays["base_queries"][start:stop], device)
+        query1 = normalized_tensor(arrays["correction_queries"][start:stop], device)
         with torch.no_grad():
             score00 = query0 @ gallery0.T
             score01 = query0 @ gallery1.T
             score10 = query1 @ gallery0.T
             score11 = query1 @ gallery1.T
             if exclude_source:
-                local_sources = torch.as_tensor(
-                    source_indices[start:stop], dtype=torch.long, device=device
+                exclude_sources_(
+                    (score00, score01, score10, score11), source_indices[start:stop]
                 )
-                local_rows = torch.arange(stop - start, device=device)
-                for scores in (score00, score01, score10, score11):
-                    scores[local_rows, local_sources] = -torch.inf
             rank_tables = []
             for scores in (score00, score01, score10, score11):
                 order = torch.argsort(scores, dim=1, descending=True, stable=True)
@@ -146,7 +187,14 @@ def parse_args():
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--batch-size", type=int, default=128)
     parser.add_argument("--cutoffs", type=int, nargs="+", default=list(CUTOFFS))
-    parser.add_argument("--exclude-source", action="store_true")
+    source_policy = parser.add_mutually_exclusive_group()
+    source_policy.add_argument(
+        "--exclude-source", dest="exclude_source", action="store_true"
+    )
+    source_policy.add_argument(
+        "--include-source", dest="exclude_source", action="store_false"
+    )
+    parser.set_defaults(exclude_source=None)
     parser.add_argument("--stage", choices=("internal", "official"), default="official")
     return parser.parse_args()
 
@@ -158,28 +206,31 @@ def main():
     if any(cutoff <= 0 for cutoff in args.cutoffs):
         raise ValueError("--cutoffs must be positive")
     if args.embedding_dir is not None:
+        exclude_source = bool(args.exclude_source)
         metrics = evaluate_category(
             args.embedding_dir,
             args.device,
             args.batch_size,
             tuple(args.cutoffs),
-            args.exclude_source,
+            exclude_source,
         )
         report = {
             "embedding_dir": str(args.embedding_dir),
-            "exclude_source": args.exclude_source,
+            "exclude_source": exclude_source,
             "metrics": metrics,
         }
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
         print(json.dumps(metrics, indent=2, sort_keys=True))
         return
+    exclude_source = True if args.exclude_source is None else args.exclude_source
     categories = {
         category: evaluate_category(
             args.run_root / category / args.stage / "embeddings",
             args.device,
             args.batch_size,
             tuple(args.cutoffs),
+            exclude_source,
         )
         for category in CATEGORIES
     }
@@ -194,7 +245,11 @@ def main():
         }
         for path in PATHS
     }
-    report = {"categories": categories, "average": average}
+    report = {
+        "exclude_source": exclude_source,
+        "categories": categories,
+        "average": average,
+    }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
     print(json.dumps(average, indent=2, sort_keys=True))

@@ -1,0 +1,49 @@
+{
+ "paper": "./main.tex",
+ "stats": {
+  "words": 3143,
+  "sentences": 203,
+  "abstract_words": 167,
+  "sections": [
+   "Introduction",
+   "Related Work",
+   "Method",
+   "Experiments",
+   "Conclusion"
+  ],
+  "figures": 4,
+  "tables": 5,
+  "equations": 8,
+  "cites": 61,
+  "references": 40,
+  "first_person_per_1k": 8.6,
+  "hedges_per_10k": 0.0,
+  "median_sentence_words": 15,
+  "source_kind": "tex"
+ },
+ "findings": [
+  {
+   "level": "warn",
+   "code": "body-length",
+   "message": "body is 3143 words; the corpus runs 4011-4869. Length here is a page-budget signal, not a quality one.",
+   "detail": null
+  },
+  {
+   "level": "warn",
+   "code": "sentence-length",
+   "message": "median sentence is 15 words; the corpus runs 16-23. Corpus median is 19 words. Long sentences here read as unedited, not as sophisticated.",
+   "detail": null
+  },
+  {
+   "level": "warn",
+   "code": "impersonal",
+   "message": "first person appears 8.6 times per 1000 words; the corpus runs 17.0-22.1. These papers say 'we propose', not 'it is proposed'.",
+   "detail": null
+  }
+ ],
+ "counts": {
+  "error": 0,
+  "warn": 3,
+  "note": 0
+ }
+}

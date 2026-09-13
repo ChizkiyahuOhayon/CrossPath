@@ -1,0 +1,16 @@
+{
+  "alignment_dir": "/root/autodl-tmp/weave/runs/CrossPath_FashionIQ_DQU_20260820_v1/toptee/official/embeddings",
+  "batch_size": 32,
+  "checkpoint": "/root/autodl-tmp/mcot_mvs/checkpoints/mcot_mvs_toptee.pt",
+  "checkpoint_sha256": "b23a68d1b660354de834d78e958b40d2101ee1b9779f4d54e656ea62fdc7f84c",
+  "dataset": "fashioniq_val_toptee",
+  "embedding_dim": 1024,
+  "endpoint": "MCoT-MVS",
+  "gallery": 2902,
+  "gallery_seconds": 55.56687391549349,
+  "queries": 1961,
+  "query_seconds": 79.60514917224646,
+  "script_sha256": "c5edd4ed28350c1eac7203a96ec02e03190a0a5563297a82abe15e43d3e62a94",
+  "strict_state_dict": true,
+  "workers": 8
+}

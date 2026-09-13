@@ -1,0 +1,72 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 1.1121024795067616,
+    "development_Avg": 83.99856596558318,
+    "development_intervention_rate": 0.0,
+    "threshold": Infinity
+  },
+  {
+    "epoch": 2,
+    "train_loss": 0.7865258004420843,
+    "development_Avg": 83.99856596558318,
+    "development_intervention_rate": 0.0,
+    "threshold": Infinity
+  },
+  {
+    "epoch": 3,
+    "train_loss": 0.6557913743532621,
+    "development_Avg": 83.99856596558318,
+    "development_intervention_rate": 0.0,
+    "threshold": Infinity
+  },
+  {
+    "epoch": 4,
+    "train_loss": 0.5469716745309341,
+    "development_Avg": 83.99856596558318,
+    "development_intervention_rate": 0.0,
+    "threshold": Infinity
+  },
+  {
+    "epoch": 5,
+    "train_loss": 0.47252583007017773,
+    "development_Avg": 83.99856596558318,
+    "development_intervention_rate": 0.0,
+    "threshold": Infinity
+  },
+  {
+    "epoch": 6,
+    "train_loss": 0.4162033131489387,
+    "development_Avg": 83.99856596558318,
+    "development_intervention_rate": 0.0,
+    "threshold": Infinity
+  },
+  {
+    "epoch": 7,
+    "train_loss": 0.3938178483110208,
+    "development_Avg": 83.99856596558318,
+    "development_intervention_rate": 0.0,
+    "threshold": Infinity
+  },
+  {
+    "epoch": 8,
+    "train_loss": 0.36490004815352267,
+    "development_Avg": 83.99856596558318,
+    "development_intervention_rate": 0.0,
+    "threshold": Infinity
+  },
+  {
+    "epoch": 9,
+    "train_loss": 0.34307341545056075,
+    "development_Avg": 83.99856596558318,
+    "development_intervention_rate": 0.0,
+    "threshold": Infinity
+  },
+  {
+    "epoch": 10,
+    "train_loss": 0.3383063188730142,
+    "development_Avg": 83.99856596558318,
+    "development_intervention_rate": 0.0,
+    "threshold": Infinity
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "dqu": {
+    "annotation_links_valid": true,
+    "metadata_files": 6
+  },
+  "segment_features": 21551,
+  "splits": {
+    "test1": {
+      "all_images_present": true,
+      "all_query_ids_valid": true,
+      "all_segments_present": true,
+      "images": 2315,
+      "queries": 4148
+    },
+    "train": {
+      "all_images_present": true,
+      "all_query_ids_valid": true,
+      "all_segments_present": true,
+      "images": 16939,
+      "queries": 28225
+    },
+    "val": {
+      "all_images_present": true,
+      "all_query_ids_valid": true,
+      "all_segments_present": true,
+      "images": 2297,
+      "queries": 4181
+    }
+  },
+  "status": "pass",
+  "unique_images": 21551
+}
