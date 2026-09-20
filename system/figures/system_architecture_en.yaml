@@ -1,0 +1,65 @@
+figure:
+  id: system-architecture-en
+  venue: cvpr
+  width: double
+  font: times
+  pad: 3
+  pad_top: 2
+
+layout: row
+gap: 9
+
+panels:
+  - id: s_ui
+    title: "Presentation"
+    frame: dashed
+    valign: top
+    pad: 7
+    body:
+      - {id: mode, text: "Retrieval mode\nselection", role: input, tint: pale}
+      - {id: query, text: "Upload reference image\ntype modification text", role: input, tint: light}
+      - {id: filter, text: "Category / attribute\nfilters", role: input, tint: light}
+      - {id: display, text: "Top-K candidate\nitems", role: output, tint: light, outline: match}
+
+  - id: s_service
+    title: "Application"
+    frame: dashed
+    valign: top
+    pad: 7
+    body:
+      - {id: parse, text: "Request parsing\n& validation", role: neutral, tint: light}
+      - {id: route, text: "Dispatch by\nretrieval mode", role: neutral, tint: light}
+      - {id: pack, text: "Response\npackaging", role: neutral, tint: light}
+      - {id: log, text: "Query logging", role: neutral, tint: light}
+
+  - id: s_model
+    title: "Model"
+    frame: dashed
+    frame_color: orange.strong
+    fill: orange.pale
+    valign: top
+    pad: 8
+    body:
+      - {id: encode, text: "Image & text\nencoding", role: encoder, tint: light}
+      - {id: compose, text: "Query composers of\ntwo frozen endpoints", role: baseline, tint: light}
+      - {id: matrix, text: "Cross-model query-gallery\ncompatibility matrix", role: ours, tint: soft, outline: match}
+      - {id: rerank, text: "Multi-cutoff boundary-aware\nadaptive re-ranking", role: core, tint: light, outline: match}
+
+  - id: s_data
+    title: "Data"
+    frame: dashed
+    valign: top
+    pad: 7
+    body:
+      - {id: index0, text: "Endpoint E0\ngallery index", role: encoder, tint: light}
+      - {id: index1, text: "Endpoint E1\ngallery index", role: encoder, tint: light}
+      - {id: meta, text: "Item metadata, text\n& attribute labels", role: neutral, tint: light}
+      - {id: logs, text: "Model versions\n& query logs", role: neutral, tint: light}
+
+edges:
+  - {from: query.e, to: parse.w, route: vh, color: grey.dark, lw: box}
+  - {from: route.e, to: compose.w, route: vh, color: orange.deep, lw: emphasis}
+  - {from: index0.w, to: encode.e, route: hv, color: blue.deep, lw: box}
+  - {from: index1.w, to: matrix.e, route: hv, color: blue.deep, lw: box}
+  - {from: meta.w, to: rerank.e, route: hv, color: blue.deep, lw: box}
+  - {from: matrix.w, to: pack.e, route: hv, color: grey.dark, lw: box}

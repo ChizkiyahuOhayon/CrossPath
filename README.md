@@ -190,8 +190,10 @@ including the adapters, relational composers and Procrustes alignments that did 
 ## 6. A running demo system
 
 [`system/`](system/) is a complete Flask + relational-database + web-UI application that serves the
-CrossPath inference path end to end. It imports `weave_crosspath.py` directly, so the deployed system
-runs the same rank-path, boundary-trace and fallback code as the experiments.
+CrossPath inference path end to end — text-to-image search, image-to-text search, and the combined
+"reference image + modification text" query the method is built for. It imports `weave_crosspath.py`
+and `weave_crosspath_gate.py` directly, so the deployed system runs the same rank-path, boundary-trace,
+utility and exact-fallback code as the experiments, not a reimplementation of them.
 
 ```bash
 cd system
@@ -200,13 +202,46 @@ python app.py                      # http://127.0.0.1:5057
 ```
 
 <div align="center">
-<img src="assets/demo_results.png" width="86%" alt="CrossPath retrieval demo"/>
+<img src="assets/system_architecture.png" width="92%" alt="System architecture: presentation, application, model and data layers"/>
+<br/><sub>Four layers, one inference path. The model layer is the only place CrossPath lives —
+swap the two endpoint checkpoints and nothing above or below it changes.</sub>
 </div>
 
-The results page exposes the whole inference trace: which of the 17 actions fired, which branch it
-came from, the interpolation coefficient α, the boundary-candidate count at each cutoff, and where
-every returned item sat in the baseline ranking. Details and the endpoint-swap instructions are in
-[`system/README.md`](system/README.md).
+<br/>
+
+<table>
+<tr>
+<td width="50%" align="center">
+<img src="assets/demo_home.png" width="100%" alt="Home page"/>
+<br/><sub><b>Home.</b> Three entry points — text, image, and combined query —
+plus the models actually deployed and a live feed of recent queries.</sub>
+</td>
+<td width="50%" align="center">
+<img src="assets/demo_text_search.png" width="100%" alt="Text-to-image search"/>
+<br/><sub><b>Text → image.</b> A natural-language description is routed through both
+endpoints' query composers and matched against the shared gallery index.</sub>
+</td>
+</tr>
+<tr>
+<td width="50%" align="center">
+<img src="assets/demo_image_search.png" width="100%" alt="Image-to-text search"/>
+<br/><sub><b>Image → text.</b> Upload a reference photo (or pick one from the gallery) to
+recover its description and attributes; add a modification sentence and it becomes a
+composed query.</sub>
+</td>
+<td width="50%" align="center">
+<img src="assets/demo_results.png" width="100%" alt="Results page with the full inference trace"/>
+<br/><sub><b>Results.</b> Every field on this page is measured, not decorative: which of the
+17 actions fired, which branch it came from, α, the boundary-candidate count per cutoff, and
+each item's rank before re-ranking.</sub>
+</td>
+</tr>
+</table>
+
+Everything in the gallery — 721 items, categories, descriptions and attribute labels — comes from
+real annotation files already in the repo; nothing is synthesized. Full setup, the six functional
+test cases, and instructions for swapping in real ProCIR/DQU-CIR/MCoT-MVS checkpoints instead of the
+CLIP-based demo endpoints are in [`system/README.md`](system/README.md).
 
 ---
 
