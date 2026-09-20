@@ -61,7 +61,7 @@ class Ch3Config:
     temp_init: float = 0.07
     rea_temp: float = 0.07        # tau_r in Eq. (3.11)
     rea_weight: float = 0.5       # lambda in Eq. (3.13)
-    queue_size: int = 16384
+    queue_size: int = 65536      # FashionSAP configs/fashion_pretrain.yaml
     momentum: float = 0.995
     alpha: float = 0.4            # ALBEF distillation weight on ITC
 

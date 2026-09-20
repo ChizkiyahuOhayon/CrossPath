@@ -209,3 +209,72 @@ def test_truncate_after_rejects_a_missing_marker_or_a_table(tmp_path):
         doc.truncate_after(0, "zzz")
     with pytest.raises(TypeError):
         doc.truncate_after(1, "x")
+
+
+# --------------------------------------------------------------------------
+# rewriting a table and a paragraph wholesale
+# --------------------------------------------------------------------------
+
+
+def test_set_table_rewrites_every_cell(tmp_path):
+    doc = Document(_docx(tmp_path, _table(["属性", "内容"], ["图像总数", "31,783张"])))
+    doc.set_table(0, [["属性", "内容"], ["图像总数", "21,551 张"]])
+    assert doc.text(0) == "属性 | 内容 | 图像总数 | 21,551 张"
+
+
+def test_set_table_rejects_a_shape_mismatch(tmp_path):
+    doc = Document(_docx(tmp_path, _table(["a", "b"]), _para("p")))
+    with pytest.raises(ValueError):
+        doc.set_table(0, [["a", "b"], ["c", "d"]])
+    with pytest.raises(ValueError):
+        doc.set_table(0, [["a", "b", "c"]])
+    with pytest.raises(TypeError):
+        doc.set_table(1, [["a"]])
+
+
+def test_set_table_collapses_multi_run_cells(tmp_path):
+    xml = (f"<w:tbl><w:tr><w:tc><w:p>"
+           f"<w:r><w:t>31,</w:t></w:r><w:r><w:t>783张</w:t></w:r>"
+           f"</w:p></w:tc></w:tr></w:tbl>")
+    doc = Document(_docx(tmp_path, xml))
+    doc.set_table(0, [["21,551 张"]])
+    assert doc.text(0) == "21,551 张"
+
+
+def test_set_paragraph_replaces_the_whole_text(tmp_path):
+    doc = Document(_docx(tmp_path, _para("2.5.1  Flickr30K ", "数据集")))
+    assert doc.set_paragraph(0, "2.5.1  CIRR 数据集") == "2.5.1  Flickr30K 数据集"
+    assert doc.text(0) == "2.5.1  CIRR 数据集"
+    with pytest.raises(TypeError):
+        Document(_docx(tmp_path, _table(["x"]))).set_paragraph(0, "y")
+
+
+def test_set_paragraph_does_not_trap_the_text_inside_a_leading_hyperlink(tmp_path):
+    xml = (f'<w:p><w:hyperlink r:id="rId9" xmlns:r="http://x"><w:r><w:t>Flickr30K</w:t></w:r>'
+           f"</w:hyperlink><w:r><w:t> 数据集由 Young 等人提出。</w:t></w:r></w:p>")
+    doc = Document(_docx(tmp_path, xml))
+    doc.set_paragraph(0, "CIRR 数据集由 Liu 等人提出。")
+    paragraph = doc.blocks[0]
+    assert doc.text(0) == "CIRR 数据集由 Liu 等人提出。"
+    assert not list(paragraph.iter(f"{{{W}}}hyperlink"))
+
+
+def test_set_paragraph_removes_citation_field_scaffolding(tmp_path):
+    doc = Document(_docx(tmp_path, _field_para("数据集", "[68]", "。包含 31,783 张图像。")))
+    doc.set_paragraph(0, "CIRR 数据集[68]。包含 21,551 张图像。")
+    paragraph = doc.blocks[0]
+    assert doc.text(0) == "CIRR 数据集[68]。包含 21,551 张图像。"
+    assert not list(paragraph.iter(f"{{{W}}}fldChar"))
+    assert not list(paragraph.iter(f"{{{W}}}instrText"))
+
+
+def test_set_paragraph_keeps_the_paragraph_style_and_run_formatting(tmp_path):
+    xml = (f'<w:p><w:pPr><w:pStyle w:val="Heading2"/></w:pPr>'
+           f'<w:r><w:rPr><w:b/></w:rPr><w:t>旧标题</w:t></w:r></w:p>')
+    doc = Document(_docx(tmp_path, xml))
+    doc.set_paragraph(0, "新标题")
+    paragraph = doc.blocks[0]
+    assert paragraph.find(f"{{{W}}}pPr") is not None
+    assert paragraph.find(f"{{{W}}}pPr/{{{W}}}pStyle").get(f"{{{W}}}val") == "Heading2"
+    assert paragraph.find(f"{{{W}}}r/{{{W}}}rPr/{{{W}}}b") is not None
+    assert doc.text(0) == "新标题"

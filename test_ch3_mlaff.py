@@ -390,9 +390,14 @@ class _StubModel:
         return torch.tensor([self.table[int(r), int(c)] for r, c in zip(rows, cols)])
 
 
-class _StubDataset:
-    def image_at(self, row):
-        return torch.full((1, 1), float(row))
+class _StubDataset(torch.utils.data.Dataset):
+    """Yields ``(image, row)`` like FashionGenEvalImages, with the row as the pixel."""
+
+    def __len__(self):
+        return 64
+
+    def __getitem__(self, row):
+        return torch.full((1, 1), float(row)), row
 
 
 def _stub_corpus(n_img, n_txt):
@@ -409,7 +414,7 @@ def test_score_pairs_visits_every_pair_exactly_once():
     model = _StubModel(table)
     pairs = np.array([[3, 0], [1, 2], [0, 1], [3, 2]])
     got = eval_ch3.score_pairs(model, _StubDataset(), _stub_corpus(4, 3), pairs,
-                               torch.device("cpu"), pair_batch=2)
+                               torch.device("cpu"), pair_batch=2, num_workers=0)
     assert np.allclose(got, [table[r, c] for r, c in pairs])
 
 
@@ -419,7 +424,7 @@ def test_score_pairs_reuses_one_image_across_its_candidates():
     model = _StubModel(table)
     pairs = np.array([[0, i] for i in range(4)] + [[1, i] for i in range(4)])
     eval_ch3.score_pairs(model, _StubDataset(), _stub_corpus(2, 4), pairs,
-                         torch.device("cpu"), pair_batch=4)
+                         torch.device("cpu"), pair_batch=4, num_workers=0)
     assert model.calls == 2          # one batch per image, not one per pair
 
 
@@ -432,7 +437,7 @@ def test_evaluate_sample_reads_the_pairwise_score_not_the_cls_matrix():
         "t2i_txt": np.array([0]), "t2i_img": np.array([[1, 0]]),
     }
     got = eval_ch3.evaluate_sample(model, _StubDataset(), _stub_corpus(2, 2), idxs,
-                                   torch.device("cpu"))
+                                   torch.device("cpu"), num_workers=0)
     assert got["I2T"]["R@1"] == pytest.approx(0.0)   # positive scores 0, negative 1
 
 
@@ -442,7 +447,7 @@ def test_evaluate_full_reranks_only_the_shortlist():
     corpus = _stub_corpus(3, 3)
     got = eval_ch3.evaluate_full(model, _StubDataset(), corpus,
                                  {0: 0, 1: 1, 2: 2}, {0: [0], 1: [1], 2: [2]},
-                                 torch.device("cpu"), topk=2)
+                                 torch.device("cpu"), topk=2, num_workers=0)
     assert got["I2T"]["R@1"] == pytest.approx(100.0)
     assert got["T2I"]["R@1"] == pytest.approx(100.0)
 
@@ -453,6 +458,6 @@ def test_evaluate_full_falls_back_to_cls_for_the_two_tower_baseline():
     corpus = _stub_corpus(3, 3)
     got = eval_ch3.evaluate_full(model, _StubDataset(), corpus,
                                  {0: 0, 1: 1, 2: 2}, {0: [0], 1: [1], 2: [2]},
-                                 torch.device("cpu"), topk=2)
+                                 torch.device("cpu"), topk=2, num_workers=0)
     assert model.calls == 0
     assert got["I2T"]["R@1"] == pytest.approx(100.0)   # the identity CLS matrix

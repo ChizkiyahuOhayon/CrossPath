@@ -28,6 +28,7 @@ import torch
 from torch.utils.data import DataLoader
 
 from . import eval_ch3
+from .albef_init import load_albef
 from .configs_ch3 import ABLATION_CONFIGS, CONFIGS
 from .data_fashiongen import (
     FashionGenEvalImages, FashionGenPretrain, FashionGenRetrievalTrain, SplitIndex,
@@ -134,12 +135,14 @@ def run_evaluation(model, val_index, val_h5, tokenizer, device, args, amp_dtype,
 
     sim_i2t, sim_t2i = eval_ch3.cls_similarity(corpus)
     metrics = {
-        "sample": eval_ch3.evaluate_sample(model, dataset, corpus, idxs, device, amp_dtype),
+        "sample": eval_ch3.evaluate_sample(model, dataset, corpus, idxs, device, amp_dtype,
+                                           num_workers=args.num_workers),
         "full_cls_only": eval_ch3.full_recall(sim_i2t, sim_t2i, img2txt, txt2img),
     }
     if full_rerank:
         metrics["full"] = eval_ch3.evaluate_full(model, dataset, corpus, img2txt, txt2img,
-                                                 device, amp_dtype, model.cfg.topk_rerank)
+                                                 device, amp_dtype, model.cfg.topk_rerank,
+                                                 num_workers=args.num_workers)
     return metrics
 
 
@@ -156,6 +159,8 @@ def parse_args(argv=None):
     ap.add_argument("--cache-dir", default="/root/autodl-tmp/ch3/data/index")
     ap.add_argument("--out-dir", required=True)
     ap.add_argument("--init-from", default="", help="stage-1 checkpoint for --stage retrieval")
+    ap.add_argument("--albef", default="",
+                    help="ALBEF.pth to start --stage pretrain from, as FashionSAP does")
 
     ap.add_argument("--epochs", type=int, default=0, help="0 = schedule default (30 / 20)")
     ap.add_argument("--batch-size", type=int, default=16)
@@ -216,11 +221,15 @@ def main(argv=None) -> None:
 
     base = build_model(cfg, device, pretrained=True)
     init_report = None
-    if not is_pretrain:
+    if is_pretrain:
+        model = Ch3PretrainModel(base, tokenizer.vocab_size).to(device)
+        if args.albef:
+            init_report = load_albef(model, args.albef, cfg.text_layers)
+    else:
         if not args.init_from:
             raise SystemExit("--stage retrieval requires --init-from <stage1 checkpoint>")
         init_report = load_stage1_weights(base, args.init_from)
-    model = Ch3PretrainModel(base, tokenizer.vocab_size).to(device) if is_pretrain else base
+        model = base
 
     opt = torch.optim.AdamW(model.parameters(), lr=schedule["lr_start"],
                             weight_decay=args.weight_decay)

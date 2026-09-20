@@ -24,7 +24,7 @@ from typing import Dict, List, Sequence, Tuple
 import numpy as np
 import torch
 import torch.nn.functional as F
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, Subset
 
 
 # --------------------------------------------------------------------------
@@ -138,36 +138,45 @@ def cls_similarity(corpus: Dict[str, torch.Tensor]) -> Tuple[np.ndarray, np.ndar
 
 @torch.no_grad()
 def score_pairs(model, dataset, corpus: Dict[str, torch.Tensor], pairs: np.ndarray,
-                device, pair_batch: int = 256, amp_dtype=None) -> np.ndarray:
+                device, pair_batch: int = 256, image_batch: int = 32,
+                num_workers: int = 8, amp_dtype=None) -> np.ndarray:
     """Score ``pairs`` of ``(image_row, text_col)`` with Eq. (3.10)+(3.11).
 
-    Pairs are visited in image order, so a batch spans only a handful of
-    distinct images and the ViT runs about once per image however many
-    candidates reference it.  The returned array follows the order of ``pairs``.
+    Images are streamed in row order through a worker pool, so the ViT runs once
+    per distinct image and the h5 reads happen in parallel: a candidate list of
+    101 or 128 texts per query would otherwise re-read and re-encode the same
+    image that many times.  The returned array follows the order of ``pairs``.
     """
     model.eval()
     autocast = torch.autocast("cuda", dtype=amp_dtype,
                               enabled=amp_dtype is not None and device.type == "cuda")
 
     order = np.argsort(pairs[:, 0], kind="stable")
+    rows, starts = np.unique(pairs[order, 0], return_index=True)
+    bounds = np.append(starts, len(order))
+    slot_of = {int(row): i for i, row in enumerate(rows)}
+
+    loader = DataLoader(Subset(dataset, [int(r) for r in rows]), batch_size=image_batch,
+                        num_workers=num_workers, pin_memory=True, shuffle=False)
     out = np.empty(len(pairs), dtype=np.float32)
 
-    for start in range(0, len(order), pair_batch):
-        slot = order[start:start + pair_batch]
-        uniq, inverse = np.unique(pairs[slot, 0], return_inverse=True)
-        images = torch.stack([dataset.image_at(int(r)) for r in uniq]).to(device)
-        cols = torch.as_tensor(pairs[slot, 1], dtype=torch.long)
-        spread = torch.as_tensor(inverse, device=device)
-
+    for images, row_ids in loader:
         with autocast:
-            _, patches = model.encode_image(images)
-            scores = model.score_pairs(
-                {l: v[spread] for l, v in patches.items()},
-                corpus["text_seq"][cols].to(device).float(),
-                corpus["text_mask"][cols].to(device),
-                corpus["text_feat"][cols].to(device),
-            )
-        out[slot] = scores.float().cpu().numpy()
+            _, patches = model.encode_image(images.to(device, non_blocking=True))
+        for local, row in enumerate(row_ids.tolist()):
+            slot = slot_of[row]
+            span = order[bounds[slot]:bounds[slot + 1]]
+            cols = torch.as_tensor(pairs[span, 1], dtype=torch.long)
+            for start in range(0, len(cols), pair_batch):
+                sub = cols[start:start + pair_batch]
+                with autocast:
+                    scores = model.score_pairs(
+                        {l: v[local:local + 1].expand(len(sub), -1, -1) for l, v in patches.items()},
+                        corpus["text_seq"][sub].to(device).float(),
+                        corpus["text_mask"][sub].to(device),
+                        corpus["text_feat"][sub].to(device),
+                    )
+                out[span[start:start + len(sub)]] = scores.float().cpu().numpy()
     return out
 
 
@@ -210,7 +219,8 @@ def _pairs_for(query_rows: np.ndarray, candidates: np.ndarray,
 
 
 def evaluate_sample(model, dataset, corpus, idxs: Dict[str, np.ndarray], device,
-                    amp_dtype=None, pair_batch: int = 256) -> Dict[str, object]:
+                    amp_dtype=None, pair_batch: int = 256,
+                    num_workers: int = 8) -> Dict[str, object]:
     """Recall under the 101-candidate Sample protocol."""
     sim_i2t, sim_t2i = cls_similarity(corpus)
     if model.cross_blocks is None:
@@ -221,7 +231,8 @@ def evaluate_sample(model, dataset, corpus, idxs: Dict[str, np.ndarray], device,
 
     def run(query_rows, candidates, queries_are_images):
         pairs = _pairs_for(query_rows, candidates, queries_are_images)
-        scores = score_pairs(model, dataset, corpus, pairs, device, pair_batch, amp_dtype)
+        scores = score_pairs(model, dataset, corpus, pairs, device, pair_batch,
+                             num_workers=num_workers, amp_dtype=amp_dtype)
         return scores.reshape(candidates.shape)
 
     return sample_recall(
@@ -232,7 +243,8 @@ def evaluate_sample(model, dataset, corpus, idxs: Dict[str, np.ndarray], device,
 
 def evaluate_full(model, dataset, corpus, img2txt: Dict[int, int],
                   txt2img: Dict[int, List[int]], device, amp_dtype=None,
-                  topk: int = 128, pair_batch: int = 256) -> Dict[str, object]:
+                  topk: int = 128, pair_batch: int = 256,
+                  num_workers: int = 8) -> Dict[str, object]:
     """Recall over the whole gallery, reranking the CLS shortlist."""
     sim_i2t, sim_t2i = cls_similarity(corpus)
     if model.cross_blocks is None:
@@ -241,7 +253,8 @@ def evaluate_full(model, dataset, corpus, img2txt: Dict[int, int],
     def run(sim, queries_are_images):
         candidates = shortlist(sim, topk)
         pairs = _pairs_for(np.arange(sim.shape[0]), candidates, queries_are_images)
-        scores = score_pairs(model, dataset, corpus, pairs, device, pair_batch, amp_dtype)
+        scores = score_pairs(model, dataset, corpus, pairs, device, pair_batch,
+                             num_workers=num_workers, amp_dtype=amp_dtype)
         return merge_reranked(sim, candidates, scores.reshape(candidates.shape))
 
     return full_recall(run(sim_i2t, True), run(sim_t2i, False), img2txt, txt2img)

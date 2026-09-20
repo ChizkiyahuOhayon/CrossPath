@@ -150,6 +150,66 @@ class Document:
             dropping = True
         return text[cut:]
 
+    def set_table(self, index: int, rows: Sequence[Sequence[str]]) -> None:
+        """Rewrite every cell of a table, keeping its formatting.
+
+        The shape must match the table already there: this replaces contents,
+        it does not restructure, so a mismatch is a mistake in the caller and
+        is raised rather than silently patched.
+        """
+        table = self.blocks[index]
+        if _tag(table) != "tbl":
+            raise TypeError(f"block {index} is not a table")
+        existing = table.findall(f"{{{W}}}tr")
+        if len(existing) != len(rows):
+            raise ValueError(f"table has {len(existing)} rows, got {len(rows)}")
+        for tr, values in zip(existing, rows):
+            cells = tr.findall(f"{{{W}}}tc")
+            if len(cells) != len(values):
+                raise ValueError(f"row has {len(cells)} cells, got {len(values)}")
+            for tc, value in zip(cells, values):
+                self._set_cell(tc, value)
+
+    @staticmethod
+    def _set_cell(cell: ET.Element, value: str) -> None:
+        nodes = list(cell.iter(f"{{{W}}}t"))
+        if not nodes:
+            raise ValueError("cell has no text run to write into")
+        nodes[0].text = value
+        nodes[0].set("{http://www.w3.org/XML/1998/namespace}space", "preserve")
+        for node in nodes[1:]:
+            node.text = ""
+
+    def set_paragraph(self, index: int, text: str) -> str:
+        """Replace a paragraph's whole content with one run of ``text``.
+
+        Every run, hyperlink and field is dropped and a single run takes their
+        place, carrying the character formatting of the paragraph's first run.
+        Writing into the existing first ``w:t`` would not do: when a paragraph
+        opens with a hyperlink, that would pull the entire sentence inside the
+        link, and when it contains citation fields it would leave their
+        ``fldChar`` scaffolding behind pointing at nothing.
+        """
+        paragraph = self.blocks[index]
+        if _tag(paragraph) != "p":
+            raise TypeError(f"block {index} is not a paragraph")
+        previous = paragraph_text(paragraph)
+
+        template = next((r for r in paragraph.iter(f"{{{W}}}r")
+                         if r.find(f"{{{W}}}rPr") is not None), None)
+        run_props = copy.deepcopy(template.find(f"{{{W}}}rPr")) if template is not None else None
+        for child in list(paragraph):
+            if _tag(child) != "pPr":
+                paragraph.remove(child)
+
+        run = ET.SubElement(paragraph, f"{{{W}}}r")
+        if run_props is not None:
+            run.append(run_props)
+        node = ET.SubElement(run, f"{{{W}}}t")
+        node.text = text
+        node.set("{http://www.w3.org/XML/1998/namespace}space", "preserve")
+        return previous
+
     def save(self, path: str) -> None:
         """Write a new .docx, copying every part except the edited document."""
         payload = ET.tostring(self.tree, encoding="UTF-8", xml_declaration=True)
