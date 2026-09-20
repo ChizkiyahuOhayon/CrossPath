@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}服饰图文跨模态检索系统{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="{{ url_for('index') }}">
+      <span class="mark">CP</span>
+      <span>服饰图文跨模态检索系统<small>CrossPath Retrieval System</small></span>
+    </a>
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="{{ 'on' if page=='home' }}">首页</a>
+      <a href="{{ url_for('page_text') }}" class="{{ 'on' if page=='text' }}">文字检索图像</a>
+      <a href="{{ url_for('page_image') }}" class="{{ 'on' if page=='image' }}">图像检索文本</a>
+    </nav>
+    <span class="badge-db">FashionGen · {{ stats.item_count }} 件</span>
+  </div>
+</header>
+<main class="page"><div class="wrap">{% block body %}{% endblock %}</div></main>
+<div class="foot">跨模型编码器重组与多截断边界感知自适应重排序 · 检索模型 CrossPath · 数据源 FashionGen</div>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block title %}检索结果{% endblock %}
+{% block body %}
+<div class="res-head">
+  <div class="q">
+    <div class="muted" style="font-size:12px;font-weight:600">检索词</div>
+    <div class="qt">{{ text or '（仅图像查询）' }}</div>
+    <div class="chips" style="margin-top:0">
+      <span class="tag brand">{{ {'text':'以文搜图','image':'以图搜图','fusion':'图文联合检索'}.get(mode, mode) }}</span>
+      <span class="tag">Top-{{ top_k }}</span>
+      <span class="tag">{{ outcome.latency_ms }} ms</span>
+      {% for k, v in attr_filter.items() %}<span class="tag warn">{{ k }} = {{ v }}</span>{% endfor %}
+    </div>
+  </div>
+  <div class="sorter">
+    <span class="muted" style="font-size:12px">排序依据</span>
+    <div class="seg">
+      <a class="{{ 'on' if order_by=='crosspath' }}"
+         href="{{ url_for('results', **dict(request.args, order='crosspath')) }}">CrossPath 重排序</a>
+      <a class="{{ 'on' if order_by=='base' }}"
+         href="{{ url_for('results', **dict(request.args, order='base')) }}">基础模型 E0</a>
+    </div>
+  </div>
+</div>
+
+{% if reference %}
+<div class="panel" style="margin-bottom:16px"><div class="bd">
+  <div class="refcard">
+    <img src="{{ reference.image }}" alt="参考图像">
+    <div>
+      <div class="muted" style="font-size:12px;font-weight:600">参考图像</div>
+      <div style="font-weight:600;margin:2px 0 4px">{{ reference.title[:64] }}</div>
+      <div class="mono muted" style="font-size:12px">item_id {{ reference.item_id }} · {{ reference.category }}</div>
+    </div>
+    {% if text %}
+    <div style="margin-left:24px;padding-left:24px;border-left:1px solid var(--line);flex:1">
+      <div class="muted" style="font-size:12px;font-weight:600">修改文本</div>
+      <div style="margin-top:4px">{{ text }}</div>
+    </div>
+    {% endif %}
+  </div>
+</div></div>
+{% endif %}
+
+<div class="panel" style="margin-bottom:16px">
+  <div class="hd">CrossPath 推理轨迹</div>
+  <div class="bd">
+    <div class="trace">
+      <div class="cell"><b>a{{ outcome.action }}</b><span>选中的排序动作</span></div>
+      <div class="cell"><b>{{ outcome.branch }}</b><span>动作所属分支</span></div>
+      <div class="cell"><b>{{ '%.3f'|format(outcome.alpha) }}</b><span>秩插值系数 α</span></div>
+      <div class="cell"><b>{{ outcome.boundary_sizes|join(' / ') }}</b><span>K=1/5/10 的边界候选数</span></div>
+    </div>
+    <div style="display:flex;gap:34px;align-items:flex-start;margin-top:18px;flex-wrap:wrap">
+      <div>
+        <div class="muted" style="font-size:12px;font-weight:600;margin-bottom:2px">查询—图库兼容矩阵</div>
+        <table class="matrix">
+          <tr><th></th><th>图库 g₀</th><th>图库 g₁</th></tr>
+          <tr><th>查询 q₀</th><td class="diag">S₀₀ 基线</td><td class="cross">S₀₁ 交叉</td></tr>
+          <tr><th>查询 q₁</th><td class="cross">S₁₀ 交叉</td><td class="diag">S₁₁ 对角</td></tr>
+        </table>
+      </div>
+      <div style="flex:1;min-width:300px">
+        <div class="muted" style="font-size:12px;font-weight:600;margin-bottom:6px">各路径 Top-3 商品编号</div>
+        <table class="tbl">
+          {% for name, label in [('S00','S₀₀ 基线'), ('S01','S₀₁ 交叉'), ('S10','S₁₀ 交叉'), ('cross','交叉均值 X')] %}
+          <tr><td style="width:110px">{{ label }}</td>
+              <td class="mono muted">{{ outcome.path_recall[name][:3]|join('   ') }}</td></tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="hd">检索结果 · {{ results|length }} 件
+    <span class="tag ok" style="margin-left:auto">{{ '与基线一致' if outcome.action == 0 else '已重排序' }}</span></div>
+  <div class="bd">
+    <div class="grid">
+      {% for r in results %}
+      <a class="tile" href="{{ url_for('item_detail_page', item_id=r.item_id) }}">
+        <div class="ph"><img src="{{ r.image }}" alt="{{ r.item_id }}">
+          <span class="rk">#{{ r.rank }}</span>
+          {% if order_by == 'crosspath' and r.base_rank and r.base_rank != r.rank %}
+            <span class="sc move">基线 #{{ r.base_rank }}</span>
+          {% elif r.score is not none %}<span class="sc">{{ '%.3f'|format(r.score) }}</span>{% endif %}
+        </div>
+        <div class="mt">
+          <div class="nm">{{ r.title[:48] }}</div>
+          <div class="at"><span>{{ r.category }}</span>
+            {% if r.color != '—' %}<span>{{ r.color[:14] }}</span>{% endif %}</div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

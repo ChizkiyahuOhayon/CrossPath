@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% set page = 'image' %}
+{% block title %}图像检索文本{% endblock %}
+{% block body %}
+<h2 class="h1">图像检索文本</h2>
+<p class="sub">上传参考服饰图像，或从图库中挑一张。系统解析视觉特征后回查商品描述与属性标签；
+   若再补一句修改文本，即进入第四章的组合式图像检索。</p>
+
+<div class="two" style="margin-top:0">
+  <div class="panel"><div class="bd">
+    <form id="up" class="drop" action="{{ url_for('page_image') }}" method="post" enctype="multipart/form-data">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg></div>
+      <b>把图片拖到这里</b>
+      <p>支持拖拽上传、本地文件选择、粘贴图片 URL 三种方式 · JPG / PNG / WEBP，不超过 8 MB</p>
+      <div class="ways">
+        <label class="btn sm ghost" style="cursor:pointer">选择本地文件
+          <input type="file" name="file" id="file" accept="image/*" hidden></label>
+        <button class="btn sm ghost" type="button" id="paste">粘贴图片 URL</button>
+      </div>
+    </form>
+    <div style="margin-top:14px">
+      <div class="field"><label>可选：修改文本（填写后转为图文联合检索）</label>
+        <input type="text" id="mod" placeholder="例如：change the colour to ivory, make the sleeves short"></div>
+    </div>
+  </div></div>
+
+  <div class="panel">
+    <div class="hd">最近解析结果
+      <span class="tag" style="margin-left:auto">{{ probe.latency_ms }} ms</span></div>
+    <div class="bd">
+      <div class="refcard" style="margin-bottom:12px">
+        <img src="{{ probe_item.image }}" alt="">
+        <div><div class="muted" style="font-size:12px">上一次解析的参考图像</div>
+          <div style="font-weight:600">{{ probe_item.title[:44] }}</div>
+          <div class="mono muted" style="font-size:12px">item_id {{ probe_item.item_id }}</div></div>
+      </div>
+      <table class="tbl">
+        <tr><th>匹配到的商品</th><th style="width:74px">匹配分值</th></tr>
+        {% for s in parsed %}
+        <tr><td>{{ s.title[:34] }}</td><td class="mono">{{ '%.4f'|format(s.score) }}</td></tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="panel" style="margin-top:18px">
+  <div class="hd">从图库选择参考图片<span class="tag" style="margin-left:6px">/reference</span></div>
+  <div class="bd">
+    <div class="grid six" id="refgrid">
+      {% for s in samples %}
+      <a class="tile" href="#" data-item="{{ s.item_id }}">
+        <div class="ph"><img src="{{ s.image }}" alt="{{ s.item_id }}"></div>
+        <div class="mt"><div class="nm">{{ s.title[:46] }}</div>
+          <div class="at"><span>{{ s.category }}</span></div></div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -124,3 +124,4 @@ Scrambling applies an orthogonal map to one endpoint's coordinates. Diagonal pat
 | toptee | `q1_g0` | 68.33 | 0.31 |
 | toptee | `diagonal_mean` | 69.61 | 69.61 |
 | toptee | `cross_mean` | 69.76 | 0.82 |
+

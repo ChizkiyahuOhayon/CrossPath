@@ -138,12 +138,17 @@ def verify_editable_figure(path):
 def main():
     log = (ROOT / "experiment.md").read_text(encoding="utf-8")
     observed = {int(value) for value in re.findall(r"^## E(\d+)\b", log, re.M)}
-    expected = set(range(29))
+    # The log is append-only, so pin the floor and require contiguity instead of a
+    # fixed ceiling -- hard-coding range(29) made the check fail the moment E29 landed.
+    if not observed:
+        raise RuntimeError("experiment log contains no E-numbered entries")
+    expected = set(range(max(observed) + 1))
     if observed != expected:
         raise RuntimeError(
-            f"experiment log mismatch: missing={sorted(expected - observed)}, "
-            f"unexpected={sorted(observed - expected)}"
+            f"experiment log is not contiguous: missing={sorted(expected - observed)}"
         )
+    if max(observed) < 28:
+        raise RuntimeError(f"experiment log stops at E{max(observed)}, expected at least E28")
 
     missing = [
         str(path.relative_to(ROOT))
@@ -185,7 +190,7 @@ def main():
             verify_editable_figure(path)
 
     print(
-        f"OK: E0-E28 present; {len(json_files)} JSON and "
+        f"OK: E0-E{max(observed)} present; {len(json_files)} JSON and "
         f"{len(npz_files)} NPZ artifacts readable; paper assets verified."
     )
 

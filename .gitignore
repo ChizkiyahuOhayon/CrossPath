@@ -32,3 +32,15 @@ paper/*.fdb_latexmk
 paper/*.fls
 paper/*.log
 paper/*.out
+
+# Demo system: virtualenv, model weights, vector indices, database and the
+# licensed FashionGen thumbnails it serves.  The code rebuilds all of these
+# with `python tools/train_endpoints.py && python db/build_db.py`.
+system_venv/
+system/data/gallery/
+system/data/uploads/
+system/data/*.npy
+system/data/*.pt
+system/data/*.db
+system/data/*.db-wal
+system/data/*.db-shm

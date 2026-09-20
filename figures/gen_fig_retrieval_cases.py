@@ -153,7 +153,7 @@ def render_dataset(dataset):
             report,
             case["base_top_ids"],
             case["target_id"],
-            "A1" if dataset == "fashiongen" else "MCoT",
+            "Base E0" if dataset == "fashiongen" else "MCoT-MVS",
             BASE_COLOR,
         )
         draw_ranked_row(
@@ -271,7 +271,7 @@ def render_combined():
             report,
             case["base_top_ids"],
             case["target_id"],
-            "A1" if dataset == "fashiongen" else "MCoT",
+            "Base E0" if dataset == "fashiongen" else "MCoT-MVS",
             BASE_COLOR,
         )
         draw_ranked_row(

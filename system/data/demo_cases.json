@@ -1,0 +1,74 @@
+[
+ {
+  "base_rank": 9,
+  "base_top_ids": [
+   "2651588",
+   "1238083",
+   "1910983",
+   "2076197",
+   "1237113"
+  ],
+  "category": null,
+  "method_rank": 1,
+  "method_top_ids": [
+   "2188587",
+   "2076197",
+   "2651588",
+   "1237113",
+   "1388053"
+  ],
+  "modification": "Front: remove graphics, change to hidden placket, and add a small lower-hem logo patch. Back: introduce a center box pleat below the yoke.",
+  "query_index": 6195,
+  "selection_cutoff": 1,
+  "source_id": "1237113",
+  "target_id": "2188587"
+ },
+ {
+  "base_rank": 23,
+  "base_top_ids": [
+   "1706763",
+   "2070417",
+   "2304617",
+   "1442723",
+   "2635518"
+  ],
+  "category": null,
+  "method_rank": 4,
+  "method_top_ids": [
+   "2070417",
+   "1706763",
+   "2304617",
+   "2304697",
+   "1442723"
+  ],
+  "modification": "Add whiskering and fading to the front thigh area and decorative contrast stitching to the back patch pockets while keeping the original slim-fit black denim construction.",
+  "query_index": 1200,
+  "selection_cutoff": 5,
+  "source_id": "2436118",
+  "target_id": "2304697"
+ },
+ {
+  "base_rank": 21,
+  "base_top_ids": [
+   "2501888",
+   "2342647",
+   "1622163",
+   "95410",
+   "103813"
+  ],
+  "category": null,
+  "method_rank": 5,
+  "method_top_ids": [
+   "2501888",
+   "2342647",
+   "103813",
+   "1622163",
+   "2264777"
+  ],
+  "modification": "Remove the grid check pattern for a solid finish and replace the straight, tailored hems with gathered ribbed knit cuffs for a jogger-inspired silhouette.",
+  "query_index": 8043,
+  "selection_cutoff": 10,
+  "source_id": "2501888",
+  "target_id": "2264777"
+ }
+]

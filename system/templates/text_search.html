@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% set page = 'text' %}
+{% block title %}文字检索图像{% endblock %}
+{% block body %}
+<h2 class="h1">文字检索图像</h2>
+<p class="sub">用一句自然语言描述目标服饰。系统把描述送进两个冻结基础模型各自的查询组合器，
+   在 {{ stats.item_count }} 件商品的向量索引上完成召回与重排序。</p>
+
+<div class="panel"><div class="bd">
+  <form class="searchbar" action="{{ url_for('page_text') }}" method="get">
+    <input type="text" name="q" id="q" placeholder="例如：a black wool coat with notched lapels" autocomplete="off">
+    <select name="topk" class="btn ghost" style="padding:13px 12px">
+      <option value="10">Top-10</option><option value="15">Top-15</option><option value="20">Top-20</option>
+    </select>
+    <button class="btn" type="submit">检索</button>
+  </form>
+  <div style="margin-top:16px">
+    <div class="muted" style="font-size:12px;font-weight:600;margin-bottom:6px">输入示例</div>
+    <div class="chips">
+      {% for e in examples %}<span class="chip" data-fill="{{ e }}">{{ e }}</span>{% endfor %}
+    </div>
+  </div>
+  {% if history %}
+  <div style="margin-top:18px">
+    <div class="muted" style="font-size:12px;font-weight:600;margin-bottom:6px">最近搜索</div>
+    <div class="chips">
+      {% for h in history %}<a class="chip" href="{{ url_for('results', mode='text', q=h) }}">{{ h[:40] }}</a>{% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div></div>
+
+<div class="panel" style="margin-top:18px">
+  <div class="hd">检索链路说明</div>
+  <div class="bd">
+    <table class="tbl">
+      <tr><th style="width:150px">步骤</th><th>说明</th></tr>
+      <tr><td>文本编码</td><td>冻结主干把描述编成 512 维文本特征。</td></tr>
+      <tr><td>查询组合</td><td>两个基础模型的查询组合器 C₀、C₁ 分别给出查询表示 q₀、q₁。</td></tr>
+      <tr><td>兼容矩阵</td><td>与两套图库表示 g₀、g₁ 相乘，得到 S₀₀、S₀₁、S₁₀、S₁₁ 四条路径。</td></tr>
+      <tr><td>自适应重排序</td><td>在 K=1/5/10 三个截断上取边界候选，估计动作收益，输出唯一排序。</td></tr>
+    </table>
+  </div>
+</div>
+{% endblock %}

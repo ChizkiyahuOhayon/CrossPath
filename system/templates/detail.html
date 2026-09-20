@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}商品详情{% endblock %}
+{% block body %}
+<h2 class="h1">商品详情</h2>
+<p class="sub">回查 t_clothing_item、t_text_desc 与 t_attr_label 三张表。</p>
+<div class="two" style="margin-top:0">
+  <div class="panel"><div class="bd">
+    <div class="refcard"><img src="{{ item.image }}" style="width:180px;height:180px" alt="">
+      <div><div style="font-weight:600;font-size:16px">{{ item.title }}</div>
+        <div class="mono muted" style="font-size:12px;margin-top:4px">item_id {{ item.item_id }} · {{ item.category }}</div></div></div>
+    <table class="tbl" style="margin-top:16px">
+      <tr><th style="width:110px">属性</th><th>取值</th></tr>
+      <tr><td>颜色</td><td>{{ item.color }}</td></tr>
+      <tr><td>材质</td><td>{{ item.material }}</td></tr>
+      <tr><td>领型</td><td>{{ item.neckline }}</td></tr>
+      <tr><td>袖长</td><td>{{ item.sleeve_length }}</td></tr>
+      <tr><td>图案</td><td>{{ item.pattern }}</td></tr>
+    </table>
+  </div></div>
+  <div class="panel"><div class="hd">商品描述</div><div class="bd">
+    <ul style="margin:0;padding-left:18px">
+      {% for d in descriptions %}<li style="margin-bottom:7px">{{ d }}</li>{% endfor %}
+    </ul>
+  </div></div>
+</div>
+{% endblock %}

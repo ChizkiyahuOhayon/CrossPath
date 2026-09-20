@@ -1,0 +1,26 @@
+[
+ {
+  "name": "fig5_3_homepage",
+  "path": "/",
+  "caption": "图5.3 系统首页页面",
+  "file": "fig5_3_homepage.png"
+ },
+ {
+  "name": "fig5_4_text_search",
+  "path": "/search/text",
+  "caption": "图5.4 文字检索图像界面",
+  "file": "fig5_4_text_search.png"
+ },
+ {
+  "name": "fig5_5_image_search",
+  "path": "/search/image",
+  "caption": "图5.5 图搜文界面",
+  "file": "fig5_5_image_search.png"
+ },
+ {
+  "name": "fig5_6_results",
+  "path": "/results?mode=fusion&item=2303857&q=change%20the%20colour%20to%20white,%20make%20the%20sleeves%20short,%20use%20cotton%20jersey%20instead.&topk=10",
+  "caption": "图5.6 检索结果界面",
+  "file": "fig5_6_results.png"
+ }
+]
