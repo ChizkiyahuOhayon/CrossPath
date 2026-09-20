@@ -8,6 +8,10 @@
 # Runs are sequential: two on one 24 GB card fit but leave no headroom.  Each
 # run resumes if interrupted, and its optimizer state is deleted once it
 # finishes so that twelve runs fit in the free space on this disk.
+#
+# The Sample protocol scores 202,000 candidate pairs through the cross-attention
+# blocks, so it runs every fourth epoch as a divergence check rather than every
+# epoch.  The last epoch is always scored, and that is the one that is reported.
 set -u
 
 FROZEN=${FROZEN:?set FROZEN to the pinned code snapshot}
@@ -34,7 +38,7 @@ run_one() {
     --cache-dir /root/autodl-tmp/ch3/data/index \
     --out-dir "$out" \
     --epochs 20 --batch-size 16 --num-workers 24 --amp bf16 \
-    --eval-every 1 --keep-epochs "" --keep-last "$keep" --seed 42 --resume $extra \
+    --eval-every 4 --keep-epochs "" --keep-last "$keep" --seed 42 --resume $extra \
     >> "$RUNS/$cfg.log" 2>&1
   local status=$?
   if [ $status -eq 0 ]; then

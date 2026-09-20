@@ -138,7 +138,7 @@ def cls_similarity(corpus: Dict[str, torch.Tensor]) -> Tuple[np.ndarray, np.ndar
 
 @torch.no_grad()
 def score_pairs(model, dataset, corpus: Dict[str, torch.Tensor], pairs: np.ndarray,
-                device, pair_batch: int = 256, image_batch: int = 32,
+                device, pair_batch: int = 512, image_batch: int = 32,
                 num_workers: int = 8, amp_dtype=None) -> np.ndarray:
     """Score ``pairs`` of ``(image_row, text_col)`` with Eq. (3.10)+(3.11).
 
@@ -163,20 +163,25 @@ def score_pairs(model, dataset, corpus: Dict[str, torch.Tensor], pairs: np.ndarr
     for images, row_ids in loader:
         with autocast:
             _, patches = model.encode_image(images.to(device, non_blocking=True))
-        for local, row in enumerate(row_ids.tolist()):
-            slot = slot_of[row]
-            span = order[bounds[slot]:bounds[slot + 1]]
-            cols = torch.as_tensor(pairs[span, 1], dtype=torch.long)
-            for start in range(0, len(cols), pair_batch):
-                sub = cols[start:start + pair_batch]
-                with autocast:
-                    scores = model.score_pairs(
-                        {l: v[local:local + 1].expand(len(sub), -1, -1) for l, v in patches.items()},
-                        corpus["text_seq"][sub].to(device).float(),
-                        corpus["text_mask"][sub].to(device),
-                        corpus["text_feat"][sub].to(device),
-                    )
-                out[span[start:start + len(sub)]] = scores.float().cpu().numpy()
+
+        # every pair belonging to the images in this batch, so that a candidate
+        # list of ~100 texts does not leave the GPU running quarter-full batches
+        spans = [order[bounds[slot_of[row]]:bounds[slot_of[row] + 1]] for row in row_ids.tolist()]
+        flat = np.concatenate(spans)
+        origin = np.repeat(np.arange(len(spans)), [len(s) for s in spans])
+
+        for start in range(0, len(flat), pair_batch):
+            sel = flat[start:start + pair_batch]
+            rows_in_batch = torch.as_tensor(origin[start:start + pair_batch], device=device)
+            cols = torch.as_tensor(pairs[sel, 1], dtype=torch.long)
+            with autocast:
+                scores = model.score_pairs(
+                    {l: v[rows_in_batch] for l, v in patches.items()},
+                    corpus["text_seq"][cols].to(device).float(),
+                    corpus["text_mask"][cols].to(device),
+                    corpus["text_feat"][cols].to(device),
+                )
+            out[sel] = scores.float().cpu().numpy()
     return out
 
 
