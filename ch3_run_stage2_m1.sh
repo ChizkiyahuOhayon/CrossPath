@@ -41,10 +41,13 @@ run_one() {
   fi
 }
 
+# The tables are read from train_log.jsonl, not from the weights, so only the
+# full model's final weights are worth the 3.7 GB they cost; this machine has
+# ~19 GB left and stage 1 still has three checkpoints to write.
 run_one m5 1 --full-rerank     # table 3.3 needs the Full-protocol rerank
-run_one m1 1
-run_one m2 1
-run_one m3 1
-run_one m4 1
+run_one m1 0
+run_one m2 0
+run_one m3 0
+run_one m4 0
 
 echo "=== stage 2 (m1 half) complete $(date -Is) ==="
