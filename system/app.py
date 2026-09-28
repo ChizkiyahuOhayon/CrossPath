@@ -22,6 +22,13 @@ from pathlib import Path
 from flask import (Flask, abort, jsonify, redirect, render_template, request,
                    send_from_directory, url_for)
 
+if sys.platform == "win32":
+    for _stream in (sys.stdout, sys.stderr):
+        try:
+            _stream.reconfigure(encoding="utf-8")
+        except Exception:
+            pass
+
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(HERE / "db"))

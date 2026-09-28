@@ -13,6 +13,13 @@ from pathlib import Path
 import numpy as np
 import torch
 
+if sys.platform == "win32":
+    for _stream in (sys.stdout, sys.stderr):
+        try:
+            _stream.reconfigure(encoding="utf-8")
+        except Exception:
+            pass
+
 SYSTEM = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SYSTEM))
 sys.path.insert(0, str(SYSTEM.parent))

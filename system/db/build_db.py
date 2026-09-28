@@ -19,10 +19,22 @@ import csv
 import json
 import re
 import shutil
+import sys
 from collections import defaultdict
 from pathlib import Path
 
 from database import Database
+
+# Windows consoles default to a legacy codepage (cp1252/cp437) that can't encode
+# the Chinese status message below; force UTF-8 stdio so this never crashes the
+# build partway through (the DB write itself is already done by that point, but
+# a crash here reads as "build_db.py is broken" to anyone testing on Windows).
+if sys.platform == "win32":
+    for _stream in (sys.stdout, sys.stderr):
+        try:
+            _stream.reconfigure(encoding="utf-8")
+        except Exception:
+            pass
 
 SYSTEM = Path(__file__).resolve().parent.parent
 NLP = SYSTEM.parent.parent

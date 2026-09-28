@@ -16,16 +16,29 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import os
 import subprocess
 import sys
 import venv
 import webbrowser
 from pathlib import Path
 
+if sys.platform == "win32":
+    for _stream in (sys.stdout, sys.stderr):
+        try:
+            _stream.reconfigure(encoding="utf-8")
+        except Exception:
+            pass
+
 SYSTEM = Path(__file__).resolve().parent
 REPO = SYSTEM.parent
 VENV = REPO / "system_venv"
 URL = "http://127.0.0.1:5057"
+
+# Belt-and-suspenders for the subprocesses below: Windows consoles default to a
+# legacy codepage that can't print the Chinese status text some of these scripts
+# emit, which otherwise crashes them partway through with a UnicodeEncodeError.
+CHILD_ENV = {**os.environ, "PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8"}
 
 
 def venv_python() -> Path:
@@ -36,7 +49,7 @@ def venv_python() -> Path:
 
 def run(cmd: list[str], **kw) -> None:
     print(f"$ {' '.join(str(c) for c in cmd)}", flush=True)
-    subprocess.run(cmd, check=True, cwd=SYSTEM, **kw)
+    subprocess.run(cmd, check=True, cwd=SYSTEM, env=CHILD_ENV, **kw)
 
 
 def ensure_venv() -> None:
@@ -76,7 +89,7 @@ def start_server(open_browser: bool) -> None:
             webbrowser.open(URL)
         except Exception:
             pass
-    subprocess.run([str(venv_python()), "app.py"], check=True, cwd=SYSTEM)
+    subprocess.run([str(venv_python()), "app.py"], check=True, cwd=SYSTEM, env=CHILD_ENV)
 
 
 def main() -> None:
