@@ -1,0 +1,8 @@
+Flask>=3.0
+open_clip_torch>=2.24
+torch>=2.0
+torchvision>=0.17
+numpy>=2.0,<3
+Pillow>=10
+# 只有 tools/screenshot.py（重新抓图 5.3-5.6）需要，其余启动/检索流程用不到。
+playwright>=1.40

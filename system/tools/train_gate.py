@@ -58,7 +58,9 @@ def build_records(indices, position, images, texts, triplets, endpoints, galleri
                   ids_all):
     """为每条查询算出边界候选特征、listwise 目标和已实现效用。"""
     records = []
-    src = np.array([position[triplets[i]["source_id"]] for i in indices])
+    if len(indices) == 0:
+        return records
+    src = np.array([position[triplets[i]["source_id"]] for i in indices], dtype=np.int64)
     image_batch = torch.from_numpy(images[src])
     text_batch = torch.from_numpy(texts[list(indices)])
     with torch.no_grad():
@@ -114,8 +116,16 @@ def main() -> None:
 
     rng = np.random.default_rng(20260919)
     perm = rng.permutation(len(triplets))
-    internal = perm[:1200]        # 内部划分：训练门控
-    holdout = perm[1200:1700]     # 标定阈值
+    if len(triplets) >= 1700:
+        internal = perm[:1200]        # 内部划分：训练门控
+        holdout = perm[1200:1700]     # 标定阈值
+    else:
+        # 三元组数量不够 1700（比如占位演示图库）时按比例切分，保底留出至少
+        # 一条做标定，不改变真实规模数据下 1200/500 的切分方式。
+        split = min(len(triplets) - 1, max(1, round(len(triplets) * 0.7))) \
+            if len(triplets) >= 2 else len(triplets)
+        internal = perm[:split]
+        holdout = perm[split:]
 
     print("building internal records ...")
     train_records = build_records(internal, position, images, texts, triplets,

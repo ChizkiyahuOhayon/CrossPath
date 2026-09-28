@@ -29,6 +29,7 @@ NLP = SYSTEM.parent.parent
 RUNS = NLP / "WEAVE_HANDOFF_2026-07-31" / "server_code_and_results" / "runs"
 CASES = SYSTEM.parent / "paper_assets" / "data" / "fashiongen_retrieval_cases.json"
 CASE_IMAGES = SYSTEM.parent / "paper_assets"
+PLACEHOLDER = SYSTEM / "data" / "demo_placeholder" / "gold_manifest.csv"
 GALLERY = SYSTEM / "data" / "gallery"
 
 # 表 5.3 的 t_attr_label 只保留五个字段；金标清单里的 family 名映射如下，
@@ -42,33 +43,49 @@ FAMILY_TO_COLUMN = {
 }
 
 
+def _load_manifest(manifest: Path, products: dict[str, dict]) -> None:
+    base = manifest.parent
+    with manifest.open(encoding="utf-8") as fh:
+        for row in csv.DictReader(fh):
+            image = base / row["image_file"]
+            if not image.exists():
+                continue
+            pid = row["product_id"]
+            item = products.setdefault(
+                pid,
+                {
+                    "item_id": pid,
+                    "category": row["category"],
+                    "views": {},
+                    "clauses": {},
+                    "attrs": defaultdict(set),
+                },
+            )
+            item["views"].setdefault(int(row["view_index"]), image)
+            text = (row.get("clause_text") or "").strip()
+            if text:
+                item["clauses"][text] = None
+            value = (row.get("value") or "").strip()
+            if value and value != "none":
+                item["attrs"][row["family"]].add(value)
+
+
 def collect_audit_products() -> dict[str, dict]:
     products: dict[str, dict] = {}
     for manifest in sorted(RUNS.glob("*/gold_manifest.csv")):
-        base = manifest.parent
-        with manifest.open(encoding="utf-8") as fh:
-            for row in csv.DictReader(fh):
-                image = base / row["image_file"]
-                if not image.exists():
-                    continue
-                pid = row["product_id"]
-                item = products.setdefault(
-                    pid,
-                    {
-                        "item_id": pid,
-                        "category": row["category"],
-                        "views": {},
-                        "clauses": {},
-                        "attrs": defaultdict(set),
-                    },
-                )
-                item["views"].setdefault(int(row["view_index"]), image)
-                text = (row.get("clause_text") or "").strip()
-                if text:
-                    item["clauses"][text] = None
-                value = (row.get("value") or "").strip()
-                if value and value != "none":
-                    item["attrs"][row["family"]].add(value)
+        _load_manifest(manifest, products)
+    return products
+
+
+def collect_placeholder_products() -> dict[str, dict]:
+    """Fallback for a fresh clone with none of the licensed FashionGen sources above:
+    a handful of drawn (not photographed) garment silhouettes under
+    data/demo_placeholder/, same manifest schema, so the demo still has real,
+    searchable items instead of an empty gallery. Never mixed with real data —
+    only used when collect_audit_products()/collect_case_products() found nothing."""
+    products: dict[str, dict] = {}
+    if PLACEHOLDER.exists():
+        _load_manifest(PLACEHOLDER, products)
     return products
 
 
@@ -114,6 +131,14 @@ def build(reset: bool = True) -> dict:
 
     products = collect_audit_products()
     cases = collect_case_products(products)
+    # collect_case_products() pre-registers an empty entry per case pid even when the
+    # (gitignored, licensed) source image isn't on disk, so check for real images found
+    # rather than just a non-empty dict.
+    used_placeholder = False
+    if not any(item["views"] for item in products.values()):
+        products = collect_placeholder_products()
+        cases = []
+        used_placeholder = bool(products)
 
     GALLERY.mkdir(parents=True, exist_ok=True)
     if reset:
@@ -165,7 +190,7 @@ def build(reset: bool = True) -> dict:
     case_path.write_text(json.dumps(kept, ensure_ascii=False, indent=1), encoding="utf-8")
 
     return {"items": len(items), "texts": len(texts), "attrs": len(attrs),
-            "cases": len(kept), "backend": db.backend}
+            "cases": len(kept), "backend": db.backend, "used_placeholder": used_placeholder}
 
 
 if __name__ == "__main__":
@@ -173,3 +198,7 @@ if __name__ == "__main__":
     ap.add_argument("--keep", action="store_true", help="不清空已有表")
     stats = build(reset=not ap.parse_args().keep)
     print(json.dumps(stats, ensure_ascii=False, indent=2))
+    if stats["used_placeholder"]:
+        print("\n[提示] 没找到 WEAVE_HANDOFF/paper_assets 的授权素材，"
+              "已用 data/demo_placeholder/ 里的合成占位图库（15 件手绘商品）建库，"
+              "检索能跑通但不是真实 FashionGen 数据。", file=__import__("sys").stderr)

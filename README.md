@@ -195,11 +195,14 @@ CrossPath inference path end to end — text-to-image search, image-to-text sear
 and `weave_crosspath_gate.py` directly, so the deployed system runs the same rank-path, boundary-trace,
 utility and exact-fallback code as the experiments, not a reimplementation of them.
 
+One command, no manual venv/dependency steps, works the same on macOS/Linux/Windows:
+
 ```bash
-cd system
-python tools/train_endpoints.py && python tools/train_gate.py && python db/build_db.py
-python app.py                      # http://127.0.0.1:5057
+python3 system/bootstrap.py        # first run sets everything up, then opens http://127.0.0.1:5057
 ```
+
+(or double-click `system/start.command` on macOS / `system\start.bat` on Windows). Re-running is
+idempotent — the second launch just starts the server in a couple of seconds.
 
 <div align="center">
 <img src="assets/system_architecture.png" width="92%" alt="System architecture: presentation, application, model and data layers"/>
@@ -238,10 +241,14 @@ each item's rank before re-ranking.</sub>
 </tr>
 </table>
 
-Everything in the gallery — 721 items, categories, descriptions and attribute labels — comes from
-real annotation files already in the repo; nothing is synthesized. Full setup, the six functional
-test cases, and instructions for swapping in real ProCIR/DQU-CIR/MCoT-MVS checkpoints instead of the
-CLIP-based demo endpoints are in [`system/README.md`](system/README.md).
+The full 721-item gallery is built from real annotation files, but those FashionGen-derived images
+are licensed and are not redistributed in this public repo (see `.gitignore`); with access to the
+internal manifest they came from, `db/build_db.py` builds the real catalog automatically. Without it
+— i.e. for anyone who has only cloned this repo — the same script falls back to a small catalog of
+15 hand-drawn, unlicensed placeholder garments (`system/data/demo_placeholder/`) so the one-command
+setup above always ends with a working, searchable demo rather than an empty gallery. Full setup, the
+six functional test cases, and instructions for swapping in real ProCIR/DQU-CIR/MCoT-MVS checkpoints
+instead of the CLIP-based demo endpoints are in [`system/README.md`](system/README.md).
 
 ---
 

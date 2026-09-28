@@ -1,0 +1,57 @@
+row_id,sample_id,product_id,view_index,stratum,image_file,category,clause_id,family,value,clause_text,model_label,model_confidence
+demo0001-C01,demo0001,demo0001,0,demo,images/demo0001.jpg,DRESSES,demo0001-c1,,,Long sleeve cotton dress in red.,synthetic,1.0
+demo0001-C02,demo0001,demo0001,0,demo,images/demo0001.jpg,DRESSES,demo0001-c2,color,red,Long sleeve cotton dress in red.,synthetic,1.0
+demo0001-C03,demo0001,demo0001,0,demo,images/demo0001.jpg,DRESSES,demo0001-c3,sleeve,long,Long sleeve cotton dress in red.,synthetic,1.0
+demo0001-C04,demo0001,demo0001,0,demo,images/demo0001.jpg,DRESSES,demo0001-c4,material,cotton,Long sleeve cotton dress in red.,synthetic,1.0
+demo0002-C01,demo0002,demo0002,0,demo,images/demo0002.jpg,DRESSES,demo0002-c1,,,Short sleeve cotton dress in blue.,synthetic,1.0
+demo0002-C02,demo0002,demo0002,0,demo,images/demo0002.jpg,DRESSES,demo0002-c2,color,blue,Short sleeve cotton dress in blue.,synthetic,1.0
+demo0002-C03,demo0002,demo0002,0,demo,images/demo0002.jpg,DRESSES,demo0002-c3,sleeve,short,Short sleeve cotton dress in blue.,synthetic,1.0
+demo0002-C04,demo0002,demo0002,0,demo,images/demo0002.jpg,DRESSES,demo0002-c4,material,cotton,Short sleeve cotton dress in blue.,synthetic,1.0
+demo0003-C01,demo0003,demo0003,0,demo,images/demo0003.jpg,DRESSES,demo0003-c1,,,"Long sleeve cotton dress, striped in green.",synthetic,1.0
+demo0003-C02,demo0003,demo0003,0,demo,images/demo0003.jpg,DRESSES,demo0003-c2,color,green,"Long sleeve cotton dress, striped in green.",synthetic,1.0
+demo0003-C03,demo0003,demo0003,0,demo,images/demo0003.jpg,DRESSES,demo0003-c3,sleeve,long,"Long sleeve cotton dress, striped in green.",synthetic,1.0
+demo0003-C04,demo0003,demo0003,0,demo,images/demo0003.jpg,DRESSES,demo0003-c4,material,cotton,"Long sleeve cotton dress, striped in green.",synthetic,1.0
+demo0003-C05,demo0003,demo0003,0,demo,images/demo0003.jpg,DRESSES,demo0003-c5,pattern,striped,"Long sleeve cotton dress, striped in green.",synthetic,1.0
+demo0004-C01,demo0004,demo0004,0,demo,images/demo0004.jpg,SHIRTS,demo0004-c1,,,Short sleeve cotton shirt in red.,synthetic,1.0
+demo0004-C02,demo0004,demo0004,0,demo,images/demo0004.jpg,SHIRTS,demo0004-c2,color,red,Short sleeve cotton shirt in red.,synthetic,1.0
+demo0004-C03,demo0004,demo0004,0,demo,images/demo0004.jpg,SHIRTS,demo0004-c3,sleeve,short,Short sleeve cotton shirt in red.,synthetic,1.0
+demo0004-C04,demo0004,demo0004,0,demo,images/demo0004.jpg,SHIRTS,demo0004-c4,material,cotton,Short sleeve cotton shirt in red.,synthetic,1.0
+demo0005-C01,demo0005,demo0005,0,demo,images/demo0005.jpg,SHIRTS,demo0005-c1,,,Long sleeve cotton shirt in blue.,synthetic,1.0
+demo0005-C02,demo0005,demo0005,0,demo,images/demo0005.jpg,SHIRTS,demo0005-c2,color,blue,Long sleeve cotton shirt in blue.,synthetic,1.0
+demo0005-C03,demo0005,demo0005,0,demo,images/demo0005.jpg,SHIRTS,demo0005-c3,sleeve,long,Long sleeve cotton shirt in blue.,synthetic,1.0
+demo0005-C04,demo0005,demo0005,0,demo,images/demo0005.jpg,SHIRTS,demo0005-c4,material,cotton,Long sleeve cotton shirt in blue.,synthetic,1.0
+demo0006-C01,demo0006,demo0006,0,demo,images/demo0006.jpg,SHIRTS,demo0006-c1,,,"Long sleeve cotton shirt, striped in white.",synthetic,1.0
+demo0006-C02,demo0006,demo0006,0,demo,images/demo0006.jpg,SHIRTS,demo0006-c2,color,white,"Long sleeve cotton shirt, striped in white.",synthetic,1.0
+demo0006-C03,demo0006,demo0006,0,demo,images/demo0006.jpg,SHIRTS,demo0006-c3,sleeve,long,"Long sleeve cotton shirt, striped in white.",synthetic,1.0
+demo0006-C04,demo0006,demo0006,0,demo,images/demo0006.jpg,SHIRTS,demo0006-c4,material,cotton,"Long sleeve cotton shirt, striped in white.",synthetic,1.0
+demo0006-C05,demo0006,demo0006,0,demo,images/demo0006.jpg,SHIRTS,demo0006-c5,pattern,striped,"Long sleeve cotton shirt, striped in white.",synthetic,1.0
+demo0007-C01,demo0007,demo0007,0,demo,images/demo0007.jpg,PANTS,demo0007-c1,,,Denim pants in blue.,synthetic,1.0
+demo0007-C02,demo0007,demo0007,0,demo,images/demo0007.jpg,PANTS,demo0007-c2,color,blue,Denim pants in blue.,synthetic,1.0
+demo0007-C03,demo0007,demo0007,0,demo,images/demo0007.jpg,PANTS,demo0007-c3,material,denim,Denim pants in blue.,synthetic,1.0
+demo0008-C01,demo0008,demo0008,0,demo,images/demo0008.jpg,PANTS,demo0008-c1,,,Denim pants in black.,synthetic,1.0
+demo0008-C02,demo0008,demo0008,0,demo,images/demo0008.jpg,PANTS,demo0008-c2,color,black,Denim pants in black.,synthetic,1.0
+demo0008-C03,demo0008,demo0008,0,demo,images/demo0008.jpg,PANTS,demo0008-c3,material,denim,Denim pants in black.,synthetic,1.0
+demo0009-C01,demo0009,demo0009,0,demo,images/demo0009.jpg,PANTS,demo0009-c1,,,Cotton pants in khaki.,synthetic,1.0
+demo0009-C02,demo0009,demo0009,0,demo,images/demo0009.jpg,PANTS,demo0009-c2,color,khaki,Cotton pants in khaki.,synthetic,1.0
+demo0009-C03,demo0009,demo0009,0,demo,images/demo0009.jpg,PANTS,demo0009-c3,material,cotton,Cotton pants in khaki.,synthetic,1.0
+demo0010-C01,demo0010,demo0010,0,demo,images/demo0010.jpg,JACKETS,demo0010-c1,,,Long sleeve leather jacket in black.,synthetic,1.0
+demo0010-C02,demo0010,demo0010,0,demo,images/demo0010.jpg,JACKETS,demo0010-c2,color,black,Long sleeve leather jacket in black.,synthetic,1.0
+demo0010-C03,demo0010,demo0010,0,demo,images/demo0010.jpg,JACKETS,demo0010-c3,sleeve,long,Long sleeve leather jacket in black.,synthetic,1.0
+demo0010-C04,demo0010,demo0010,0,demo,images/demo0010.jpg,JACKETS,demo0010-c4,material,leather,Long sleeve leather jacket in black.,synthetic,1.0
+demo0011-C01,demo0011,demo0011,0,demo,images/demo0011.jpg,JACKETS,demo0011-c1,,,Long sleeve wool jacket in red.,synthetic,1.0
+demo0011-C02,demo0011,demo0011,0,demo,images/demo0011.jpg,JACKETS,demo0011-c2,color,red,Long sleeve wool jacket in red.,synthetic,1.0
+demo0011-C03,demo0011,demo0011,0,demo,images/demo0011.jpg,JACKETS,demo0011-c3,sleeve,long,Long sleeve wool jacket in red.,synthetic,1.0
+demo0011-C04,demo0011,demo0011,0,demo,images/demo0011.jpg,JACKETS,demo0011-c4,material,wool,Long sleeve wool jacket in red.,synthetic,1.0
+demo0012-C01,demo0012,demo0012,0,demo,images/demo0012.jpg,JACKETS,demo0012-c1,,,Short sleeve denim jacket in blue.,synthetic,1.0
+demo0012-C02,demo0012,demo0012,0,demo,images/demo0012.jpg,JACKETS,demo0012-c2,color,blue,Short sleeve denim jacket in blue.,synthetic,1.0
+demo0012-C03,demo0012,demo0012,0,demo,images/demo0012.jpg,JACKETS,demo0012-c3,sleeve,short,Short sleeve denim jacket in blue.,synthetic,1.0
+demo0012-C04,demo0012,demo0012,0,demo,images/demo0012.jpg,JACKETS,demo0012-c4,material,denim,Short sleeve denim jacket in blue.,synthetic,1.0
+demo0013-C01,demo0013,demo0013,0,demo,images/demo0013.jpg,SHOES,demo0013-c1,,,Leather shoes in white.,synthetic,1.0
+demo0013-C02,demo0013,demo0013,0,demo,images/demo0013.jpg,SHOES,demo0013-c2,color,white,Leather shoes in white.,synthetic,1.0
+demo0013-C03,demo0013,demo0013,0,demo,images/demo0013.jpg,SHOES,demo0013-c3,material,leather,Leather shoes in white.,synthetic,1.0
+demo0014-C01,demo0014,demo0014,0,demo,images/demo0014.jpg,SHOES,demo0014-c1,,,Leather shoes in black.,synthetic,1.0
+demo0014-C02,demo0014,demo0014,0,demo,images/demo0014.jpg,SHOES,demo0014-c2,color,black,Leather shoes in black.,synthetic,1.0
+demo0014-C03,demo0014,demo0014,0,demo,images/demo0014.jpg,SHOES,demo0014-c3,material,leather,Leather shoes in black.,synthetic,1.0
+demo0015-C01,demo0015,demo0015,0,demo,images/demo0015.jpg,SHOES,demo0015-c1,,,Leather shoes in brown.,synthetic,1.0
+demo0015-C02,demo0015,demo0015,0,demo,images/demo0015.jpg,SHOES,demo0015-c2,color,brown,Leather shoes in brown.,synthetic,1.0
+demo0015-C03,demo0015,demo0015,0,demo,images/demo0015.jpg,SHOES,demo0015-c3,material,leather,Leather shoes in brown.,synthetic,1.0
