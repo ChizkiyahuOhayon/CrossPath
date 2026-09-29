@@ -38,6 +38,23 @@
 
 想重新生成占位图库：`python system/data/demo_placeholder/generate.py`。
 
+## 更快的方式：直接下载建好的数据（不用装 torch，不用等训练）
+
+如果只是想先看看系统能不能跑起来，不关心图库是不是真实 FashionGen 商品，可以跳过
+上面的建库/训练，直接下载已经建好的 `system/data/`：
+
+1. 下载 [`system-data-placeholder.zip`](https://github.com/ChizkiyahuOhayon/CrossPath/releases/download/system-data-placeholder-v1/system-data-placeholder.zip)
+   （[Release 页面](https://github.com/ChizkiyahuOhayon/CrossPath/releases/tag/system-data-placeholder-v1)，约 5MB）；
+2. 解压到 `system/data/` 里（解压后应该直接是 `system/data/gallery/`、
+   `system/data/crosspath.db` 这些文件，不要多一层 `data/` 嵌套）；
+3. 装好 `system/requirements.txt` 里的依赖后，直接
+   `cd system && python app.py`，不需要再跑 `build_db.py`/`train_endpoints.py`/
+   `train_gate.py`。
+
+这份数据包跟仓库自带的占位图库内容完全一致（15 件原创手绘商品，无版权问题），只是
+省掉本地建库和训练那几步。想要真实 721 件商品的图库，还是要走上面「一键启动」或
+「手动分步搭建」，让 `db/build_db.py` 去读内部数据源。
+
 ### 手动分步搭建（等价于一键脚本内部做的事，方便定制）
 
 ```bash
