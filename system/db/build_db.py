@@ -213,4 +213,27 @@ if __name__ == "__main__":
     if stats["used_placeholder"]:
         print("\n[提示] 没找到 WEAVE_HANDOFF/paper_assets 的授权素材，"
               "已用 data/demo_placeholder/ 里的合成占位图库（15 件手绘商品）建库，"
-              "检索能跑通但不是真实 FashionGen 数据。", file=__import__("sys").stderr)
+              "检索能跑通但不是真实 FashionGen 数据。", file=sys.stderr)
+    if stats["items"] == 0:
+        # 三条数据源全都没找到东西——这不该发生：仓库自带的占位图库
+        # (data/demo_placeholder/) 是自包含的，正常情况下总能兜底出 15 件。
+        # 大概率是下载不完整（比如只下了 system/ 的部分文件，缺了
+        # data/demo_placeholder/images/ 下的图）。打印清楚缺了什么，
+        # 免得看着一堆 0 猜半天，同时非零退出，后面的训练脚本不会在空
+        # 图库上继续跑。
+        placeholder_images = PLACEHOLDER.parent / "images"
+        images_exist = placeholder_images.exists()
+        image_count = len(list(placeholder_images.glob("*.jpg"))) if images_exist else 0
+        lines = [
+            "",
+            "[错误] 图库是空的（0 件商品），三条数据源都没读到东西：",
+            f"  1) WEAVE_HANDOFF: {RUNS}  存在={RUNS.exists()}",
+            f"  2) paper_assets:  {CASES}  存在={CASES.exists()}",
+            f"  3) 占位图库:      {PLACEHOLDER}  存在={PLACEHOLDER.exists()}",
+            f"     占位图库图片目录: {placeholder_images}  存在={images_exist}  文件数={image_count}",
+            "如果第 3 条的图片数不是 15，说明下载不完整——请整个仓库重新 clone/下载一遍"
+            "（不要只下 system/ 子目录），确认 system/data/demo_placeholder/images/ 下有"
+            " 15 张 .jpg。",
+        ]
+        print("\n".join(lines), file=sys.stderr)
+        raise SystemExit(1)
