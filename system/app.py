@@ -375,4 +375,10 @@ def save_upload(file) -> str:
 
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5057, debug=False)
+    # HOST/PORT are overridable via env vars so a container (which needs 0.0.0.0
+    # to be reachable from outside, and a platform-assigned port) doesn't need a
+    # code change; local dev keeps the original 127.0.0.1:5057 default.
+    import os
+    host = os.environ.get("HOST", "127.0.0.1")
+    port = int(os.environ.get("PORT", "5057"))
+    app.run(host=host, port=port, debug=False)

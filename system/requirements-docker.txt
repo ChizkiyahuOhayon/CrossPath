@@ -1,0 +1,7 @@
+# Same as requirements.txt minus playwright (only tools/screenshot.py needs it,
+# and that's a dev-only utility that has no business running inside the deployed
+# container).
+Flask>=3.0
+open_clip_torch>=2.24
+numpy>=2.0,<3
+Pillow>=10

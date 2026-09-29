@@ -1,0 +1,23 @@
+# Keep the Docker build context small — the Dockerfile only needs system/ and
+# the two weave_* modules at the repo root; everything below is the paper
+# manuscript, figures, result dumps and local venvs, none of which the image
+# needs.
+.git/
+system_venv/
+assets/
+ch3_mlaff/
+figures/
+paper/
+paper_assets/
+release/
+results/
+scripts/
+*.pyc
+__pycache__/
+system/data/gallery/
+system/data/uploads/
+system/data/*.npy
+system/data/*.pt
+system/data/*.db
+system/data/*.db-*
+system/data/screenshots/
